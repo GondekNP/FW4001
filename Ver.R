@@ -1,4 +1,4 @@
-ver<- function (last, checkno){
+.ver<- function (last, checkno){
             last<-tolower(last) ##avoid case sensitivity
             last<-paste(rep(last,4), collapse = "")
             spl<-strsplit(last, split = "")[[1]][1:4] ##to avoid issues with short last names
