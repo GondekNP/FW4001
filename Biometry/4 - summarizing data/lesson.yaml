@@ -1,0 +1,64 @@
+- Class: meta
+  Course: Biometry
+  Lesson: 3 - more data frame manipulation
+  Author: Nick Gondek
+  Type: Standard
+  Organization: University of Minnesota
+  Version: 2.4.2
+
+- Class: figure
+  Output: Good work! You've completed pre-lab 4. A 6-digit code will appear in the console below - enter this code into the appropriate quiz on moodle in order to receive credit. 
+  Figure: c.R
+  FigureType: new
+
+- Class: text
+  Output: Welcome to pre-lab 4 - summarizing data. In this pre-lab, we'll look at some ways to summarize our data using the mosaic package.
+
+- Class: text
+  Output: As we've learned in pre-labs and last week's lab, even if we have a package installed, we need to 'library' it in order to load it for use. So, let's do that now with the mosaic package.
+
+- Class: cmd_question
+  Output: Using the library function, load mosaic into R.
+  CorrectAnswer: library(mosaic)
+  AnswerTests: omnitest(correctExpr='library(mosaic)')
+  Hint: Don't use quotation marks - just type in library(mosaic).
+  
+- Class: figure
+  Output: Now that we have mosaic loaded, we can do some basic analysis on a data frame. This time, we'll look at some nutritional information of different brands of cereal.
+  Figure: cereal.R
+  FigureType: new
+  
+- Class: cmd_question
+  Output: Just like before, we can click on the object called 'Cereal' in the working environment to take a look. Do that now. 
+  CorrectAnswer: View(Cereal)
+  AnswerTests: omnitest(correctExpr='View(Cereal)')
+  Hint: No need to type anything in the console, just click on the 'Cereal' data frame in the upper right corner of RStudio. 
+  
+- Class: cmd_question
+  Output: Let's try a different way to preview our data. Sometimes, especially if you've got a *huge* dataset, it's useful to just take a quick look at the first few rows of a data frame. We can accomplish this using the head() function. Try it now on our 'Cereal' data frame. 
+  CorrectAnswer: head(Cereal)
+  AnswerTests: omnitest(correctExpr='head(Cereal)')
+  Hint: Try typing in ?head if you need an example to help you!
+
+- Class: text
+  Output: You'll see that this gave us a quick digest of our data frame. In this case, there's no advantage one way or the other, but head() is especially useful for producing reports using RMarkdown, like you did in Lab 1.
+
+- Class: mult_question
+  Output: As a review of using functions and extracting data from data frames, let's find out the mean amount of sodium per cup of cereal amongst the 30 cereals. What operator would we use to 'extract' this column as a vector?
+  AnswerChoices: '#;%;$;@'
+  CorrectAnswer: $
+  AnswerTests: omnitest(correctVal= '$')
+  Hint: If you get good enough at this, one day, you'll be making lots of $$$.
+
+- Class: mult_question
+  Output: Right, we use '$'. Now, the next step, what is the proper format for using the $ operator? Pretend that 'Data' is a data frame and 'Col' is the column we want.
+  AnswerChoices: Data$Col;Col$Data;Data(Col)$;Col(Data)$
+  CorrectAnswer: Data$Col
+  AnswerTests: omnitest(correctVal= 'Data$Col')
+  Hint: Data and Col are NOT functions, so using () after them will produce an error. Try one of the other two!
+
+- Class: cmd_question
+  Output: Back to our original question - what is the mean sodium per cup of these cereals? Unsurprisingly, we use the function mean() to take the mean of a vector. Now that we know how to extract the vector we want, lets put it all together. Take the mean of the Sodium column from our Cereal data frame!
+  CorrectAnswer: mean(Cereal$Sodium)
+  AnswerTests: omnitest(correctExpr='mean(Cereal$Sodium)')
+  Hint: We know we need to use the mean function, and we need to use the correct vector inside. Use this format: mean(Data$Col) - but substitute the correct names!

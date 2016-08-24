@@ -1,0 +1,89 @@
+- Class: meta
+  Course: Biometry
+  Lesson: 3 - more data frame manipulation
+  Author: Nick Gondek
+  Type: Standard
+  Organization: University of Minnesota
+  Version: 2.4.2
+
+- Class: text
+  Output: Welcome to pre-lab 3 - more data frame manipulation, intro graphics. This time, we'll do some more manipulation of our data frame, HockeyPenalties. 
+
+- Class: figure
+  Output: Recall that this data frame represents the average penalty minutes for 30 different hockey teams in the NHL. Say, for example, you are an amateur sports analyst, and you'd like to know how many more penalty minutes per game each team averaged than the league minimum (Florida Panthers, 8.8 minutes per game).
+  Figure: hockey.R
+  FigureType: new
+
+- Class: cmd_question
+  Output: To do this, we can take advantage of the fact that the column of HockeyPenalties which contains all of the Penalty Minutes per Game (called PIMperG) is simply a numeric vector - and we learned in the last lesson that we can do mathematical operations on numeric vectors. First, let's recall how to 'extract' the PIMperG column using the '$' operator.
+  CorrectAnswer: HockeyPenalties$PIMperG
+  AnswerTests: omnitest(correctExpr=' HockeyPenalties$PIMperG')
+  Hint: Use this format - NameOfDataFrame$NameOfColumn (but change the names, of course!)
+
+- Class: cmd_question
+  Output: Now, even though we could do all of our operations with this big, long, cumbersome code fragment (HockeyPenalties$PIMperG), we can save some effort by assigning it to an object. Save this value as an object called 'minutes'.
+  CorrectAnswer: minutes<-HockeyPenalties$PIMperG
+  AnswerTests: omnitest(correctExpr='minutes<-HockeyPenalties$PIMperG')
+  Hint: Remember to use the '<-' operator to assign values to objects.
+
+- Class: cmd_question
+  Output: We want to know the difference between these averages and the league minimum (8.8), so lets subtract that minumum from this vector. Try it now.
+  CorrectAnswer: minutes-8.8
+  AnswerTests: omnitest(correctExpr='minutes-8.8')
+  Hint: It's a numeric vector, and we've shown that doing simple math operations on those will repeat those operations on each element. So, we can subtract 8.8 from this vector without having any problems.
+
+- Class: text
+  Output: Now, that *technically* accomplished our goal, but it would be much more useful to see these values on our original data frame, right? Luckily for you, we will be doing just that!
+
+- Class: text
+  Output: Luckily, there is a helpful function called 'mutate' that we can use to directly add this information to our original data frame. Unluckily, this function is not included in base R - it is included in a 'package', which is a collection of functions that are freely available for download. Even if you have a package installed, you still need to apply the library() function to this package to load it for use.
+
+- Class: cmd_question
+  Output: The package we need in this case is titled 'mosaic'. You should have it installed already, but we need to 'library' it in order to use it. So, let's try it. Enter library(mosaic) into the console.
+  CorrectAnswer: library(mosaic)
+  AnswerTests: omnitest(correctExpr='library(mosaic)')
+  Hint: Don't use quotes, just type in library(mosaic).
+
+- Class: cmd_question
+  Output: Now we can actually use the mutate function, because it's loaded into R. But, let's say that we don't exactly know how to use this function yet (which is often the case when loading new packages). We can look into the help documentation for mutate (or any other function) by typing in ?mutate.
+  CorrectAnswer: ?mutate
+  AnswerTests: omnitest(correctExpr='?mutate')
+  Hint: Leave out the () that you would usally add to the end of a function.
+
+- Class: text
+  Output: Choose the first option in the Help tab (Mutate a data frame...). Help files can sometimes be confusing, but the Examples section at the very bottom is often helpful to make sure you're typing things in correctly. Now we can see that we use transform by specifying a new column and doing some sort of operation on old columns.
+
+- Class: cmd_question
+  Output: Now, let's finally use mutate to add our minute differential to the data frame by creating a new column called AboveMinimum. Enter mutate(HockeyPenalties, AboveMinimum = PIMperG - 8.8) into the console.
+  CorrectAnswer: mutate(HockeyPenalties, AboveMinimum = PIMperG - 8.8)
+  AnswerTests: omnitest(correctExpr='mutate(HockeyPenalties, AboveMinimum = PIMperG - 8.8)')
+  Hint: Just enter mutate(HockeyPenalties, AboveMinimum = PIMperG - 8.8). 
+
+- Class: cmd_question
+  Output: You may have noticed that the table we wanted was actaully printed into the console. Now click on HockeyPenalties in your workspace above to see how the data frame changed.
+  CorrectAnswer: View(HockeyPenalties)
+  AnswerTests: omnitest(correctExpr='View(HockeyPenalties)')
+  Hint: No need to actually type anything into the console - just click HockeyPenalties in the top right corner panel.
+
+- Class: text
+  Output: Nothing happened! R, by default, does not save changes to objects until we actaully do it ourselves. We can do this by re-assigning this data to the same name. Doing so overwrites the old data frame with the new one.
+
+- Class: cmd_question
+  Output: Try it now. Take the same code as before, but reassign it to HockeyPenalties to overwrite the old data frame.
+  CorrectAnswer: HockeyPenalties<-mutate(HockeyPenalties, AboveMinimum = PIMperG - 8.8)
+  AnswerTests: omnitest(correctExpr='HockeyPenalties<-mutate(HockeyPenalties, AboveMinimum = PIMperG - 8.8)', strict=FALSE)
+  Hint: This is a big and ugly block of code, but don't worry. We know the data frame turned out the way we wanted, because it printed out correctly above. All we need to do is use the '<-' operator to assign it to HockeyPenalties.
+
+- Class: cmd_question
+  Output: Now click on the data frame again, and see if it changed!
+  CorrectAnswer: View(HockeyPenalties)
+  AnswerTests: omnitest(correctExpr='View(HockeyPenalties)')
+  Hint: No need to actually type anything into the console - just click HockeyPenalties in the top right corner panel.
+  
+- Class: text
+  Output: Perfect - exactly what we wanted. Now we have the our calculated minute differential right next to the teams that they're actually describing, which is much more useful!
+
+- Class: figure
+  Output: Good work! You've completed pre-lab 3. A 6-digit code will appear in the console below - enter this code into the appropriate quiz on moodle in order to receive credit. 
+  Figure: c.R
+  FigureType: new
