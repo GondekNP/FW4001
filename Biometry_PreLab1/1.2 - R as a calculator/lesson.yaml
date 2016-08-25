@@ -1,0 +1,52 @@
+- Class: meta
+  Course: Biometry
+  Lesson: 1.2 - R as a calculator
+  Author: Nick Gondek
+  Type: Standard
+  Organization: University of Minnesota
+  Version: 2.4.2
+
+- Class: text
+  Output: In the last section, we familiarized ourselves with some of the panels in R. In this section, we'll use some of R's most basic abilities - as a calculator.
+
+- Class: cmd_question
+  Output: For example, perhaps you'd like to know the product of 15 and 17. You'd simply type in '15*17' in the console below, and press enter. Try it below!
+  CorrectAnswer: 15*17
+  AnswerTests: omnitest(correctExpr='15*17', 255)
+  Hint: Just like a calculator - 15 * 17
+
+- Class: cmd_question
+  Output: Now, try dividing 30 by the sum of 12 and 3. This can be accomplished by using a set of parentheses around 12 and 3, just like you would on a calculator.
+  CorrectAnswer: 30 / (12+3)
+  AnswerTests: omnitest(correctExpr='30 / (12+3)', 2)
+  Hint: We want to make sure that 12 and 3 are added together before we divide, so we type 30 / (12+3).
+
+- Class: text
+  Output: Sometimes, if can be helpful to save one of these values as an 'object' for later reuse. An object can take on many forms, but in this case, we want to assign it a single value. In order to assign a value to an object, we need to use the assignment operator '<-'. 
+
+- Class: cmd_question
+  Output: Let's try it; assign the product of 12 and 15 to a new object called 'test'. 
+  CorrectAnswer: test <- 12 * 15
+  AnswerTests: omnitest(correctExpr=c('test <- 12 * 15'), strict=FALSE)
+  Hint: Type in test <- 12 * 15 and press enter. 
+
+- Class: text
+  Output: Now that we have this value saved, we can recall it by typing in the name of the object into the console. The upper-right pane of RStudio contains all of the objects that you've created thus far - right now, there should be only one, called test.
+
+- Class: cmd_question
+  Output: Try calling this value back, by typing in the name of the object into the console. 
+  CorrectAnswer: test
+  AnswerTests: omnitest(correctExpr='test')
+  Hint: Just type 'test', and press enter. 
+
+- Class: cmd_question
+  Output: You can do all sorts of things with this saved value, just as if you were typing a number into the console. For example, try dividing that saved object, test, by 100. 
+  CorrectAnswer: test/100
+  AnswerTests: omnitest(correctExpr='test/100', strict=FALSE)
+  Hint: Just as if it were a number, type in test/100. What you're *really* doing is dividing 180 by 100, because the value of 'test' is 180.
+
+- Class: figure
+  Output: Good work! You've completed Pre-Lab 1.2. A 6-digit code will appear in the console below - enter this code into the appropriate quiz on moodle in order to receive credit. 
+  Figure: c.R
+  FigureType: new
+
