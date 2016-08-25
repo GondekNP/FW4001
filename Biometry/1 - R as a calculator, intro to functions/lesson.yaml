@@ -37,7 +37,7 @@
   Output: Now that we have this value saved, we can recall it by typing in the name of the object into the console. The upper-right pane of RStudio contains all of the objects that you've created thus far - right now, there should be only one, called test.
 
 - Class: cmd_question
-  Output: Try calling this value back, by typing in the name of the object into the console. 
+  Output: Try calling this value back, by typing in the name of the object into the console.  One word of caution:  R is case sensitive.  So, if you type 'Test' into the console, R will not be able to find the object. You need to type 'test'!
   CorrectAnswer: test
   AnswerTests: omnitest(correctExpr='test')
   Hint: Just type 'test', and press enter. 
