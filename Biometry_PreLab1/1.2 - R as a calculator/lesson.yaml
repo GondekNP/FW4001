@@ -46,7 +46,7 @@
   Hint: Just as if it were a number, type in test/100. What you're *really* doing is dividing 180 by 100, because the value of 'test' is 180.
 
 - Class: figure
-  Output: Good work! You've completed Pre-Lab 1.2. A 6-digit code will appear in the console below - enter this code into the appropriate quiz on moodle in order to receive credit. 
+  Output: Good work! You've completed Pre-Lab 1.2. An 8-digit code will appear in the console below - enter this code into the appropriate quiz on moodle in order to receive credit. 
   Figure: c.R
   FigureType: new
 
