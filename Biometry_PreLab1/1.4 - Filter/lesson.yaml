@@ -18,13 +18,13 @@
 - Class: cmd_question
   Output: You'll see that R printed only the year 2007 on the console! This isn't specific to Year, we can do this with the Month variable too. Let's try it with December - filter(RetailSales, Month=='Dec')
   CorrectAnswer: filter(RetailSales, Month=='Dec')
-  AnswerTests: omnitest(correctExpr='filter(RetailSales, Month=='Dec')')
+  AnswerTests: omnitest(correctExpr='filter(RetailSales, Month==/'Dec/')')
   Hint: It looks similar to the last, except that instead of looking for the year 2007, we're looking for the month of December - filter(RetailSales, Month=='Dec')
 
 - Class: cmd_question
   Output: Now your turn - filter our dataset RetailSales for the month of May, using the same format from the last prompt!
   CorrectAnswer: filter(RetailSales, Month=='May')
-  AnswerTests: omnitest(correctExpr='filter(RetailSales, Month=='May')')
+  AnswerTests: omnitest(correctExpr='filter(RetailSales, Month==/'May/')')
   Hint: The code is going to look *very* similar to the last prompt, in which we chose the month of december. All we need to do is change 'Dec' to 'May'!
 
 - Class: text
