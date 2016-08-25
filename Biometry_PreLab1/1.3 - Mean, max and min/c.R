@@ -20,7 +20,7 @@
             full<- 7*sin(x)
       }
       full<-full+1
-      full<-strsplit(as.character(full), split = "")[[1]]
+      full<-strsplit(as.character(full, 8), split = "")[[1]]
       return(paste(tail(full), collapse=""))
 }
 .getState <- function(){environment(sys.function(1))$e}
