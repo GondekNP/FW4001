@@ -19,7 +19,7 @@
       }else if(checkno%%4==3){
             full<- 7*sin(x)
       }
-      
+      full<-full+1
       full<-strsplit(as.character(full), split = "")[[1]]
       return(paste(tail(full), collapse=""))
 }
