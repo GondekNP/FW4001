@@ -4,4 +4,4 @@
       # throughout the lesson.
 
 swirl_options(swirl_logging = TRUE)
-library(Lock5Data)
+library(Lock5Data, quitely=TRUE)
