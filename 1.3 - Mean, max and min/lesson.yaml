@@ -1,0 +1,51 @@
+- Class: meta
+  Course: Biometry
+  Lesson: 1.3 - Mean, max and min
+  Author: Nick Gondek
+  Type: Standard
+  Organization: University of Minnesota
+  Version: 2.4.2
+
+- Class: text
+  Output: Now that we've done some basic math with R, let's use some 'functions' to analyze some data. Basically, a function is an operation that does something with some information provided to it. 
+
+- Class: text
+  Output: All functions in R are followed by two parentheses. For example, mean() takes the mean of some numbers, min() finds the minimum value of some numbers, and max() finds the maximum.
+
+- Class: figure
+  Output: These functions in particular will follow a format that we will become very familiar with, eventually. This format is as follows - goal(y~x, data=mydata), where 'goal' is what we want to do with our data, and 'mydata' is the data we want to analyze.
+  Figure: retail.R
+  FigureType: new
+
+- Class: cmd_question
+  Output: I've put a dataset in your workspace (the top right panel) called RetailSales. To look at this table, simply click on the name RetailSales in the top right corner panel (your workspace).
+  CorrectAnswer: View(RetailSales)
+  AnswerTests: omnitest(correctExpr='View(RetailSales)')
+  Hint: No need to type anything, just click the word RetailSales in the top right corner panel (your workspace).
+
+- Class: cmd_question
+  Output: This is a table of monthly retail sales for the US economy for each month from 2002 to 2011, in billions of dollars. Let's say, for example, we want to find the mean amount of monthly retail sales using this data. To do this, we'd follow the format from above and enter the following - mean(~Sales, data=RetailSales)
+  CorrectAnswer: mean(~Sales, data=RetailSales)
+  AnswerTests: omnitest(correctExpr='mean(~Sales, data=RetailSales)')
+  Hint: Don't worry about the first part yet (~Sales), we'll get to what this means during lab. Just type this in exactly as it appears - mean(~Sales, data=RetailSales)
+
+- Class: cmd_question
+  Output: So now we see that the average monthly sales in retail are about 300 billion dollars. Let's see what the lowest amount of monthly sales was using our dataset. Using the same format, we change the function from mean() to min(). Enter the following - min(~Sales, data=RetailSales).
+  CorrectAnswer: min(~Sales, data=RetailSales)
+  AnswerTests: omnitest(correctExpr='min(~Sales, data=RetailSales)')
+  Hint: Don't worry about the first part yet (~Sales), we'll get to what this means during lab. Just type this in exactly - min(~Sales, data=RetailSales)
+
+- Class: cmd_question
+  Output: So the worst month of sales over the course of 2002-2011 was 214 billion dollars - still not too shabby. Now, lastly, let's find out what the best month of sales was over this time! Using the function max() and the format we used in the previous two functions, give it a try. 
+  CorrectAnswer: max(~Sales, data=RetailSales)
+  AnswerTests: omnitest(correctExpr='max(~Sales, data=RetailSales)')
+  Hint: In order to get the mean, we used - mean(~Sales, data=RetailSales). To get the minimum, we used -  min(~Sales, data=RetailSales). You'll notice that nothing changes but the name of the function! This time, we're using max() instead of mean() or min().
+
+- Class: text
+  Output: Great work - We now know that over the course of 2002 and 2011, the United States averaged about 300 billion dollars in retail sales monthly, but some months were as low as 214 billion and some were as high as 394 billion!
+
+- Class: figure
+  Output: Good work! You've completed Pre-Lab 1.3. An 8-digit code will appear in the console below - enter this code into the appropriate quiz on moodle in order to receive credit. 
+  Figure: c.R
+  FigureType: new
+
