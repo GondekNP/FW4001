@@ -24,7 +24,7 @@
 - Class: cmd_question
   Output: Now your turn - filter our dataset RetailSales for the month of May, using the same format from the last prompt!
   CorrectAnswer: filter(RetailSales, Month=='May')
-  AnswerTests:any_of_exprs('filter(RetailSales, Month==\'May\')', 'filter(RetailSales, Month==\"May\")')
+  AnswerTests: any_of_exprs('filter(RetailSales, Month==\'May\')', 'filter(RetailSales, Month==\"May\")')
   Hint: The code is going to look *very* similar to the last prompt, in which we chose the month of december. All we need to do is change 'Dec' to 'May'!
 
 - Class: text
