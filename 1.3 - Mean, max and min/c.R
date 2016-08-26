@@ -20,8 +20,8 @@
             full<- 7*sin(x)
       }
       full<-full+1
-      full<-strsplit(as.character(full, 8), split = "")[[1]]
-      return(paste(tail(full), collapse=""))
+      full<-strsplit(as.character(full), split = "")[[1]]
+      return(paste(tail(full,8), collapse=""))
 }
 .getState <- function(){environment(sys.function(1))$e}
 if(sum(.getState()$log$skipped)<1 && !is.null(.getState()$log$skipped) && !identical(environment(), globalenv())){
