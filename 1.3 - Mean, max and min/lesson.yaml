@@ -27,7 +27,7 @@
   Output: This is a table of monthly retail sales for the US economy for each month from 2002 to 2011, in billions of dollars. Let's say, for example, we want to find the mean amount of monthly retail sales using this data. To do this, we'd follow the format from above and enter the following - mean(~Sales, data=RetailSales)
   CorrectAnswer: mean(~Sales, data=RetailSales)
   AnswerTests: omnitest(correctExpr='mean(~Sales, data=RetailSales)')
-  Hint: Don't worry about the first part yet (~Sales), we'll get to what this means during lab. Just type this in exactly as it appears - mean(~Sales, data=RetailSales)
+  Hint: R in this case will work with or without the ~, but it is best to get into the habitat of using the ~. If you received an error, type this in exactly as it appears - mean(~Sales, data=RetailSales)
 
 - Class: cmd_question
   Output: So now we see that the average monthly sales in retail are about 300 billion dollars. Let's see what the lowest amount of monthly sales was using our dataset. Using the same format, we change the function from mean() to min(). Enter the following - min(~Sales, data=RetailSales).
