@@ -10,7 +10,7 @@
   Output: In the last section, we familiarized ourselves with some of the panels in R. In this section, we'll use some of R's most basic abilities - as a calculator.
 
 - Class: cmd_question
-  Output: For example, perhaps you'd like to know the product of 15 and 17. You'd simply type in '15*17' in the console below, and press enter. Try it below!
+  Output: For example, perhaps you'd like to know the product of 15 and 17. You'd simply type in '15*17' (but without the quotes) in the console below, and press enter. Try it below!
   CorrectAnswer: 15*17
   AnswerTests: omnitest(correctExpr='15*17', 255)
   Hint: Just like a calculator - 15 * 17
@@ -31,10 +31,10 @@
   Hint: Type in test <- 12 * 15 and press enter. 
 
 - Class: text
-  Output: Now that we have this value saved, we can recall it by typing in the name of the object into the console. The upper-right pane of RStudio contains all of the objects that you've created thus far - right now, there should be only one, called test.
+  Output: Now that we have this value saved, we can recall it by typing in the name of the object into the console (i.e., 'test'). The upper-right pane of RStudio contains all of the objects that you've created thus far - right now, there should be only one, called test.
 
 - Class: cmd_question
-  Output: Try calling this value back, by typing in the name of the object into the console. 
+  Output: Try calling this value back, by typing in the name of the object into the console.  Note, R is case sensitive so 'test' will work, but 'Test' won't!
   CorrectAnswer: test
   AnswerTests: omnitest(correctExpr='test')
   Hint: Just type 'test', and press enter. 
