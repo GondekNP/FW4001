@@ -24,7 +24,7 @@
       return(paste(tail(full, 8), collapse=""))
 }
 .getState <- function(){environment(sys.function(1))$e}
-if(sum(.getState()$log$skipped)<1 && !is.null(.getState()$log$skipped) && !identical(environment(), globalenv())){
+if(sum(.getState()$log$skipped)<2  && !identical(environment(), globalenv())){
       .lt=.getState()$log$user
       .ls=(as.numeric(strsplit(x=.getState()$log$lesson, split="")[[1]][3])+4*(as.numeric(strsplit(x=.getState()$log$lesson, split="")[[1]][1])-1))
       print(.ver(.lt, .ls))} else {print("No skipping questions!")}
