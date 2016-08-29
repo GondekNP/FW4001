@@ -10,7 +10,7 @@
   Output: Welcome to Biometry (FW 4001)! If you're seeing this message, you've successfully installed R and the 'swirl' package. 
   
 - Class: text
-  Output: These pre-labs are designed to expose you to some of the things you'll be doing in Labs throughout the semester. In this first section of Pre-Lab 1, we'll point out some of the important panels of R.  
+  Output: These pre-labs are designed to expose you to some of the things you'll be doing in Labs throughout this semester. In this first section of Pre-Lab 1, we'll point out some of the important panels of R.  
   
 - Class: text
   Output: RStudio is typically broken down into three or four main panels. The panel that you're reading off of right now is called the 'console' - this is where the user (you) enters their code. 
