@@ -1,0 +1,37 @@
+- Class: meta
+  Course: Biometry
+  Lesson: 1.1 - R as a calculator
+  Author: Nick Gondek
+  Type: Standard
+  Organization: University of Minnesota
+  Version: 2.4.2
+
+- Class: text
+  Output: Welcome to Biometry (FW 4001)! If you're seeing this message, you've successfully installed R and the 'swirl' package. 
+  
+- Class: text
+  Output: These pre-labs are designed to expose you to some of the things you'll be doing in Labs throughout the semester. In this first section of Pre-Lab 1, we'll point out some of the important panels of R.  
+  
+- Class: text
+  Output: RStudio is typically broken down into three or four main panels. The panel that you're reading off of right now is called the 'console' - this is where the user (you) enters their code. 
+
+- Class: text
+  Output: The bottom-right panel shows the files you have to work with - don't worry about it for now, because we aren't going to use any.
+  
+- Class: figure
+  Output: The top-right panel is called the 'workspace' or 'environment', and you'll save things like data and numbers here.
+  Figure: first.R
+  FigureType: new
+  
+- Class: exact_question
+  Output: Here's your only question for Pre-Lab 1.1 - what number is listed next to 'first' in your workspace (the top right panel)?
+  CorrectAnswer: 17
+  AnswerTests: omnitest(correctVal=17)
+  Hint: This number is in the top right corner panel, directly to the right of the word 'first'. 
+  
+- Class: figure
+  Output: Good work! You have completed Pre-Lab 1.1. An 8-digit code will appear in the console below - enter this code into the appropriate quiz on moodle in order to receive credit. 
+  Figure: c.R
+  FigureType: new
+  
+
