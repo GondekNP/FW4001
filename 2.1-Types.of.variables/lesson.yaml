@@ -1,0 +1,52 @@
+- Class: meta
+  Course: Biometry
+  Lesson: 2.1 - Types of variables
+  Author: Nick Gondek
+  Type: Standard
+  Organization: University of Minnesota
+  Version: 2.4.2
+
+- Class: text
+  Output: Welcome to Pre-Lab 2. In this section, we'll practice picking out the difference between categorical and quantitative variables using an example data set from Lock5Data. 
+
+- Class: text
+  Output: Let's recall the definiton of a categorical variable. A categorical variable divides each case into a distinct category, or group, with no grey area in between. For example, an animal is either live OR dead. A tree is either spruce OR fir OR pine. The number of groups does not matter, but they are discrete. 
+
+- Class: text
+  Output: On the other hand, a quantitative variable measures or records a quantity for each case. For example, the age of a person is 32. The height of the sears tower is 1,729 feet. These variables exist on a spectrum - there are many ages less than 35, and many buildings shorter than 1,729 feet. 
+
+- Class: cmd_question
+  Output: I've put the dataset "StudentSurvey" into your workspace (the upper right panel). Let's click on the name of this dataset in order to take a look. 
+  CorrectAnswer: View(StudentSurvey)
+  AnswerTests: omnitest(correctExpr='View(StudentSurvey)')
+  Hint: No need to type andthing into the console - just click on StudentSurvey in the upper right panel. 
+
+- Class: text
+  Output: Leave this data set open, because I'll be asking you to identify a few variables as either categorical or quantitative. 
+
+- Class: mult_question
+  Output: Let's start with an easy one - is the variable 'Smoke' (which denotes whether the student is a smoker or not) categorical or quantitative?
+  AnswerChoices: categorical;quantitative
+  CorrectAnswer: categorical
+  AnswerTests: omnitest(correctVal='categorical')
+  Hint: Since there are only two discrete categories this could faill into (either a smoker or a nonsmoker), this is a categorical variable.
+
+- Class: mult_question
+  Output: How about the variable 'Weight'?
+  AnswerChoices: quantitative;categorical
+  CorrectAnswer: quantitative
+  AnswerTests: omnitest(correctVal='quantitative')
+  Hint: Since this is recorded as a numerical measurement, and there are so many possible weights, we would call this one quantitative. 
+
+- Class: mult_question
+  Output: What about the variable "GPA"?
+  AnswerChoices: quantitative;categorical
+  CorrectAnswer: quantitative
+  AnswerTests: omnitest(correctVal='quantitative')
+  Hint: GPA is recorded as a quantity, so we treat it as a quantitative variable. Even though it's between 0 and 4, it still represents a lot of possible values because it goes down to the hundreths place (eg, 3.70, 2.09, 3.23).  
+
+- Class: figure
+  Output: Good work! You've completed Pre-Lab 2.1. An 8-digit code will appear in the console below - enter this code into the appropriate quiz on moodle in order to receive credit. 
+  Figure: c.R
+  FigureType: new
+
