@@ -1,1 +1,1 @@
-data("StudentSurvey")
+suppressWarnings(data("StudentSurvey"))
