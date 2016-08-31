@@ -6,8 +6,10 @@
   Organization: University of Minnesota
   Version: 2.4.2
 
-- Class: text
+- Class: figure
   Output: Just like we did with categorical variables, we'll now take a look at how we vizualize quantitative variables. 
+  Figure: student.R
+  FigureType: new
 
 - Class: cmd_question
   Output: Just like the last couple of lessons, I've put the dataset "StudentSurvey" into your workspace (the upper right panel). Click on the name to open it up.  

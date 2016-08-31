@@ -6,8 +6,10 @@
   Organization: University of Minnesota
   Version: 2.4.2
 
-- Class: text
+- Class: figure
   Output: In this section, we'll try out some of the different ways that we can visualize (create informative plots of) categorical variables using the same data set as last time (StudentSurvey).
+  Figure: student.R
+  FigureType: new
 
 - Class: cmd_question
   Output: Just like the last lesson, I've put the dataset "StudentSurvey" into your workspace (the upper right panel). Let's click on the name of this dataset in order to take a look. 
