@@ -1,51 +1,48 @@
 - Class: meta
   Course: Biometry
-  Lesson: 1.3 - Mean, max and min
+  Lesson: 2.2 - Categorical variable plots
   Author: Nick Gondek
   Type: Standard
   Organization: University of Minnesota
   Version: 2.4.2
 
 - Class: text
-  Output: Now that we've done some basic math with R, let's use some 'functions' to analyze some data. Basically, a function is an operation that does something with some information provided to it. 
+  Output: In this section, we'll try out some of the different ways that we can visualize (create informative plots of) categorical variables using the same data set as last time (StudentSurvey).
+
+- Class: cmd_question
+  Output: Just like the last lesson, I've put the dataset "StudentSurvey" into your workspace (the upper right panel). Let's click on the name of this dataset in order to take a look. 
+  CorrectAnswer: View(StudentSurvey)
+  AnswerTests: omnitest(correctExpr='View(StudentSurvey)')
+  Hint: No need to type anything into the console - just click on StudentSurvey in the upper right panel. 
 
 - Class: text
-  Output: All functions in R are followed by two parentheses. For example, mean() takes the mean of some numbers, min() finds the minimum value of some numbers, and max() finds the maximum.
-
-- Class: figure
-  Output: These functions in particular will follow a format that we will become very familiar with, eventually. This format is as follows - goal(y~x, data=mydata), where 'goal' is what we want to do with our data, and 'mydata' is the data we want to analyze.
-  Figure: retail.R
-  FigureType: new
+  Output: We'll consider the simple case where we only have a single categorical variable to look at. Let's say that we want to see how many of the students who took the survey are smokers (ie, 'Yes' in the Smoke variable column). 
 
 - Class: cmd_question
-  Output: I've put a dataset in your workspace (the top right panel) called RetailSales. To look at this table, simply click on the name RetailSales in the top right corner panel (your workspace).
-  CorrectAnswer: View(RetailSales)
-  AnswerTests: omnitest(correctExpr='View(RetailSales)')
-  Hint: No need to type anything, just click the word RetailSales in the top right corner panel (your workspace).
+  Output: The mosaic package has a function, bargraph(), that allows us to use the familiar format we learned in Lab 1 - goal(y~x, data=mydata). Since we're just looking at a single variable, Smoke, we can omit a response variable (y in our 'familiar format'). Try entering bargraph(~Smoke, data=StudentSurvey) into the console. 
+  CorrectAnswer: bargraph(~Smoke, data=StudentSurvey)
+  AnswerTests: any_of_exprs('bargraph(~Smoke, data=StudentSurvey)', 'bargraph(Smoke, data=StudentSurvey)')
+  Hint: It probably looks weird, but we don't need anything before the ~ in our function. Just type in bargraph(~Smoke, data=StudentSurvey) to the console. 
 
 - Class: cmd_question
-  Output: This is a table of monthly retail sales for the US economy for each month from 2002 to 2011, in billions of dollars. Let's say, for example, we want to find the mean amount of monthly retail sales using this data. To do this, we'd follow the format from above and enter the following - mean(~Sales, data=RetailSales)
-  CorrectAnswer: mean(~Sales, data=RetailSales)
-  AnswerTests: omnitest(correctExpr='mean(~Sales, data=RetailSales)')
-  Hint: R in this case will work with or without the ~, but it is best to get into the habitat of using the ~. If you received an error, type this in exactly as it appears - mean(~Sales, data=RetailSales)
-
-- Class: cmd_question
-  Output: So now we see that the average monthly sales in retail are about 300 billion dollars. Let's see what the lowest amount of monthly sales was using our dataset. Using the same format, we change the function from mean() to min(). Enter the following - min(~Sales, data=RetailSales).
-  CorrectAnswer: min(~Sales, data=RetailSales)
-  AnswerTests: omnitest(correctExpr='min(~Sales, data=RetailSales)')
-  Hint: Don't worry about the first part yet (~Sales), we'll get to what this means during lab. Just type this in exactly - min(~Sales, data=RetailSales)
-
-- Class: cmd_question
-  Output: So the worst month of sales over the course of 2002-2011 was 214 billion dollars - still not too shabby. Now, lastly, let's find out what the best month of sales was over this time! Using the function max() and the format we used in the previous two functions, give it a try. 
-  CorrectAnswer: max(~Sales, data=RetailSales)
-  AnswerTests: omnitest(correctExpr='max(~Sales, data=RetailSales)')
-  Hint: In order to get the mean, we used - mean(~Sales, data=RetailSales). To get the minimum, we used -  min(~Sales, data=RetailSales). You'll notice that nothing changes but the name of the function! This time, we're using max() instead of mean() or min().
+  Output: Note that, even though the function works without a ~ in front of Smoke, you should get in the habit of using ~ in this format. Now, using that same function setup, try to compare how many students there are for each grade level - use the Year variable!
+  CorrectAnswer: bargraph(~Year, data=StudentSurvey)
+  AnswerTests: any_of_expr('bargraph(~Year, data=StudentSurvey)','bargraph(Year, data=StudentSurvey)')
+  Hint: Not much has to change from our last function - bargraph(~Smoke, data=StudentSurvey). We still want a bargraph, and we still want to use the StudentSurvey data set, except this time, we want to look at the variable Year instead of Smoke. 
 
 - Class: text
-  Output: Great work - We now know that over the course of 2002 and 2011, the United States averaged about 300 billion dollars in retail sales monthly, but some months were as low as 214 billion and some were as high as 394 billion!
+  Output: Let's try one last plot. Now, we want to look at the variable Award, which represents which of three awards the student would like to win in their lifetime - an Academy Award, a Nobel Prize, or an Olympic Medal. 
+
+- Class: cmd_question
+  Output: Now instead of just loojking at counts, like we did in the last two plots, let's look at how this breaks down between males and females. To compare between groups, we can add a single argument to our function - groups. When you set groups equal to a categorical variable in the data frame, the graph will be broken down by that variable. Let's try it - bargraph(~Smoke, data=StudentSurvey, groups = Gender, auto.key=TRUE). 
+  CorrectAnswer: bargraph(~Award, data=StudentSurvey, groups = Gender, auto.key=TRUE)
+  AnswerTests: any_of_exprs('bargraph(~Award, data=StudentSurvey, groups = Gender, auto.key=TRUE)','bargraph(Award, data=StudentSurvey, groups = Gender, auto.key=TRUE)')
+  Hint: It's a big long chunk of code, but you can enter it exactly as follows - bargraph(~Smoke, data=StudentSurvey, groups = Gender, auto.key=TRUE). groups tells R that we want to break down the data by Gender, and auto.key tells R that we want to generate a graph legend automatically. 
+
+- Class: text
+  Output: Great job. You may have noticed that I lied about using just one more argument - we actually used groups AND an argument called auto.key. auto.key tells R that we want it to generate a legend automatically. That way, we can actually tell which color is which Gender. 
 
 - Class: figure
-  Output: Good work! You've completed Pre-Lab 1.3. An 8-digit code will appear in the console below - enter this code into the appropriate quiz on moodle in order to receive credit. 
+  Output: Good work! You've completed Pre-Lab 2.2. An 8-digit code will appear in the console below - enter this code into the appropriate quiz on moodle in order to receive credit. 
   Figure: c.R
   FigureType: new
-

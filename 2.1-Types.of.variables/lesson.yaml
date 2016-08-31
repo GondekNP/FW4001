@@ -19,7 +19,7 @@
   Output: I've put the dataset "StudentSurvey" into your workspace (the upper right panel). Let's click on the name of this dataset in order to take a look. 
   CorrectAnswer: View(StudentSurvey)
   AnswerTests: omnitest(correctExpr='View(StudentSurvey)')
-  Hint: No need to type andthing into the console - just click on StudentSurvey in the upper right panel. 
+  Hint: No need to type anything into the console - just click on StudentSurvey in the upper right panel. 
 
 - Class: text
   Output: Leave this data set open, because I'll be asking you to identify a few variables as either categorical or quantitative. 

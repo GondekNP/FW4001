@@ -1,51 +1,59 @@
 - Class: meta
   Course: Biometry
-  Lesson: 1.3 - Mean, max and min
+  Lesson: 2.3 - Quantitative variable plots
   Author: Nick Gondek
   Type: Standard
   Organization: University of Minnesota
   Version: 2.4.2
 
 - Class: text
-  Output: Now that we've done some basic math with R, let's use some 'functions' to analyze some data. Basically, a function is an operation that does something with some information provided to it. 
+  Output: Just like we did with categorical variables, we'll now take a look at how we vizualize quantitative variables. 
 
-- Class: text
-  Output: All functions in R are followed by two parentheses. For example, mean() takes the mean of some numbers, min() finds the minimum value of some numbers, and max() finds the maximum.
+- Class: cmd_question
+  Output: Just like the last couple of lessons, I've put the dataset "StudentSurvey" into your workspace (the upper right panel). Click on the name to open it up.  
+  CorrectAnswer: View(StudentSurvey)
+  AnswerTests: omnitest(correctExpr='View(StudentSurvey)')
+  Hint: No need to type anything into the console - just click on StudentSurvey in the upper right panel. 
+
+- Class: cmd_question
+  Output: One of the most common ways we vizualize categorical data is to use a histogram. A histogram is a useful way to eyeball where most of our data might fall for a particular variable. For example, let's look at the distribution of SAT scores across the students who took the survey. Try it now using histogram(~SAT, data=StudentSurvey).
+  CorrectAnswer: histogram(~SAT, data=StudentSurvey)
+  AnswerTests: omnitest(correctExpr='histogram(~SAT, data=StudentSurvey)')
+  Hint: From now on, we won't accept code that uses our familiar format - goal(y~x, data=mydata) - if it does not contain the ~ ! Enter the following code exactly - histogram(~SAT, data=StudentSurvey)
+
+- Class: mult_question
+  Output: Using the histogram we just generated, which SAT score is most common amongst the survey takers? Note - the y-axis, density, refers to frequency of SAT scores in each bin divided by how many survey takers there were (362).
+  AnswerChoices: about 1000;about 1100;about 1200;about 1300
+  CorrectAnswer: about 1200
+  AnswerTests: omnitest(correctVal='about 1200')
+  Hint: Since we are looking at frequency (how many of the students have a SAT score that fall into each bin), we are looking for the highest bar in the plot. 
+
+- Class: cmd_question
+  Output: Another common way to visualize a single quantitative variable is to use a density plot. We'll use the same format as a histogram, except this time, we use the densityplot() function. Try it using the GPA variable - densityplot(~GPA, data=StudentSurvey).
+  CorrectAnswer: densityplot(~GPA, data=StudentSurvey)
+  AnswerTests: omnitest(correctExpr='densityplot(~GPA, data=StudentSurvey)')
+  Hint: Remember that the ~ is necessary from now on! Try this - densityplot(~GPA, data=StudentSurvey)
+
+- Class: mult_question
+  Output: Great job. Using the density plot we just created, which GPA was most frequent for the students who took the survey?
+  AnswerChoices: 3.0;3.5;4.0
+  CorrectAnswer: 3.5
+  AnswerTests: omnitest(correctVal='3.5')
+  Hint: Again, we're looking for the peak of the data!
+
+- Class: cmd_question
+  Output: Just like with the categorical plots, we can use the groups argument to compare using another categorical variable. This time, we'll see how the distrubtion in number of piercings looks between Males and Females. Try it out now - densityplot(~Piercings, data=StudentSurvey, groups=Gender, auto.key = TRUE)
+  CorrectAnswer: densityplot(~Piercings, data=StudentSurvey, groups=Gender, auto.key = TRUE)
+  AnswerTests: omnitest(correctExpr='densityplot(~Piercings, data=StudentSurvey, groups=Gender, auto.key = TRUE)')
+  Hint: Remember to use the ~ in front of Piercings! Try it - densityplot(~Piercings, data=StudentSurvey, groups=Gender, auto.key = TRUE)
+
+- Class: exact_question
+  Output: Looking at our density plot, what number of piercings is most common for Females?
+  CorrectAnswer: 2
+  AnswerTests: omnitest(correctExpr='EXPR', correctVal=VAL)
+  Hint: Look at the legend! Since R has automatically assigned colors, the pink line denotes males and the blue line denotes females. R clearly doesn't subscribe to gender norms!
 
 - Class: figure
-  Output: These functions in particular will follow a format that we will become very familiar with, eventually. This format is as follows - goal(y~x, data=mydata), where 'goal' is what we want to do with our data, and 'mydata' is the data we want to analyze.
-  Figure: retail.R
-  FigureType: new
-
-- Class: cmd_question
-  Output: I've put a dataset in your workspace (the top right panel) called RetailSales. To look at this table, simply click on the name RetailSales in the top right corner panel (your workspace).
-  CorrectAnswer: View(RetailSales)
-  AnswerTests: omnitest(correctExpr='View(RetailSales)')
-  Hint: No need to type anything, just click the word RetailSales in the top right corner panel (your workspace).
-
-- Class: cmd_question
-  Output: This is a table of monthly retail sales for the US economy for each month from 2002 to 2011, in billions of dollars. Let's say, for example, we want to find the mean amount of monthly retail sales using this data. To do this, we'd follow the format from above and enter the following - mean(~Sales, data=RetailSales)
-  CorrectAnswer: mean(~Sales, data=RetailSales)
-  AnswerTests: omnitest(correctExpr='mean(~Sales, data=RetailSales)')
-  Hint: R in this case will work with or without the ~, but it is best to get into the habitat of using the ~. If you received an error, type this in exactly as it appears - mean(~Sales, data=RetailSales)
-
-- Class: cmd_question
-  Output: So now we see that the average monthly sales in retail are about 300 billion dollars. Let's see what the lowest amount of monthly sales was using our dataset. Using the same format, we change the function from mean() to min(). Enter the following - min(~Sales, data=RetailSales).
-  CorrectAnswer: min(~Sales, data=RetailSales)
-  AnswerTests: omnitest(correctExpr='min(~Sales, data=RetailSales)')
-  Hint: Don't worry about the first part yet (~Sales), we'll get to what this means during lab. Just type this in exactly - min(~Sales, data=RetailSales)
-
-- Class: cmd_question
-  Output: So the worst month of sales over the course of 2002-2011 was 214 billion dollars - still not too shabby. Now, lastly, let's find out what the best month of sales was over this time! Using the function max() and the format we used in the previous two functions, give it a try. 
-  CorrectAnswer: max(~Sales, data=RetailSales)
-  AnswerTests: omnitest(correctExpr='max(~Sales, data=RetailSales)')
-  Hint: In order to get the mean, we used - mean(~Sales, data=RetailSales). To get the minimum, we used -  min(~Sales, data=RetailSales). You'll notice that nothing changes but the name of the function! This time, we're using max() instead of mean() or min().
-
-- Class: text
-  Output: Great work - We now know that over the course of 2002 and 2011, the United States averaged about 300 billion dollars in retail sales monthly, but some months were as low as 214 billion and some were as high as 394 billion!
-
-- Class: figure
-  Output: Good work! You've completed Pre-Lab 1.3. An 8-digit code will appear in the console below - enter this code into the appropriate quiz on moodle in order to receive credit. 
+  Output: Good work! You've completed Pre-Lab 2.3. An 8-digit code will appear in the console below - enter this code into the appropriate quiz on moodle in order to receive credit. 
   Figure: c.R
   FigureType: new
-
