@@ -18,7 +18,7 @@
   FigureType: new
 
 - Class: figure
-  Output: For this pre0-lab, we will use student survey data (collected by the author of Unlocking the Power of Data) to explore categorical and quantitative data.
+  Output: For this pre-lab, we will use student survey data (collected by the author of Unlocking the Power of Data) to explore categorical and quantitative data.
   Figure: student.R
   FigureType: new
   

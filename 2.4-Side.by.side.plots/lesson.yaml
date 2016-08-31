@@ -7,9 +7,11 @@
   Version: 2.4.2
 
 
-- Class: text
+- Class: figure
   Output: In the two previous sections, we learned how to compare both categorical and quantitative variables using another variable. For example, we looked at the differences in number of piercings between males and females, or the desire to win certain awards between males and females.
-
+  Figure: student.R
+  FigureType: new
+  
 - Class: cmd_question
   Output: Just like the last few lessons, I've put the dataset "StudentSurvey" into your workspace. Click on the name of this dataset in order to inspect the variables - you probably know most of them by now! 
   CorrectAnswer: View(StudentSurvey)
