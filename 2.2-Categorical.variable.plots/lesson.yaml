@@ -10,7 +10,7 @@
   Output: In this section, we'll try out some of the different ways that we can visualize (create informative plots of) categorical variables using the same data set as last time (StudentSurvey).
 
 - Class: cmd_question
-  Output: Just like the last lesson, I've put the dataset "StudentSurvey" into your workspace (the upper right panel). Let's click on the name of this dataset in order to take a look. 
+  Output: Just like the last lesson, I've put the dataset \"StudentSurvey\" into your workspace (the upper right panel). Let's click on the name of this dataset in order to take a look. 
   CorrectAnswer: View(StudentSurvey)
   AnswerTests: omnitest(correctExpr='View(StudentSurvey)')
   Hint: No need to type anything into the console - just click on StudentSurvey in the upper right panel. 
