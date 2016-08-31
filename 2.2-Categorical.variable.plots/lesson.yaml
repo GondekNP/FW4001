@@ -10,7 +10,7 @@
   Output: In this section, we'll try out some of the different ways that we can visualize (create informative plots of) categorical variables using the same data set as last time (StudentSurvey).
 
 - Class: cmd_question
-  Output: Just like the last lesson, I've put the dataset \"StudentSurvey\" into your workspace (the upper right panel). Let's click on the name of this dataset in order to take a look. 
+  Output: Just like the last lesson, I've put the dataset "StudentSurvey" into your workspace (the upper right panel). Let's click on the name of this dataset in order to take a look. 
   CorrectAnswer: View(StudentSurvey)
   AnswerTests: omnitest(correctExpr='View(StudentSurvey)')
   Hint: No need to type anything into the console - just click on StudentSurvey in the upper right panel. 
@@ -34,7 +34,7 @@
   Output: Let's try one last plot. Now, we want to look at the variable Award, which represents which of three awards the student would like to win in their lifetime - an Academy Award, a Nobel Prize, or an Olympic Medal. 
 
 - Class: cmd_question
-  Output: Now instead of just loojking at counts, like we did in the last two plots, let's look at how this breaks down between males and females. To compare between groups, we can add a single argument to our function - groups. When you set groups equal to a categorical variable in the data frame, the graph will be broken down by that variable. Let's try it - bargraph(~Award, data=StudentSurvey, groups = Gender, auto.key=TRUE). 
+  Output: Now instead of just looking at counts, like we did in the last two plots, let's look at how this breaks down between males and females. To compare between groups, we can add a single argument to our function - groups. When you set groups equal to a categorical variable in the data frame, the graph will be broken down by that variable. Let's try it - bargraph(~Award, data=StudentSurvey, groups = Gender, auto.key=TRUE). 
   CorrectAnswer: bargraph(~Award, data=StudentSurvey, groups = Gender, auto.key=TRUE)
   AnswerTests: any_of_exprs('bargraph(~Award, data=StudentSurvey, groups = Gender, auto.key=TRUE)','bargraph(Award, data=StudentSurvey, groups = Gender, auto.key=TRUE)')
   Hint: It's a big long chunk of code, but you can enter it exactly as follows - bargraph(~Award, data=StudentSurvey, groups = Gender, auto.key=TRUE). groups tells R that we want to break down the data by Gender, and auto.key tells R that we want to generate a graph legend automatically. 
