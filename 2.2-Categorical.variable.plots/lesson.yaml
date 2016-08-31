@@ -27,7 +27,7 @@
 - Class: cmd_question
   Output: Note that, even though the function works without a ~ in front of Smoke, you should get in the habit of using ~ in this format. Now, using that same function setup, try to compare how many students there are for each grade level - use the Year variable!
   CorrectAnswer: bargraph(~Year, data=StudentSurvey)
-  AnswerTests: any_of_expr('bargraph(~Year, data=StudentSurvey)','bargraph(Year, data=StudentSurvey)')
+  AnswerTests: any_of_exprs('bargraph(~Year, data=StudentSurvey)','bargraph(Year, data=StudentSurvey)')
   Hint: Not much has to change from our last function - bargraph(~Smoke, data=StudentSurvey). We still want a bargraph, and we still want to use the StudentSurvey data set, except this time, we want to look at the variable Year instead of Smoke. 
 
 - Class: text
@@ -46,3 +46,4 @@
   Output: Good work! You've completed Pre-Lab 2.2. An 8-digit code will appear in the console below - enter this code into the appropriate quiz on moodle in order to receive credit. 
   Figure: c.R
   FigureType: new
+  
