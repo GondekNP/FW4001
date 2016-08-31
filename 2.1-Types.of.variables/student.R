@@ -1,1 +1,2 @@
 data("StudentSurvey")
+head(StudentSurvey)
