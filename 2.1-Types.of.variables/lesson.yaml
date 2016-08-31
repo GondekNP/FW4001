@@ -17,6 +17,11 @@
   Figure: student.R
   FigureType: new
 
+- Class: figure
+  Output: For this pre0-lab, we will use student survey data (collected by the author of Unlocking the Power of Data) to explore categorical and quantitative data.
+  Figure: student.R
+  FigureType: new
+  
 - Class: cmd_question
   Output: I've put the dataset "StudentSurvey" into your workspace (the upper right panel). Let's click on the name of this dataset in order to take a look. 
   CorrectAnswer: View(StudentSurvey)
