@@ -50,7 +50,7 @@
 - Class: exact_question
   Output: Looking at our density plot, what number of piercings is most common for Females?
   CorrectAnswer: 2
-  AnswerTests: omnitest(correctExpr='EXPR', correctVal=VAL)
+  AnswerTests: omnitest(correctVal=2)
   Hint: Look at the legend! Since R has automatically assigned colors, the pink line denotes males and the blue line denotes females. R clearly doesn't subscribe to gender norms!
 
 - Class: figure

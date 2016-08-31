@@ -34,10 +34,10 @@
   Output: Let's try one last plot. Now, we want to look at the variable Award, which represents which of three awards the student would like to win in their lifetime - an Academy Award, a Nobel Prize, or an Olympic Medal. 
 
 - Class: cmd_question
-  Output: Now instead of just loojking at counts, like we did in the last two plots, let's look at how this breaks down between males and females. To compare between groups, we can add a single argument to our function - groups. When you set groups equal to a categorical variable in the data frame, the graph will be broken down by that variable. Let's try it - bargraph(~Smoke, data=StudentSurvey, groups = Gender, auto.key=TRUE). 
+  Output: Now instead of just loojking at counts, like we did in the last two plots, let's look at how this breaks down between males and females. To compare between groups, we can add a single argument to our function - groups. When you set groups equal to a categorical variable in the data frame, the graph will be broken down by that variable. Let's try it - bargraph(~Award, data=StudentSurvey, groups = Gender, auto.key=TRUE). 
   CorrectAnswer: bargraph(~Award, data=StudentSurvey, groups = Gender, auto.key=TRUE)
   AnswerTests: any_of_exprs('bargraph(~Award, data=StudentSurvey, groups = Gender, auto.key=TRUE)','bargraph(Award, data=StudentSurvey, groups = Gender, auto.key=TRUE)')
-  Hint: It's a big long chunk of code, but you can enter it exactly as follows - bargraph(~Smoke, data=StudentSurvey, groups = Gender, auto.key=TRUE). groups tells R that we want to break down the data by Gender, and auto.key tells R that we want to generate a graph legend automatically. 
+  Hint: It's a big long chunk of code, but you can enter it exactly as follows - bargraph(~Award, data=StudentSurvey, groups = Gender, auto.key=TRUE). groups tells R that we want to break down the data by Gender, and auto.key tells R that we want to generate a graph legend automatically. 
 
 - Class: text
   Output: Great job. You may have noticed that I lied about using just one more argument - we actually used groups AND an argument called auto.key. auto.key tells R that we want it to generate a legend automatically. That way, we can actually tell which color is which Gender. 
