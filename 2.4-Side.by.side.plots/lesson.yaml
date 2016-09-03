@@ -13,10 +13,10 @@
   FigureType: new
   
 - Class: cmd_question
-  Output: Just like the last few lessons, I've put the dataset "StudentSurvey" into your workspace. Click on the name of this dataset in order to inspect the variables - you probably know most of them by now! 
+  Output: Just like the last few lessons, I've put the dataset "StudentSurvey" into your workspace. Click on the name of this dataset in order to inspect the variables - you probably know most of them by now!
   CorrectAnswer: View(StudentSurvey)
   AnswerTests: omnitest(correctExpr='View(StudentSurvey)')
-  Hint: No need to type anything into the console - just click on StudentSurvey in the upper right panel. 
+  Hint: No need to type anything into the console - just click on StudentSurvey in the upper right panel.
 
 - Class: cmd_question
   Output: Let's take a look at a graph we generated in Pre-lab 2.2. This one compared the desire to win certain awards by Gender. Enter this code into the console - bargraph(~Award, data=StudentSurvey, groups = Gender, auto.key=TRUE).

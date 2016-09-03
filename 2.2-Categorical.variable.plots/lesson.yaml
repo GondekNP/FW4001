@@ -12,10 +12,10 @@
   FigureType: new
 
 - Class: cmd_question
-  Output: Just like the last lesson, I've put the dataset "StudentSurvey" into your workspace (the upper right panel). Let's click on the name of this dataset in order to take a look. 
+  Output: Just like the last lesson, I've put the dataset "StudentSurvey" into your workspace (the upper right panel). Let's click on the name of this dataset in order to take a look.
   CorrectAnswer: View(StudentSurvey)
   AnswerTests: omnitest(correctExpr='View(StudentSurvey)')
-  Hint: No need to type anything into the console - just click on StudentSurvey in the upper right panel. 
+  Hint: No need to type anything into the console - just click on StudentSurvey in the upper right panel.
 
 - Class: text
   Output: We'll consider the simple case where we only have a single categorical variable to look at. Let's say that we want to see how many of the students who took the survey are smokers (ie, 'Yes' in the Smoke variable column). 

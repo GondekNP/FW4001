@@ -12,10 +12,10 @@
   FigureType: new
 
 - Class: cmd_question
-  Output: Just like the last couple of lessons, I've put the dataset "StudentSurvey" into your workspace (the upper right panel). Click on the name to open it up.  
+  Output: Just like the last couple of lessons, I've put the dataset "StudentSurvey" into your workspace (the upper right panel). Click on the name to open it up.
   CorrectAnswer: View(StudentSurvey)
   AnswerTests: omnitest(correctExpr='View(StudentSurvey)')
-  Hint: No need to type anything into the console - just click on StudentSurvey in the upper right panel. 
+  Hint: No need to type anything into the console - just click on StudentSurvey in the upper right panel.
 
 - Class: cmd_question
   Output: One of the most common ways we vizualize categorical data is to use a histogram. A histogram is a useful way to eyeball where most of our data might fall for a particular variable. For example, let's look at the distribution of SAT scores across the students who took the survey. Try it now using histogram(~SAT, data=StudentSurvey).
