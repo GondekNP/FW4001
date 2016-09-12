@@ -1,4 +1,5 @@
 .ver<- function (x5, prelab, section){
+  x5<-tolower(x5)
   firstno<-as.numeric(paste(prelab, section, "000000", sep="", collapse=""))
   lastno<-as.numeric(paste(prelab, section, "009999", sep="", collapse=""))
   codePos<-c(firstno:lastno)
