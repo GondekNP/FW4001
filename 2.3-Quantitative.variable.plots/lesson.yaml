@@ -18,7 +18,7 @@
   Hint: No need to type anything into the console - just click on StudentSurvey in the upper right panel.
 
 - Class: cmd_question
-  Output: One of the most common ways we vizualize categorical data is to use a histogram. A histogram is a useful way to eyeball where most of our data might fall for a particular variable. For example, let's look at the distribution of SAT scores across the students who took the survey. Try it now using histogram(~SAT, data=StudentSurvey).
+  Output: One of the most common ways we vizualize quantitative data is to use a histogram. A histogram is a useful way to eyeball where most of our data might fall for a particular variable. For example, let's look at the distribution of SAT scores across the students who took the survey. Try it now using histogram(~SAT, data=StudentSurvey).
   CorrectAnswer: histogram(~SAT, data=StudentSurvey)
   AnswerTests: omnitest(correctExpr='histogram(~SAT, data=StudentSurvey)')
   Hint: From now on, we won't accept code that uses our familiar format - goal(y~x, data=mydata) - if it does not contain the ~ ! Enter the following code exactly - histogram(~SAT, data=StudentSurvey)

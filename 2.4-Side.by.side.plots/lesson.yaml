@@ -37,7 +37,7 @@
   Output: Splitting this up in different plots as opposed to color works the same way for densityplot() as it does for bargraph(). Try to modify the code we used in 2.3 - densityplot(~Piercings, data=StudentSurvey, groups=Gender, auto.key = TRUE) - to generate side-by-side plots instead of a color-coded one. Remember to use the | symbol!
   CorrectAnswer: densityplot(~Piercings|Gender, data=StudentSurvey, auto.key = TRUE)
   AnswerTests: omnitest(correctExpr='densityplot(~Piercings|Gender, data=StudentSurvey, auto.key = TRUE)')
-  Hint: Just like in the previous example, we need to do two things. 1- We need to get rid of the groups=Gender argument (just delete it, and the comma after it). 2- We need to add |Gender directly after Award. Try it again, and try looking at the code from the previous question for an example!
+  Hint: Just like in the previous example, we need to do two things. 1- We need to get rid of the groups=Gender argument (just delete it, and the comma after it). 2- We need to add |Gender directly after Piercings. Try it again, and try looking at the code from the previous question for an example!
 
 - Class: figure
   Output: Good work! You've completed Pre-Lab 2.4. An 8-digit code will appear in the console below - enter this code into the appropriate quiz on moodle in order to receive credit. 
