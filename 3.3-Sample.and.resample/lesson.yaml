@@ -1,0 +1,59 @@
+- Class: meta
+  Course: Biometry
+  Lesson: 3.3 - Sample and resample
+  Author: Nick Gondek
+  Type: Standard
+  Organization: University of Minnesota
+  Version: 2.4.2
+
+- Class: figure
+  Output: In this section, we're going to look at our two sampling functions, sample() and resample(). These functions can be used on both data frames and groups of raw numbers, and we'll try out both.
+  Figure: cereal.R
+  FigureType: new
+
+- Class: cmd_question
+  Output: To illustrate the difference between these functions, let's generate some numbers to try our sampling functions on. Enter - exampleNumbers<-seq(0,100,5)
+  CorrectAnswer: exampleNumbers<-seq(0,100,5)
+  AnswerTests: omnitest(correctExpr='exampleNumbers<-seq(0,100,5)', strict=FALSE)
+  Hint: Enter - exampleNumbers<-seq(0,100,5)
+
+- Class: cmd_question
+  Output: The seq() function creates a sequence of number from a first number, to a second number, in increments of a third number. So our new object, exampleNumbers, goes from 0 to 100 by 5. Just to see what it looks like, enter exampleNumbers in the console and press Enter.
+  CorrectAnswer: exampleNumbers
+  AnswerTests: omnitest(correctExpr='exampleNumbers')
+  Hint: Typing in the name of an object (all of your objects are in your workspace - the upper right hand corner) will show us what it is. So, just type exampleNumbers and press Enter. 
+
+- Class: cmd_question
+  Output: The key difference between sample() and resample(), is that the former samples WITHOUT replacement, and the latter samples WITH replacement. This means that as soon as something is chosen in a sample(), it is removed from the population and cannot be chosen again. We can demonstrate this pretty easily by sampling our exampleNumbers. Try it - sample(exampleNumbers)
+  CorrectAnswer: sample(exampleNumbers)
+  AnswerTests: omnitest(correctExpr='sample(exampleNumbers)')
+  Hint: Enter - sample(exampleNumbers
+
+- Class: cmd_question
+  Output: It's mixed up, but each number that we started with is still there. Let's try it again using resample instead!
+  CorrectAnswer: resample(exampleNumbers)
+  AnswerTests: omnitest(correctExpr='resample(exampleNumbers)')
+  Hint: Last time we used sample(exampleNumbers). This time, we use resample(exampleNumbers).
+
+- Class: text
+  Output: This time, while we still have 21 individual numbers, some are repeated and some are left out. This is distinction is really important for bootstrapping!
+
+- Class: cmd_question
+  Output: sample() and resample() work the same way on data frames as they do on groups of numbers. When a row is selected with sample(), it cannot be selected again (but it can with resample). Try it out on our Cereal data frame - sample(Cereal)
+  CorrectAnswer: sample(Cereal)
+  AnswerTests: omnitest(correctExpr='sample(Cereal)')
+  Hint: Enter - sample(Cereal)
+
+- Class: cmd_question
+  Output: Now, for comparison, try out resample(Cereal).
+  CorrectAnswer: resample(Cereal)
+  AnswerTests: omnitest(correctExpr='resample(Cereal)')
+  Hint: Enter - resample(Cereal)
+
+- Class: text
+  Output: Where sample() produces a mixed up version of the same data frame, resample() actually repeats certain rows and leaves certain ones out! You'll learn why this matters this week in lecture.  
+
+- Class: figure
+  Output: Good work! You've completed Pre-Lab 3.3. An 8-digit code will appear in the console below - enter this code into the appropriate quiz on moodle in order to receive credit. 
+  Figure: c.R
+  FigureType: new

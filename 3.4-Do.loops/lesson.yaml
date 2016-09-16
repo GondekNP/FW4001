@@ -1,0 +1,68 @@
+- Class: meta
+  Course: Biometry
+  Lesson: 3.4 - Do loops and bootstrapping
+  Author: Nick Gondek
+  Type: Standard
+  Organization: University of Minnesota
+  Version: 2.4.2
+
+
+- Class: message
+  Output: You're probably wondering why the difference between sampling and resampling matters - well, you're in luck, because you will finding out this week when you learn about bootstrapping! For now, we're going to look at a critical skill for bootstrapping, the 'do' loop. 
+  
+- Class: text
+  Output: Just to illustrate the power of a do loop, imagine there is a mysterious government agent who gives you 1 cent for each time you can compute 2*2 in R. You can sit there for hours typing 2*2 over and over, but surely there is a better way...
+
+- Class: cmd_question
+  Output: Try this instead - do(100)*(2*2)
+  CorrectAnswer: do(100)*(2*2)
+  AnswerTests: omnitest(correctExpr='do(100)*(2*2)', strict=FALSE)
+  Hint: The notation will look weird at first. Just try this out - do(100)*(2*2)
+
+- Class: text
+  Output: You'll see that using do(100)* in front of that expression quite literally 'did' it 100 times. This works for anything you put inside of the parentheses to the right. Now, you wouldn't have to go to college, because your payout is limited only by how huge you make your do loop.
+
+- Class: cmd_question
+  Output: Let's use a more realistic and less lucrative example. Just so we have something to work with, let's generate some data. We'll generate 15 numbers, pulled at random from a normal distribution. We're going to pretend that these numbers are the canopy heights of trees in rural Panama. Enter - bigtrees<-rnorm(n=15,mean=1000,sd=200)  
+  CorrectAnswer: bigtrees<-rnorm(n=15,mean=1000,sd=200)
+  AnswerTests: omnitest(correctExpr='bigtrees<-rnorm(n=15,mean=1000,sd=200)')
+  Hint: n represents the number of numbers we want, and mean and sd are the mean and sd of our normal distrubution. Enter - bigtrees<-rnorm(n=15,mean=1000,sd=200)
+
+- Class: cmd_question
+  Output: Let's take a look at these trees. Enter bigtrees in the console to see the values we got. 
+  CorrectAnswer: bigtrees
+  AnswerTests: omnitest(correctExpr='bigtrees')
+  Hint: Nothing fancy, just enter - bigtrees
+  
+- Class: text
+  Output: Now we'll put all of that previous sampling and resampling experience to use. Let's say that we want to take the mean of a resample (note, with replacement) of our bigtrees data. Each and every time we do this, the mean is going to be slightly different, because resample is going to repeat and exclude different trees.
+
+- Class: cmd_question
+  Output: Doing this by one by one would be possible for small numbers, but it would quickly get out of control if you had to take 100, 1,000, or 1,000,000 resamples. Fortunately, we won't have to do that, because we can use our newest tool - the do loop. Try it now by taking the mean of 10 resamples - do(10)*(mean(resample(bigtrees)))
+  CorrectAnswer: do(10)*(mean(resample(bigtrees)))
+  AnswerTests: omnitest(correctExpr='do(10)*(mean(resample(bigtrees)))')
+  Hint: It's a big ugly chunk of code, make sure you have three right parentheses at the end! Enter - do(10)*(mean(resample(bigtrees)))
+
+- Class: text
+  Output: Now we have 10 different means, each slightly different than the other, because each resample of bigtrees is slightly different. 
+
+- Class: cmd_question
+  Output: Just for illustration, try the same code using sample instead of resample - do(10)*(mean(sample(bigtrees)))
+  CorrectAnswer: do(10)*(mean(sample(bigtrees)))
+  AnswerTests: omnitest(correctExpr='do(10)*(mean(sample(bigtrees)))')
+  Hint: No need to change much - do(10)*(mean(sample(bigtrees)))
+
+- Class: mult_question
+  Output: You got 10 of the same number... why is that?
+  AnswerChoices: The mean is always the same, because sample simply changes the order of the numbers, but keeps them all;Nick is an amateur and wrote the code incorrectly so it doesn't work;The mean was computed for just one resample
+  CorrectAnswer: The mean is always the same, because sample simply changes the order of the numbers, but keeps them all
+  AnswerTests: omnitest(correctVal='The mean is always the same, because sample simply changes the order of the numbers, but keeps them all')
+  Hint: The do loop still ran and sampled 10 times, so what else could it be? Don't hurt my feelings, either. 
+
+- Class: text
+  Output: Right - just using sample reordered all the numbers each time, but the mean was the same each time. You may not know it, but you actually just computed a (very small) bootstrap distribution!
+
+- Class: figure
+  Output: Good work! You've completed Pre-Lab 3.4. An 8-digit code will appear in the console below - enter this code into the appropriate quiz on moodle in order to receive credit. 
+  Figure: c.R
+  FigureType: new

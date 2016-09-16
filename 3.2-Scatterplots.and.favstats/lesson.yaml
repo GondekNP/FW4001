@@ -1,0 +1,67 @@
+- Class: meta
+  Course: Biometry
+  Lesson: 3.2 - Scatterplots and favstats
+  Author: Nick Gondek
+  Type: Standard
+  Organization: University of Minnesota
+  Version: 2.4.2
+
+- Class: figure
+  Output: Now that we've looked at visualizing one quantitative and one categorical variable together (using a box-and-whisker plot, or boxplot), we are going to look at how we can do exploratory data analysis on solely quantitative data.
+  Figure: cereal.R
+  FigureType: new
+
+- Class: cmd_question
+  Output: We're going to take another look at the nutritional contents of breakfast cereal (the 'Cereal' dataset in Lock5Data). Use the head() function to get a quick look at this dataset!
+  CorrectAnswer: head(Cereal)
+  AnswerTests: omnitest(correctExpr='head(Cereal)')
+  Hint: We can look in the workspace (upper right pane) to see what the data is called - in this case, it's called Cereal. All we need to do is put that word inside of the head() function. Enter - head(Cereal)
+
+- Class: text
+  Output: There are all sorts of statistics you can use for quantatitive data, and you've seen many of them already. Think max, mean, median, mode, standard deviation, etc.
+
+- Class: cmd_question
+  Output: Often, when we are exploring our data, we don't really know what statistics we want to look at. Fortunately, the mosaic package gives us a great function that gives us a summary of some quantitative data - favstats(). Rather than explain how this works, let's just try it on an example and see. Try it out on the Carbs variable in our dataset - favstats(~Carbs, data=Cereal)
+  CorrectAnswer: favstats(~Carbs, data=Cereal)
+  AnswerTests: omnitest(correctExpr='favstats(~Carbs, data=Cereal)')
+  Hint: Enter - favstats(~Carbs, data=Cereal)
+
+- Class: exact_question
+  Output: You'll see that R prints out many useful statistics that you've seen already, without you having to go through the legwork of getting each one individually. Now, based on this output - What is the mean grams of Carbs per serving in the dataset (rounded to two decimal places)?
+  CorrectAnswer: 29.67
+  AnswerTests: omnitest(correctVal=29.67)
+  Hint: Look right underneath mean in the favstats() output.
+
+- Class: exact_question
+  Output: How many of the cereals in our dataset have a 48 grams of Carbs per serving or more?
+  CorrectAnswer: 0
+  AnswerTests: omnitest(correctVal=0)
+  Hint: It might seem like you need more info to answer this question, but you actually don't! What does the output of favstats say for the MAXIMUM (max) number of grams per serving of carbs? You can use that information to answer this question - How many cereals have 48 or more grams of Carbs?
+
+- Class: text
+  Output: Tricky question - since we know that the highest grams per serving of Carbs in our dataset is 47, we have exactly zero cereals with 48 or more grams per serving!
+
+- Class: text
+  Output: Favstats is useful for looking at a single quantatitive variable, but what if we want to look at two different quantitative variables against one another? For example, are more sugary cereals higher in calories?
+
+- Class: cmd_question
+  Output: In this situation, a quick way to visualize the data would be to use a scatterplot (or an xy-plot, as some call it). Try it now using our above example - xyplot(Sugars~Calories, data=Cereal)
+  CorrectAnswer: xyplot(Sugars~Calories, data=Cereal)
+  AnswerTests: any_of_exprs('xyplot(Sugars~Calories, data=Cereal)', 'xyplot(Calories~Sugar, data=Cereal)')
+  Hint: Enter - xyplot(Sugars~Calories, data=Cereal)
+  
+- Class: mult_question
+  Output: Looking at this graph, what can we say about the relationship between Sugars and Calories in this dataset?
+  AnswerChoices: There is a generally positive relationship;There is no relationship;There is a generally negative relationship
+  CorrectAnswer: There is a generally positive relationship
+  AnswerTests: omnitest(correctVal= 'There is a generally positive relationship')
+  Hint: When one goes up, what happens to the other? If they both go up together, it's a positive relationship. If they're inverse, its a negative relationship.
+
+- Class: text
+  Output: Right. We can't say anything definitively yet without using linear regression (which you'll learn about later on), but we can at least say that there is a relationship between these two variables.
+
+- Class: figure
+  Output: Good work! You've completed Pre-Lab 3.2. An 8-digit code will appear in the console below - enter this code into the appropriate quiz on moodle in order to receive credit. 
+  Figure: c.R
+  FigureType: new
+  
