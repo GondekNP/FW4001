@@ -45,7 +45,7 @@
   Hint: Enter - sample(Cereal)
 
 - Class: cmd_question
-  Output: Now, for comparison, try out resample(Cereal).
+  Output: Now, for comparison, try out resample(Cereal).  Again, consider using the uparrow to get to the last thing you entered, which you can then modify by adding `re' (in front of sample)
   CorrectAnswer: resample(Cereal)
   AnswerTests: omnitest(correctExpr='resample(Cereal)')
   Hint: Enter - resample(Cereal)
