@@ -18,10 +18,10 @@
   Hint: We can look in the workspace (upper right pane) to see what the data is called - in this case, it's called Cereal. All we need to do is put that word inside of the head() function. Enter - head(Cereal)
 
 - Class: text
-  Output: There are all sorts of statistics you can use for quantatitive data.  You've seen several of these already - think max, mean, median, mode, standard deviation, etc.
+  Output: There are all sorts of statistics you can use to summarize quantatitive data.  You've seen several of these already - think max, mean, median, mode, standard deviation, etc.
 
 - Class: cmd_question
-  Output: Oftentimes, we may want to look at several of these statistical all at once.  Fortunately, the mosaic package gives us a great function that will do this for us - favstats(). Rather than explain how this works, let's just try it on an example and see. Try it out on the Carbs variable in our dataset - favstats(~Carbs, data=Cereal)
+  Output: Oftentimes, we may want to look at several of these statistics all at once.  Fortunately, the mosaic package gives us a great function that will do this for us - favstats(). Rather than explain how this works, let's just try it on an example and see how it works. Try it out on the Carbs variable in our dataset - favstats(~Carbs, data=Cereal)
   CorrectAnswer: favstats(~Carbs, data=Cereal)
   AnswerTests: omnitest(correctExpr='favstats(~Carbs, data=Cereal)')
   Hint: Enter - favstats(~Carbs, data=Cereal)
@@ -58,7 +58,7 @@
   Hint: • A positive association means that values of one variable tend to be higher when values of the other variable are higher. A negative association means that values of one variable tend to be lower when values of the other variable are higher.W Two variables are not associated if knowing the value of one variable does not give you any information about the value of the other variable
 
 - Class: text
-  Output: Right. We learn later on how to determine if the correlation between variables is statistical significant.  For now, however, we can at least say that there is a positive relationship between these two variables.
+  Output: Right. We'll learn later on how to determine if the correlation between variables is statistical significant.  For now, however, we can at least say that there is a positive association between these two variables.
 
 - Class: figure
   Output: Good work! You've completed Pre-Lab 3.2. An 8-digit code will appear in the console below - enter this code into the appropriate quiz on moodle in order to receive credit. 
