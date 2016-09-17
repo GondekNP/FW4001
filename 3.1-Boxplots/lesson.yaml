@@ -22,7 +22,7 @@
   FigureType: new
 
 - Class: cmd_question
-  Output: Though we could preview this dataset by clicking on its name in our workspace (the upper right hand panel), we're going to preview it using the head() function instead. This function has the advantage of working properly when 'knitted' in an Rmd file (which is what you do after completing lab), so it's a good habit to have! Try it now - use the function head() with the name of the dataset (i.e., Cereal) inside of the parentheses.
+  Output: Though we could preview this dataset by clicking on its name in our workspace (the upper right hand panel), we're going to preview it using the head() function instead. This function has the advantage of working properly when 'knitted' in an Rmd file (which is what you do after completing lab), so it's good to get into the habit of using head() to explore datasets! Try it now - use the function head() with the name of the dataset (i.e., Cereal) inside of the parentheses.
   CorrectAnswer: head(Cereal)
   AnswerTests: omnitest(correctExpr='head(Cereal)')
   Hint: We can look in the workspace (upper right panel) to see what the data is called - in this case, it's called Cereal. All we need to do is put that word inside of the head() function. Enter - head(Cereal).  REMEMBER, R is case sensitive!
@@ -31,19 +31,19 @@
   Output: You'll see that R prints out the first six lines of the data frame for us. Besides the name of the cereal (Name), which is the only other categorical variable in this data set?
   CorrectAnswer: Company
   AnswerTests: omnitest(correctVal='Company')
-  Hint: Which are quantifiable and which are simply different categories? For instance, Sodium is quantitative because it is easily quantifiable - 408 grams of sodium is always more Sodium than 143 grams. On the contrary, with the Names variable, AppleJacks is not more Name than Cap'n Crunch! That doesn't make sense, because the Name of a cereal is not quantifiable - they're just different. 
+  Hint: Which variables are quantifiable and which are used to simply represent different categories? For instance, Sodium is quantitative because it is easily quantifiable - 408 grams of sodium is always more Sodium than 143 grams. On the contrary, with the Names variable, AppleJacks is not more Name than Cap'n Crunch! That doesn't make sense, because the Name of a cereal is not quantifiable - they're just different. 
 
 - Class: text
-  Output: Let's imagine we have a question about the cereal in this dataset. Is there a difference in average calories per serving between the cereals of each company?
+  Output: Let's imagine we have a question about the cereal in this dataset. Is there a difference in average calories per serving between the cereals made by each of the 3 companies?
 
 - Class: cmd_question
-  Output: To accomplish this, we need to look at the variable Calories versus the variable Company. One is quantitative, and one is categorical. In this case, we'll use a box-and-whisker plot (also referred to as a boxplot). Even though you probably haven't made one of these yet, the setup is similar to most other plots - goal(y~x, data=mydata). Try this now - bwplot(Calories~Company, data=Cereal)
+  Output: To accomplish this task, we need to look at the variable Calories versus the variable Company. One is quantitative, and one is categorical. In this case, we'll use a box-and-whisker plot (also referred to as a boxplot). Even though you probably haven't made one of these yet, the setup is similar to most other plots - goal(y~x, data=mydata). Try this now - bwplot(Calories~Company, data=Cereal)
   CorrectAnswer: bwplot(Calories~Company, data=Cereal)
   AnswerTests: omnitest(correctExpr='bwplot(Calories~Company, data=Cereal)')
   Hint: Enter this -  bwplot(Calories~Company, data=Cereal)
 
 - Class: text
-  Output: Looks like their medians may differ slightly, but the ranges overlap quite a bit for the 3 companies. We'll learn in Chapter 8 how to determine if the average caloric content is statistically significantly different amomg the cereals produced by the 3 companies. DFor now, however, a box and whisker plot is a useful way to do some exploratory data analysis.
+  Output: Looks like the median number of calories may differ slightly for the 3 companies, but the ranges overlap quite a bit. We'll learn in Chapter 8 how to determine if these differences are statistically significant.For now, however, a box and whisker plot is a useful way to do some exploratory data analysis.
 
 - Class: cmd_question
   Output: Let's make one more box-and-whisker plot - Try it yourself, modifying your previous code.  Explore whether the Sodium content differs among the different companies!
