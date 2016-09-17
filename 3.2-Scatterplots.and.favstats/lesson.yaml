@@ -7,7 +7,7 @@
   Version: 2.4.2
 
 - Class: figure
-  Output: Now that we've looked at visualizing one quantitative and one categorical variable together (using a box-and-whisker plot, or boxplot), we are going to look at how we can do exploratory data analysis on solely quantitative data.
+  Output: In the previous lesson, we used a box-and-whisker plot (or boxplot) to visualize one quantitative and one categorical variable together. In this lesson, we are going to continue to look at exploratory data analysis tools for quantitative data (one and two variables).
   Figure: cereal.R
   FigureType: new
 
@@ -18,10 +18,10 @@
   Hint: We can look in the workspace (upper right pane) to see what the data is called - in this case, it's called Cereal. All we need to do is put that word inside of the head() function. Enter - head(Cereal)
 
 - Class: text
-  Output: There are all sorts of statistics you can use for quantatitive data, and you've seen many of them already. Think max, mean, median, mode, standard deviation, etc.
+  Output: There are all sorts of statistics you can use for quantatitive data.  You've seen several of these already - think max, mean, median, mode, standard deviation, etc.
 
 - Class: cmd_question
-  Output: Often, when we are exploring our data, we don't really know what statistics we want to look at. Fortunately, the mosaic package gives us a great function that gives us a summary of some quantitative data - favstats(). Rather than explain how this works, let's just try it on an example and see. Try it out on the Carbs variable in our dataset - favstats(~Carbs, data=Cereal)
+  Output: Oftentimes, we may want to look at several of these statistical all at once.  Fortunately, the mosaic package gives us a great function that will do this for us - favstats(). Rather than explain how this works, let's just try it on an example and see. Try it out on the Carbs variable in our dataset - favstats(~Carbs, data=Cereal)
   CorrectAnswer: favstats(~Carbs, data=Cereal)
   AnswerTests: omnitest(correctExpr='favstats(~Carbs, data=Cereal)')
   Hint: Enter - favstats(~Carbs, data=Cereal)
@@ -42,7 +42,7 @@
   Output: Tricky question - since we know that the highest grams per serving of Carbs in our dataset is 47, we have exactly zero cereals with 48 or more grams per serving!
 
 - Class: text
-  Output: Favstats is useful for looking at a single quantatitive variable, but what if we want to look at two different quantitative variables against one another? For example, are more sugary cereals higher in calories?
+  Output: Favstats is useful for looking at a single quantatitive variable, but what if we want to look at the relationship between two different quantitative variables? For example, what if we want to know whether sugary cereals are also higher in calories?
 
 - Class: cmd_question
   Output: In this situation, a quick way to visualize the data would be to use a scatterplot (or an xy-plot, as some call it). Try it now using our above example - xyplot(Sugars~Calories, data=Cereal)
@@ -52,13 +52,13 @@
   
 - Class: mult_question
   Output: Looking at this graph, what can we say about the relationship between Sugars and Calories in this dataset?
-  AnswerChoices: There is a generally positive relationship;There is no relationship;There is a generally negative relationship
+  AnswerChoices: Sugars and Calories are postively associated;There is no relationship between Sugars and Calories;Sugars and Calories are negatively associated
   CorrectAnswer: There is a generally positive relationship
-  AnswerTests: omnitest(correctVal= 'There is a generally positive relationship')
-  Hint: When one goes up, what happens to the other? If they both go up together, it's a positive relationship. If they're inverse, its a negative relationship.
+  AnswerTests: omnitest(correctVal= 'Sugars and Calories are postively associated')
+  Hint: • A positive association means that values of one variable tend to be higher when values of the other variable are higher. A negative association means that values of one variable tend to be lower when values of the other variable are higher.W Two variables are not associated if knowing the value of one variable does not give you any information about the value of the other variable
 
 - Class: text
-  Output: Right. We can't say anything definitively yet without using linear regression (which you'll learn about later on), but we can at least say that there is a relationship between these two variables.
+  Output: Right. We learn later on how to determine if the correlation between variables is statistical significant.  For now, however, we can at least say that there is a positive relationship between these two variables.
 
 - Class: figure
   Output: Good work! You've completed Pre-Lab 3.2. An 8-digit code will appear in the console below - enter this code into the appropriate quiz on moodle in order to receive credit. 
