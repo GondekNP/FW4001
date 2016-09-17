@@ -43,7 +43,7 @@
   Hint: Enter this -  bwplot(Calories~Company, data=Cereal)
 
 - Class: text
-  Output: Looks like the median number of calories may differ slightly for the 3 companies, but the ranges overlap quite a bit. We'll learn in Chapter 8 how to determine if these differences are statistically significant.For now, however, a box and whisker plot is a useful way to do some exploratory data analysis.
+  Output: Looks like the median number of calories may differ slightly for the cereals made by these 3 companies, but the ranges overlap quite a bit. We'll learn in Chapter 8 how to determine if these differences are statistically significant. For now, however, a box and whisker plot is a useful way to do some exploratory data analysis.
 
 - Class: cmd_question
   Output: Let's make one more box-and-whisker plot - Try it yourself, modifying your previous code.  Explore whether the Sodium content differs among the different companies!
