@@ -30,13 +30,13 @@
   Hint: Enter - sample(exampleNumbers
 
 - Class: cmd_question
-  Output: It's mixed up, but each number that we started with is still there. Let's try it again using resample instead!
+  Output: It's mixed up, but each number that we started with is still there. Let's try it again using resample instead!  One quick tip - you can hit the uparrow and then add a 're' before sample to get resample(exampleNumbers).
   CorrectAnswer: resample(exampleNumbers)
   AnswerTests: omnitest(correctExpr='resample(exampleNumbers)')
   Hint: Last time we used sample(exampleNumbers). This time, we use resample(exampleNumbers).
 
 - Class: text
-  Output: This time, while we still have 21 individual numbers, some are repeated and some are left out. This is distinction will become important when we eventually learn about bootstrapping!
+  Output: This time, while we still have 21 individual numbers, some are repeated and some are left out. This distinction will become important when we eventually learn about bootstrapping!
 
 - Class: cmd_question
   Output: sample() and resample() work the same way on data frames as they do on groups of numbers. When a row is selected with sample(), it cannot be selected again (but it can with resample). Try it out on our Cereal data frame - sample(Cereal).  Pay particular notice to the last column, which shows you the row of the original dataframe that each observation came from.
