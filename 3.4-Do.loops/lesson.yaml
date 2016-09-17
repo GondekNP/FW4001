@@ -8,7 +8,7 @@
 
 
 - Class: message
-  Output: You're probably wondering why the difference between sampling and resampling matters - well, you're in luck, because you will finding out this week when you learn about bootstrapping! For now, we're going to look at a critical skill for bootstrapping, the 'do' loop. 
+  Output: You're probably wondering why the difference between sampling and resampling matters - well, you're in luck, because you will be finding out this week when you learn about bootstrapping! For now, we're going to look at a critical tool in R that will facillitate bootstrapping, the 'do' loop. 
   
 - Class: text
   Output: Just to illustrate the power of a do loop, imagine there is a mysterious government agent who gives you 1 cent for each time you can compute 2*2 in R. You can sit there for hours typing 2*2 over and over, but surely there is a better way...
@@ -23,7 +23,7 @@
   Output: You'll see that using do(100)* in front of that expression quite literally 'did' it 100 times. This works for anything you put inside of the parentheses to the right. Now, you wouldn't have to go to college, because your payout is limited only by how huge you make your do loop.
 
 - Class: cmd_question
-  Output: Let's use a more realistic and less lucrative example. Just so we have something to work with, let's generate some data. We'll generate 15 numbers, pulled at random from a normal distribution. We're going to pretend that these numbers are the canopy heights of trees in rural Panama. Enter - bigtrees<-rnorm(n=15,mean=1000,sd=200)  
+  Output: Let's use a more realistic and less lucrative example. Just so we have something to work with, let's generate some data. We'll generate 15 numbers, pulled at random from a normal distribution (this is a bell-shaped distribution that depends on two parameters, a mean and a stadnard deviation - you will learn more about the normal distribution in Chapter 5!). We're going to pretend that these numbers are the canopy heights of trees in rural Panama. Enter - bigtrees<-rnorm(n=15,mean=1000,sd=200)  
   CorrectAnswer: bigtrees<-rnorm(n=15,mean=1000,sd=200)
   AnswerTests: omnitest(correctExpr='bigtrees<-rnorm(n=15,mean=1000,sd=200)')
   Hint: n represents the number of numbers we want, and mean and sd are the mean and sd of our normal distrubution. Enter - bigtrees<-rnorm(n=15,mean=1000,sd=200)
@@ -38,7 +38,7 @@
   Output: Now we'll put all of that previous sampling and resampling experience to use. Let's say that we want to take the mean of a resample (note, with replacement) of our bigtrees data. Each and every time we do this, the mean is going to be slightly different, because resample is going to repeat and exclude different trees.
 
 - Class: cmd_question
-  Output: Doing this by one by one would be possible for small numbers, but it would quickly get out of control if you had to take 100, 1,000, or 1,000,000 resamples. Fortunately, we won't have to do that, because we can use our newest tool - the do loop. Try it now by taking the mean of 10 resamples - do(10)*(mean(resample(bigtrees)))
+  Output: Calculating the mean for each of several resampled groups of observations would be really time consuming if we had to do this one by one. Fortunately, we won't have to do that, because we can use our newest tool - the do loop. Try it now by taking the mean of 10 resamples - do(10)*(mean(resample(bigtrees)))
   CorrectAnswer: do(10)*(mean(resample(bigtrees)))
   AnswerTests: omnitest(correctExpr='do(10)*(mean(resample(bigtrees)))')
   Hint: It's a big ugly chunk of code, make sure you have three right parentheses at the end! Enter - do(10)*(mean(resample(bigtrees)))
@@ -60,7 +60,7 @@
   Hint: The do loop still ran and sampled 10 times, so what else could it be? Don't hurt my feelings, either. 
 
 - Class: text
-  Output: Right - just using sample reordered all the numbers each time, but the mean was the same each time. You may not know it, but you actually just computed a (very small) bootstrap distribution!
+  Output: Right - using sample, we just reordered all of the numbers so the mean was the same each time. You may not realize it, but you've just aquired a skill that will let you quantify uncertainty in your estimates of many population parameters (e.g., population means, proportions, correlation coefficients, etc). 
 
 - Class: figure
   Output: Good work! You've completed Pre-Lab 3.4. An 8-digit code will appear in the console below - enter this code into the appropriate quiz on moodle in order to receive credit. 
