@@ -65,7 +65,7 @@
   Hint: Enter - head(CaffBoot) 
 
 - Class: text
-  Output: Note, if you had typed: do(1000)*(mean(~Taps, data=resample(CaffGroup))) then R would have named the column of bootstrap means 'mean'.  Its always important to see how the column of bootstrap results are labeled!
+  Output: Note, if you had typed do(1000)*mean(~Taps, data=resample(CaffGroup)) then R would have named the column of bootstrap means 'mean'.  Its always important to see how the column of bootstrap results are labeled!
 
 - Class: cmd_question
   Output: You have created your first bootstrap distribution! You'll learn how to calculate a confidence interval using this distribution in the next section, but let's look at a histogram of the bootstrap means. Try it - histogram(~result, data=CaffBoot).
