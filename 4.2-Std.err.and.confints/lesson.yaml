@@ -19,7 +19,7 @@
   Hint: It's important to know that we are NOT dealing with probability here. The truth (the population parameter) is fixed, so the probability of it falling in some interval is either 0 or 1. 
 
 - Class: cmd_question
-  Output: There are three important things we need for a confidence interval. The first is the statistic calculated from the original data.  So, let's save the value of the mean for the original data now. Try it - CaffMean <- mean(~Taps, CaffGroup)
+  Output: There are three important things we need for a confidence interval. The first is the statistic calculated from the original data.  So, let's save the value of the mean for the original data now. Try it - CaffMean <- mean(~Taps, data=CaffGroup)
   CorrectAnswer: CaffMean <- mean(~Taps, data=CaffGroup)
   AnswerTests: omnitest(correctExpr='CaffMean <- mean(~Taps, data=CaffGroup)')
   Hint: Enter - CaffMean <- mean(~Taps, data=CaffGroup)

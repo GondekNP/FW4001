@@ -18,14 +18,14 @@
   Hint: Enter - histogram(~result, data=CaffBoot, v=c(Hi,Lo))
 
 - Class: mult_question
-  Output: Consider the histogram and 95% confidence interval.  Which of the following values for the parameter (the true tap rate for caffeinated students) is plausible??  
+  Output: Consider the histogram and 95% confidence interval.  Which of the following is a plausabile value for the parameter (the true mean tap rate for caffeinated students)?  
   AnswerChoices: 246.6;247.9;252.0
   CorrectAnswer: 247.9
   AnswerTests: omnitest(correctVal='247.9')
   Hint: Which value is between the black lines?
 
 - Class: text
-  Output: It is important to understand that this confidence interval is influenced by our choice for how confident we need to be. By choosing to report a 95% confidence interval, we expect to be right 19 out of 20 times (meaning that only 1 interval out of 20 should NOT contain the true parameter).
+  Output: It is important to understand that this confidence interval is influenced by our choice of confidence level (i.e., by how confident we want to be that our interval contains the population parameter!). By choosing to report a 95% confidence interval, we expect to be right 19 out of 20 times (meaning that only 1 interval out of 20 should NOT contain the true parameter).
   
 - Class: cmd_question
   Output: Let's look at what happens to our interval if we want to be MORE confident - instead of a 95% interval, let's calculate a 99.9% interval. This time, we will have R calculate the interval for us directly from the bootstrap distribution using the confint() function. Try this - HighConfidence<-confint(CaffBoot, level=.999)
