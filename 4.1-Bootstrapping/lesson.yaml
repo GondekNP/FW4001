@@ -35,7 +35,7 @@
   Hint: No need to type anything - just click on CaffeineTaps in the workspace.
 
 - Class: text
-  Output: You'll see that this is a very simple dataset - one categorical variable and one quantitative. Now, let's see if we can get some insight into the question at hand, whether caffeine influences tap rate. Let's look at the difference in means between the two groups.
+  Output: You'll see that this is a very simple dataset - one categorical variable and one quantitative. Now, let's see if we can get some insight into the question at hand, whether caffeine influences tap rate. Let's look at the mean Taps in the two groups.
 
 - Class: cmd_question
   Output: Try it now - mean(Taps~Group, data=CaffeineTaps)
@@ -47,7 +47,7 @@
   Output: Just looking at this doesn't give us much statistical insight... Caffeine does appear to create a higher tap rate, but we have no clue how much variation there is in each group, so that 4 tap difference might be meaningless!
 
 - Class: cmd_question
-  Output: To get a sense of whether this difference is statistically significant, let's make a bootstrap distribution of one of the groups, to see where the mean for the other falls. First, we need to isolate the data we want - in this case, we'll choose the caffeine group. We can use the filter function for this - CaffGroup <- filter(CaffeineTaps,Group=="Caffeine")
+  Output: Lets begin by quantifying our uncertainty in the mean number of Taps for the caffeine group by creating a bootstrap distribution. We can use the filter function to isolate the data from just this group - CaffGroup <- filter(CaffeineTaps,Group=="Caffeine")
   CorrectAnswer: CaffGroup <- filter(CaffeineTaps,Group=="Caffeine")
   AnswerTests: omnitest(correctExpr='CaffGroup <- filter(CaffeineTaps,Group==\"Caffeine\")')
   Hint: Enter - CaffGroup <- filter(CaffeineTaps,Group=="Caffeine")
@@ -59,7 +59,13 @@
   Hint: Enter - CaffBoot <- do(1000)*(mean(~Taps, data=resample(CaffGroup)))
 
 - Class: cmd_question
-  Output: There's your bootstrap distribution! You'll learn how to take a confidence interval using this in the next section, but let's plot it with a histogram just to take a quick look. Try it - histogram(CaffBoot$result)
+  Output: Lets take a look at what we created by looking at the first few rows of the CaffBoot object using the head function. 
+  CorrectAnswer: head(CaffBoot) 
+  AnswerTests: omnitest(correctExpr='head(CaffBoot)')
+  Hint: Enter - head(CaffBoot) 
+
+- Class: cmd_question
+  Output: You have created your first bootstrap distribution! You'll learn how to calcualte a confidence interval using this distribution in the next section, but let's look at a histogram of the bootstrap means. Try it - histogram(~result, data=CaffBoot)
   CorrectAnswer: histogram(~result, data=CaffBoot)
   AnswerTests: omnitest(correctExpr='histogram(~result, data=CaffBoot)')
   Hint: Try it - histogram(~result, data=CaffBoot)
