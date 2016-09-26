@@ -21,9 +21,9 @@
 
 - Class: cmd_question
   Output: Next, we'll use a do loop in tandem with the resample function to create 1000 means of 1000 different resamples of NoCaffGroup. Save this as NoCaffBoot. Try it now (look at what we did in 4.2 for help).
-  CorrectAnswer: NoCaffBoot <- do(1000)*(mean(~Taps, data=resample(NoCaffGroup)))
-  AnswerTests: omnitest(correctExpr='NoCaffBoot <- do(1000)*(mean(~Taps, data=resample(NoCaffGroup)))', strict=FALSE)
-  Hint: This is a complicated line of code. Inside the do() function (which creates the do loop), we put the number of simulations we want, in this case 1000. Then, inside a new set of parentheses seperated by a * symbol, we'll put mean(~Taps, data=resample(NoCaffGroup)). This chunk will create 1000 resamples of the data, and take the mean tap rate, which is exactly what we want. All we need now is to save it as NoCaffBoot. Putting it together - NoCaffBoot <- do(1000)*(mean(~Taps, data=resample(NoCaffGroup)))
+  CorrectAnswer: NoCaffBoot <- do(1000)*{mean(~Taps, data=resample(NoCaffGroup))}
+  AnswerTests: omnitest(correctExpr='NoCaffBoot <- do(1000)*{mean(~Taps, data=resample(NoCaffGroup))}', strict=FALSE)
+  Hint: This is a complicated line of code. Inside the do() function (which creates the do loop), we put the number of simulations we want, in this case 1000. Then, inside a new set of "{" and "}" seperated by a * symbol, we'll put mean(~Taps, data=resample(NoCaffGroup)). This chunk will create 1000 resamples of the data, and take the mean tap rate, which is exactly what we want. All we need now is to save it as NoCaffBoot. Putting it together - NoCaffBoot <- do(1000)*{mean(~Taps, data=resample(NoCaffGroup))}
 
 - Class: cmd_question
   Output: Now, using the confint command and NoCaffBoot, calculate a 98% confidence interval. No need to save this as anything.

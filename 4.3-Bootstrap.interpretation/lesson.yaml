@@ -34,10 +34,16 @@
   Hint: Enter - HighConfidence<-confint(CaffBoot, level=.999)
 
 - Class: cmd_question
-  Output: Now, let's plot the same histogram using this more confident interval. Enter this - histogram(~result, data=CaffBoot, v=HighConfidence)
-  CorrectAnswer: histogram(~result, data=CaffBoot, v=HighConfidence)
-  AnswerTests: omnitest(correctExpr='histogram(~result, data=CaffBoot, v=HighConfidence)')
-  Hint: Enter - histogram(~result, data=CaffBoot, v=HighConfidence)
+  Output: Let's look at the output. Type HighConfidence. 
+  CorrectAnswer: HighConfidence
+  AnswerTests: omnitest(correctExpr='HighConfidence')
+  Hint: Enter - HighConfidence
+
+- Class: cmd_question
+  Output: Now, let's plot the same histogram using this more confident interval. Enter this - histogram(~result, data=CaffBoot, v=c(HighConfidence$lower, HighConfidence$upper))
+  CorrectAnswer: histogram(~result, data=CaffBoot, v=c(HighConfidence$lower, HighConfidence$upper))
+  AnswerTests: omnitest(correctExpr='histogram(~result, data=CaffBoot, v=c(HighConfidence$lower, HighConfidence$upper))')
+  Hint: Enter - histogram(~result, data=CaffBoot, v=c(HighConfidence$lower, HighConfidence$upper))
 
 - Class: text
   Output: The 99.9% confidence interval is much wider! We are now more confident that our interval will capture the true parameter, but we pay the price of having a wider interval!
