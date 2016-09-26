@@ -7,14 +7,14 @@
   Version: 2.4.2
 
 - Class: text
-  Output: Welcome to Pre-lab 4! In this section, we're going to calculate a couple bootstrap distributions and confidence intervals. 
+  Output: Welcome to Pre-lab 4! In this section, we're going to calculate a couple of bootstrap distributions and confidence intervals. 
 
 - Class: mult_question
-  Output: Just as a review, let's recall what exactly we're doing when we create a bootstrap distribution. We take a data set of size 'n', and do what with it?
-  AnswerChoices: Take 'n' samples from it, with replacement (any individual observation can be chosen many times); Take 'n' samples from it, without replacement (any individual observation can only be chosen once)
-  CorrectAnswer: Take 'n' samples from it, with replacement (any individual observation can be chosen many times)
+  Output: Just as a review, let's recall what we do to create a bootstrap distribution. We take a data set of size 'n', and do what with it?
+  AnswerChoices: Randomly choose 'n' observations with replacement (any individual observation can be chosen many times); Randomly choose'n' observations without replacement (any individual observation can only be chosen once)
+  CorrectAnswer: Randomly choose 'n' observations with replacement (any individual observation can be chosen many times)
   AnswerTests: omnitest(correctVal= 'Take \'n\' samples from it, with replacement (any individual observation can be chosen many times)')
-  Hint: Try again - if we took 'n' samples without replacement from a data set of size 'n', we'd have the exact same data every time!
+  Hint: Try again - if we took a random sample of 'n' observations without replacement from a data set of size 'n', we'd have the exact same data every time!
   
 - Class: mult_question
   Output: Great. To that effect, which function would we use to take this sample (with replacement)?
@@ -47,7 +47,7 @@
   Output: Just looking at this doesn't give us much statistical insight... Caffeine does appear to create a higher tap rate, but we have no clue how much variation there is in each group, so that 4 tap difference might be meaningless!
 
 - Class: cmd_question
-  Output: To get a sense of whether this difference matters whatsoever, let's make a bootstrap distribution of one of the groups, to see where the mean for the other falls. First, we need to isolate the data we want - in this case, we'll choose the caffeine group. We can use the filter function for this - CaffGroup <- filter(CaffeineTaps,Group=="Caffeine")
+  Output: To get a sense of whether this difference is statistically significant, let's make a bootstrap distribution of one of the groups, to see where the mean for the other falls. First, we need to isolate the data we want - in this case, we'll choose the caffeine group. We can use the filter function for this - CaffGroup <- filter(CaffeineTaps,Group=="Caffeine")
   CorrectAnswer: CaffGroup <- filter(CaffeineTaps,Group=="Caffeine")
   AnswerTests: omnitest(correctExpr='CaffGroup <- filter(CaffeineTaps,Group==\"Caffeine\")')
   Hint: Enter - CaffGroup <- filter(CaffeineTaps,Group=="Caffeine")
@@ -60,9 +60,9 @@
 
 - Class: cmd_question
   Output: There's your bootstrap distribution! You'll learn how to take a confidence interval using this in the next section, but let's plot it with a histogram just to take a quick look. Try it - histogram(CaffBoot$result)
-  CorrectAnswer: histogram(CaffBoot$result)
-  AnswerTests: omnitest(correctExpr='histogram(CaffBoot$result)')
-  Hint: Try it - histogram(CaffBoot$result)
+  CorrectAnswer: histogram(~result, data=CaffBoot)
+  AnswerTests: omnitest(correctExpr='histogram(~result, data=CaffBoot)')
+  Hint: Try it - histogram(~result, data=CaffBoot)
   
 - Class: text
   Output: We can see that our distribution is centered at the mean for the caffeine group, 248.3. We'll do some more analysis in the next section!

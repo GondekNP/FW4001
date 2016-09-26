@@ -20,15 +20,15 @@
 
 - Class: cmd_question
   Output: There are three important things we need for a confidence interval. The first is the mean of the distribution of interest. So, let's save that value now. Try it - CaffMean <- mean(CaffBoot$result)
-  CorrectAnswer: CaffMean <- mean(CaffBoot$result)
-  AnswerTests: omnitest(correctExpr='CaffMean <- mean(CaffBoot$result)')
-  Hint: Enter - CaffMean <- mean(CaffBoot$result)
+  CorrectAnswer: CaffMean <- mean(~result, data=CaffBoot)
+  AnswerTests: omnitest(correctExpr='CaffMean <- mean(~result, data=CaffBoot)')
+  Hint: Enter - CaffMean <- mean(~result, data=CaffBoot)
 
 - Class: cmd_question
   Output: Second, we need to calculate the standard deviation of the distribution of interest. The setup will be identical to the code for the mean that we calculated, we just need to change the function mean() to sd(). Call this object CaffSD.
-  CorrectAnswer: CaffSD <- sd(CaffBoot$result)
-  AnswerTests: omnitest(correctExpr='CaffSD <- sd(CaffBoot$result)')
-  Hint: Try this - CaffSD <- sd(CaffBoot$result)
+  CorrectAnswer: CaffSD <- sd(~result, data=CaffBoot)
+  AnswerTests: omnitest(correctExpr='CaffSD <- sd(~result, data=CaffBoot)')
+  Hint: Try this - CaffSD <- sd(~result, data=CaffBoot)
 
 - Class: cmd_question
   Output: For a 95% confidence interval, we can use the following formula - statistic +/- (2 * sd). In this case, our statistic is CaffMean (the mean tap rate of caffeinated individuals). Our sd is the sd we computed earlier, CaffSD. Putting it all together, let's compute the upper value of the confidence interval - Hi <- CaffMean + 2 * CaffSD

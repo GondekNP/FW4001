@@ -27,19 +27,19 @@
 
 - Class: cmd_question
   Output: Now, using the confint command and NoCaffBoot$result, calculate a 98% confidence interval. No need to save this as anything.
-  CorrectAnswer: confint(NoCaffBoot$result, level=.98)
-  AnswerTests: omnitest(correctExpr='confint(NoCaffBoot$result, level=.98)', strict=FALSE)
+  CorrectAnswer: confint(NoCaffBoot, level=.98)
+  AnswerTests: omnitest(correctExpr='confint(NoCaffBoot, level=.98)', strict=FALSE)
   Hint: All we need here is confint(), the data of interest (NoCaffBoot$result), and a confidence level (.98). Look at 4.3 for an example of how we calculated this interval for the CaffGroup. 
 
 - Class: mult_question
   Output: Great! Now, using this confidence interval, what can we say about the tap rate 242?
-  AnswerChoices: It cannot be the parameter at the 98% confidence level;It can be the parameter at the 98% confidence level
-  CorrectAnswer: It cannot be the parameter at the 98% confidence level
-  AnswerTests: omnitest(correctVal= 'It cannot be the parameter at the 98% confidence level')
-  Hint: Is 242 between our lower and upper confidence values?
+  AnswerChoices: histogram(CaffBoot$result, v=HighConfidence);It is a plausible value for the parameter at the 98% confidence level
+  CorrectAnswer: histogram(CaffBoot$result, v=HighConfidence)
+  AnswerTests: omnitest(correctVal= 'histogram(CaffBoot$result, v=HighConfidence)')
+  Hint: Is 242 between our lower and upper confidence limits?
 
 - Class: text
-  Output: Exactly. Despite it being challenging, bootstrapping is a very important tool for create confidence intervals for all sorts of statistics!
+  Output: Exactly. Bootstrapping is a very important tool for creating confidence intervals for all sorts of statistics!
   
   
 - Class: figure
