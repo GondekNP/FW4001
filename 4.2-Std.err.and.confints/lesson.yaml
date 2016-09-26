@@ -20,9 +20,9 @@
 
 - Class: cmd_question
   Output: There are three important things we need for a confidence interval. The first is the statistic calculated from the original data.  So, let's save the value of the mean for the original data now. Try it - CaffMean <- mean(~Taps, CaffGroup)
-  CorrectAnswer: CaffMean <- mean(~Taps, CaffGroup)
-  AnswerTests: omnitest(correctExpr='CaffMean <- mean(~Taps, CaffGroup)')
-  Hint: Enter - CaffMean <- mean(~Taps, CaffGroup)
+  CorrectAnswer: CaffMean <- mean(~Taps, data=CaffGroup)
+  AnswerTests: omnitest(correctExpr='CaffMean <- mean(~Taps, data=CaffGroup)')
+  Hint: Enter - CaffMean <- mean(~Taps, data=CaffGroup)
 
 - Class: cmd_question
   Output: Second, we need to calculate the standard deviation of the bootstrap distribution (in other words, the Standard Error!). Call this object CaffSD. CaffSD <- sd(~result, data=CaffBoot)
