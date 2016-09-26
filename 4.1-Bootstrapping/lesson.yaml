@@ -7,13 +7,13 @@
   Version: 2.4.2
 
 - Class: text
-  Output: Welcome to Pre-lab 4! In this section, we're going to calculate a couple of bootstrap distributions and confidence intervals. 
+  Output: Welcome to Pre-lab 4! In this section, we're going to create a couple of bootstrap distributions and confidence intervals. 
 
 - Class: mult_question
   Output: Just as a review, let's recall what we do to create a bootstrap distribution. We take a data set of size 'n', and do what with it?
   AnswerChoices: Randomly choose 'n' observations with replacement (any individual observation can be chosen many times); Randomly choose'n' observations without replacement (any individual observation can only be chosen once)
   CorrectAnswer: Randomly choose 'n' observations with replacement (any individual observation can be chosen many times)
-  AnswerTests: omnitest(correctVal= 'Take \'n\' samples from it, with replacement (any individual observation can be chosen many times)')
+  AnswerTests: omnitest(correctVal= 'Randomly choose \'n\' observations with replacement (any individual observation can be chosen many times)')
   Hint: Try again - if we took a random sample of 'n' observations without replacement from a data set of size 'n', we'd have the exact same data every time!
   
 - Class: mult_question
