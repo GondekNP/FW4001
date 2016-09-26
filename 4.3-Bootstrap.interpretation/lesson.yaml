@@ -12,7 +12,7 @@
   FigureType: new
   
 - Class: cmd_question
-  Output: Let's graph what we just did in order to see where our interval falls. This time, we will plot the bootstrap means, and add vertical lines at our lower and upper confidence interval values. Try it - histogram(CaffBoot$result, v=c(Hi,Lo))
+  Output: Let's add our interval to the histogram of bootstrap means to see where our interval falls relative to the rest of the bootstrap distribution. This time, we will plot the bootstrap means, and add vertical lines at our lower and upper confidence interval values. Try it - histogram(~result, data=CaffBoot, v=c(Hi,Lo))
   CorrectAnswer: histogram(~result, data=CaffBoot, v=c(Hi,Lo))
   AnswerTests: omnitest(correctExpr='histogram(~result, data=CaffBoot, v=c(Hi,Lo))')
   Hint: Enter - histogram(~result, data=CaffBoot, v=c(Hi,Lo))
@@ -30,11 +30,11 @@
 - Class: cmd_question
   Output: Let's look at what happens to our interval if we want to be MORE confident - instead of a 95% interval, let's calculate a 99.9% interval. This time, we will have R calculate the interval for us directly from the bootstrap distribution using the confint() function. Try this - HighConfidence<-confint(CaffBoot, level=.999)
   CorrectAnswer: HighConfidence<-confint(CaffBoot, level=.999)
-  AnswerTests: omnitest(correctExpr='HighConfidence<-confint(CaffBoot$result, level=.999)')
+  AnswerTests: omnitest(correctExpr='HighConfidence<-confint(CaffBoot, level=.999)')
   Hint: Enter - HighConfidence<-confint(CaffBoot, level=.999)
 
 - Class: cmd_question
-  Output: Now, let's plot the same histogram using this more confident interval. Enter this - histogram(CaffBoot$result, v=HighConfidence)
+  Output: Now, let's plot the same histogram using this more confident interval. Enter this - histogram(~result, data=CaffBoot, v=HighConfidence)
   CorrectAnswer: histogram(~result, data=CaffBoot, v=HighConfidence)
   AnswerTests: omnitest(correctExpr='histogram(~result, data=CaffBoot, v=HighConfidence)')
   Hint: Enter - histogram(~result, data=CaffBoot, v=HighConfidence)
@@ -43,7 +43,7 @@
   Output: The 99.9% confidence interval is much wider! We are now more confident that our interval will capture the true parameter, but we pay the price of having a wider interval!
 
 - Class: mult_question
-  Output: Using a 95% confidence interval, you decided that 246.6 could NOT be the population parameter. Using this new interval, where does 246.6 fall?
+  Output: Using a 95% confidence interval, you decided that 246.6 was not a plausible population parameter. Using this new interval, where does 246.6 fall?
   AnswerChoices: Inside the interval;Outside the interval
   CorrectAnswer: Inside the interval
   AnswerTests: omnitest(correctVal= 'Inside the interval')

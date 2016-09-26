@@ -11,7 +11,7 @@
   Output: Now that we've learned how to create a bootstrap distribution and make a confidence interval, we're going to go through the process using the NoCaffeine group of the CaffeineTaps dataset.
 
 - Class: text
-  Output: There are many ways to create and analyze bootstrap distributions in R, but in this pre-lab, we did the following - 1) Isolate the data of interest using filter(), 2) Use a do loop to compute a statistic on many resamples of the data of interest, and 3) Analyze the data using a confidence interval.
+  Output: There are many ways to create and analyze bootstrap distributions in R, but in this pre-lab, we did the following - 1) Isolate the data of interest using filter(), 2) Use a do loop to compute a statistic on many resamples of the data of interest, and 3) use the bootstrap distribution to calculate a confidence interval.
 
 - Class: cmd_question
   Output: So, now we want to isolate the NoCaffeine group from CaffeineTaps using filter.  We'll call this data NoCaffGroup. Try that now!
@@ -26,16 +26,16 @@
   Hint: This is a complicated line of code. Inside the do() function (which creates the do loop), we put the number of simulations we want, in this case 1000. Then, inside a new set of parentheses seperated by a * symbol, we'll put mean(~Taps, data=resample(NoCaffGroup)). This chunk will create 1000 resamples of the data, and take the mean tap rate, which is exactly what we want. All we need now is to save it as NoCaffBoot. Putting it together - NoCaffBoot <- do(1000)*(mean(~Taps, data=resample(NoCaffGroup)))
 
 - Class: cmd_question
-  Output: Now, using the confint command and NoCaffBoot$result, calculate a 98% confidence interval. No need to save this as anything.
+  Output: Now, using the confint command and NoCaffBoot, calculate a 98% confidence interval. No need to save this as anything.
   CorrectAnswer: confint(NoCaffBoot, level=.98)
   AnswerTests: omnitest(correctExpr='confint(NoCaffBoot, level=.98)', strict=FALSE)
   Hint: All we need here is confint(), the data of interest (NoCaffBoot$result), and a confidence level (.98). Look at 4.3 for an example of how we calculated this interval for the CaffGroup. 
 
 - Class: mult_question
   Output: Great! Now, using this confidence interval, what can we say about the tap rate 242?
-  AnswerChoices: histogram(CaffBoot$result, v=HighConfidence);It is a plausible value for the parameter at the 98% confidence level
-  CorrectAnswer: histogram(CaffBoot$result, v=HighConfidence)
-  AnswerTests: omnitest(correctVal= 'histogram(CaffBoot$result, v=HighConfidence)')
+  AnswerChoices: It is NOT a plausible value for the parameter at the 98% confidence level;It is a plausible value for the parameter at the 98% confidence level
+  CorrectAnswer: It is NOT a plausible value for the parameter at the 98% confidence level
+  AnswerTests: omnitest(correctVal= 'It is NOT a plausible value for the parameter at the 98% confidence level')
   Hint: Is 242 between our lower and upper confidence limits?
 
 - Class: text
