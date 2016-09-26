@@ -7,7 +7,7 @@
   Version: 2.4.2
 
 - Class: text
-  Output: Welcome to Pre-lab 4! In this section, we're going to look at the difference between randomization and bootstrap distributions. 
+  Output: Welcome to Pre-lab 4! In this section, we're going to calculate a couple bootstrap distributions and confidence intervals. 
 
 - Class: mult_question
   Output: Just as a review, let's recall what exactly we're doing when we create a bootstrap distribution. We take a data set of size 'n', and do what with it?

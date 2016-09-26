@@ -1,6 +1,6 @@
 - Class: meta
   Course: Biometry
-  Lesson: 3.2 - Scatterplots and favstats
+  Lesson: 4.3 - Bootstrap interpretation
   Author: Nick Gondek
   Type: Standard
   Organization: University of Minnesota
@@ -60,6 +60,6 @@
   Output: Right - if we don't need to be too confident that our parameter is inside the interval, we will get a much more precise interval. In many contexts (for better or worse) 95% confidence is standard. 
 
 - Class: figure
-  Output: Good work! You've completed Pre-Lab 3.2. An 8-digit code will appear in the console below - enter this code into the appropriate quiz on moodle in order to receive credit. 
+  Output: Good work! You've completed Pre-Lab 4.2. An 8-digit code will appear in the console below - enter this code into the appropriate quiz on moodle in order to receive credit. 
   Figure: c.R
   FigureType: new
