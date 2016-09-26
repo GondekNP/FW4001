@@ -1,0 +1,51 @@
+- Class: meta
+  Course: Biometry
+  Lesson: 4.2 - Standard error and confidence intervals
+  Author: Nick Gondek
+  Type: Standard
+  Organization: University of Minnesota
+  Version: 2.4.2
+
+- Class: figure
+  Output: In this section, we'll look at a few ways that we can construct confidence intervals from a bootstrap distribution. We'll use the same distribution we made in 4.1, CaffBoot. 
+  Figure: caffeine.R
+  FigureType: new
+
+- Class: mult_question
+  Output: Let's think for a moment about what we're actually trying to accomplish when constructing a confidence interval. A 95% confidence interval describes what, exactly, in this case? 
+  AnswerChoices: We are 95% confident that the truth (true mean tap rate for the caffeinated group) is contained in this interval.; There is a 95% chance that the truth (true mean tap rate for the caffeinated group) falls in this interval.
+  CorrectAnswer: We are 95% confident that the truth (true mean tap rate for the caffeinated group) is contained in this interval.
+  AnswerTests: omnitest(correctVal='We are 95% confident that the truth (true mean tap rate for the caffeinated group) is contained in this interval.')
+  Hint: It's important to know that we are NOT dealing with probability here. The truth (the population parameter) is fixed, so the probability of it falling in some interval is either 0 or 1. 
+
+- Class: cmd_question
+  Output: There are three important things we need for a confidence interval. The first is the mean of the distribution of interest. So, let's save that value now. Try it - CaffMean <- mean(CaffBoot$result)
+  CorrectAnswer: CaffMean <- mean(CaffBoot$result)
+  AnswerTests: omnitest(correctExpr='CaffMean <- mean(CaffBoot$result)')
+  Hint: Enter - CaffMean <- mean(CaffBoot$result)
+
+- Class: cmd_question
+  Output: Second, we need to calculate the standard deviation of the distribution of interest. The setup will be identical to the code for the mean that we calculated, we just need to change the function mean() to sd(). Call this object CaffSD.
+  CorrectAnswer: CaffSD <- sd(CaffBoot$result)
+  AnswerTests: omnitest(correctExpr='CaffSD <- sd(CaffBoot$result)')
+  Hint: Try this - CaffSD <- sd(CaffBoot$result)
+
+- Class: cmd_question
+  Output: For a 95% confidence interval, we can use the following formula - statistic +/- (2 * sd). In this case, our statistic is CaffMean (the mean tap rate of caffeinated individuals). Our sd is the sd we computed earlier, CaffSD. Putting it all together, let's compute the upper value of the confidence interval - Hi <- CaffMean + 2 * CaffSD
+  CorrectAnswer: Hi <- CaffMean + 2 * CaffSD
+  AnswerTests: omnitest(correctExpr='Hi <- CaffMean + 2 * CaffSD', strict=FALSE)
+  Hint: Enter - Hi <- CaffMean + 2 * CaffSD
+
+- Class: cmd_question
+  Output: Now, let's compute the lower bound using the same formula, subtracting the 2 * sd term instead of adding it. Save this to an object called Lo. 
+  CorrectAnswer: Lo <- CaffMean - 2 * CaffSD
+  AnswerTests: omnitest(correctExpr='Lo <- CaffMean - 2 * CaffSD', strict=FALSE)
+  Hint: Last time, we used this code - Hi <- CaffMean + 2 * CaffSD. Instead of adding, we need to subtract, and we need to call this value Lo instead of Hi. 
+
+- Class: text
+  Output: Now we have the upper and lower bound of the 95% confidence interval of interest. In the next section, we'll what we can say with these values, and how our desired level of confidence might change them. 
+
+- Class: figure
+  Output: Good work! You've completed Pre-Lab 4.2. An 8-digit code will appear in the console below - enter this code into the appropriate quiz on moodle in order to receive credit. 
+  Figure: c.R
+  FigureType: new

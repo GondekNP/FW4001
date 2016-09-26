@@ -1,0 +1,65 @@
+- Class: meta
+  Course: Biometry
+  Lesson: 3.2 - Scatterplots and favstats
+  Author: Nick Gondek
+  Type: Standard
+  Organization: University of Minnesota
+  Version: 2.4.2
+
+- Class: figure
+  Output: Now that we have a 95% confidence interval, let's see what we can actually say about our data. 
+  Figure: caffeine.R
+  FigureType: new
+  
+- Class: cmd_question
+  Output: Let's graph what we just did in order to see where our interval falls. This time, we will plot the bootstrap means, and add vertical lines at our lower and upper confidence interval values. Try it - histogram(CaffBoot$result, v=c(Hi,Lo))
+  CorrectAnswer: histogram(CaffBoot$result, v=c(Hi,Lo))
+  AnswerTests: omnitest(correctExpr='histogram(CaffBoot$result, v=c(Hi,Lo))')
+  Hint: Enter - histogram(CaffBoot$result, v=c(Hi,Lo))
+
+- Class: mult_question
+  Output: Assuming that the experiment was properly controlled, the parameter (the true tap rate for caffeinated students) falls between these two black lines. Which of the following tap rates could be the parameter?  
+  AnswerChoices: 246.6;247.9;252.0
+  CorrectAnswer: 247.9
+  AnswerTests: omnitest(correctVal='247.9')
+  Hint: Which value is between the black lines?
+
+- Class: text
+  Output: It is important to know that this confidence interval is influenced by our own decision on how confident we need to be. Our interval is based on 95% confidence, meaning that about 1 in every 20 intervals we create will NOT contain the true parameter. 
+
+- Class: cmd_question
+  Output: Let's look at what happens to our interval if we want to be MORE confident - instead of a 95% interval, let's calculate a 99.9% interval. Instead of doing what we did before to calculate an interval, we'll use the confint() function. Try this - HighConfidence<-confint(CaffBoot$result, level=.999)
+  CorrectAnswer: HighConfidence<-confint(CaffBoot$result, level=.999)
+  AnswerTests: omnitest(correctExpr='HighConfidence<-confint(CaffBoot$result, level=.999)')
+  Hint: Enter - HighConfidence<-confint(CaffBoot$result, level=.999)
+
+- Class: cmd_question
+  Output: Now, let's plot the same histogram using this more confident interval. Enter this - histogram(CaffBoot$result, v=HighConfidence)
+  CorrectAnswer: histogram(CaffBoot$result, v=HighConfidence)
+  AnswerTests: omnitest(correctExpr='histogram(CaffBoot$result, v=HighConfidence)')
+  Hint: Enter - histogram(CaffBoot$result, v=HighConfidence)
+
+- Class: text
+  Output: The confidence interval widened out! We are now more confident that the parameter falls between our two lines, but as a result, we have a less precise interval.
+
+- Class: mult_question
+  Output: Using a 95% confidence interval, you decided that 246.6 could NOT be the population parameter. Using this new interval, where does 246.6 fall?
+  AnswerChoices: Inside the interval;Outside the interval
+  CorrectAnswer: Inside the interval
+  AnswerTests: omnitest(correctVal= 'Inside the interval')
+  Hint: There is one bin where 246.6 would be on this histogram. Is that bin on the inside of the interval or the outside?
+
+- Class: mult_question
+  Output: What would happen if we created and plotted a 70% confidence interval? Ie - confint(CaffBoot$result, level=.70)
+  AnswerChoices: The interval would get wider;The interval would get narrower
+  CorrectAnswer: The interval would get narrower
+  AnswerTests: omnitest(correctVal='The interval would get narrower')
+  Hint: Our more confident interval was wider than the original 95% confidence interval. Now that we are lowering our confidence, what should happen to the interval?
+
+- Class: text
+  Output: Right - if we don't need to be too confident that our parameter is inside the interval, we will get a much more precise interval. In many contexts (for better or worse) 95% confidence is standard. 
+
+- Class: figure
+  Output: Good work! You've completed Pre-Lab 3.2. An 8-digit code will appear in the console below - enter this code into the appropriate quiz on moodle in order to receive credit. 
+  Figure: c.R
+  FigureType: new

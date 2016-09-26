@@ -1,0 +1,49 @@
+- Class: meta
+  Course: Biometry
+  Lesson: 4.4 - Bootstrap practice
+  Author: Nick Gondek
+  Type: Standard
+  Organization: University of Minnesota
+  Version: 2.4.2
+
+
+- Class: text
+  Output: Now that we've learned how to create a bootstrap distribution and make a confidence interval, we're going to go through the process using the NoCaffeine group of the CaffeineTaps dataset.
+
+- Class: text
+  Output: There are many ways to create and analyze bootstrap distributions in R, but in this pre-lab, we did the following - 1) Isolate the data of interest using filter(), 2) Use a do loop to compute a statistic on many resamples of the data of interest, and 3) Analyze the data using a confidence interval.
+
+- Class: cmd_question
+  Output: So, now we want to isolate the NoCaffeine group from CaffeineTaps using filter.  We'll call this data NoCaffGroup. Try that now!
+  CorrectAnswer: NoCaffGroup <- filter(CaffeineTaps, Group=="NoCaffeine")
+  AnswerTests: omnitest(correctExpr=' NoCaffGroup <- filter(CaffeineTaps, Group==\"NoCaffeine\")', strict=FALSE)
+  Hint: Try this format. We want to call this new dataset NoCaffGroup, so we start with NoCaffGroup <- . After that, we want to use the filter function on the original data, CaffeineTaps, filtering using the Group variable. So, we want to enter -  NoCaffGroup <- filter(CaffeineTaps, Group=="NoCaffeine")
+
+- Class: cmd_question
+  Output: Next, we'll use a do loop in tandem with the resample function to create 1000 means of 1000 different resamples of NoCaffGroup. Save this as NoCaffBoot. Try it now (look at what we did in 4.2 for help).
+  CorrectAnswer: NoCaffBoot <- do(1000)*(mean(~Taps, data=resample(NoCaffGroup)))
+  AnswerTests: omnitest(correctExpr='NoCaffBoot <- do(1000)*(mean(~Taps, data=resample(NoCaffGroup)))', strict=FALSE)
+  Hint: This is a complicated line of code. Inside the do() function (which creates the do loop), we put the number of simulations we want, in this case 1000. Then, inside a new set of parentheses seperated by a * symbol, we'll put mean(~Taps, data=resample(NoCaffGroup)). This chunk will create 1000 resamples of the data, and take the mean tap rate, which is exactly what we want. All we need now is to save it as NoCaffBoot. Putting it together - NoCaffBoot <- do(1000)*(mean(~Taps, data=resample(NoCaffGroup)))
+
+- Class: cmd_question
+  Output: Now, using the confint command and NoCaffBoot$result, calculate a 98% confidence interval. No need to save this as anything.
+  CorrectAnswer: confint(NoCaffBoot$result, level=.98)
+  AnswerTests: omnitest(correctExpr='confint(NoCaffBoot$result, level=.98)', strict=FALSE)
+  Hint: All we need here is confint(), the data of interest (NoCaffBoot$result), and a confidence level (.98). Look at 4.3 for an example of how we calculated this interval for the CaffGroup. 
+
+- Class: mult_question
+  Output: Great! Now, using this confidence interval, what can we say about the tap rate 242?
+  AnswerChoices: It cannot be the parameter at the 98% confidence level;It can be the parameter at the 98% confidence level
+  CorrectAnswer: It cannot be the parameter at the 98% confidence level
+  AnswerTests: omnitest(correctVal= 'It cannot be the parameter at the 98% confidence level')
+  Hint: Is 242 between our lower and upper confidence values?
+
+- Class: text
+  Output: Exactly. Despite it being challenging, bootstrapping is a very important tool for create confidence intervals for all sorts of statistics!
+  
+  
+- Class: figure
+  Output: Good work! You've completed Pre-Lab 3.4. An 8-digit code will appear in the console below - enter this code into the appropriate quiz on moodle in order to receive credit. 
+  Figure: c.R
+  FigureType: new
+
