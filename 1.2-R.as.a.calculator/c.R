@@ -15,4 +15,4 @@ if(sum(.getState()$log$skipped)<1 && !is.null(.getState()$log$skipped) && !ident
       .lt=.getState()$log$user
       .ls=as.numeric(strsplit(x=.getState()$log$lesson, split="")[[1]][3])
       .lp=as.numeric(strsplit(x=.getState()$log$lesson, split="")[[1]][1])
-      print(.ver(.lt, .lp, .ls))} else {print("No skipping questions!")}
+      print(.ver(.lt, .lp, .ls))}
