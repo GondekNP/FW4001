@@ -18,7 +18,7 @@
   Hint: Enter - histogram(~result, data=CaffBoot, v=c(Hi,Lo))
 
 - Class: mult_question
-  Output: Consider the histogram and 95% confidence interval.  Which of the following is a plausabile value for the parameter (the true mean tap rate for caffeinated students)?  
+  Output: Consider the histogram and 95% confidence interval.  Which of the following is a plausible value for the parameter (the true mean tap rate for caffeinated students)?  
   AnswerChoices: 246.6;247.9;252.0
   CorrectAnswer: 247.9
   AnswerTests: omnitest(correctVal='247.9')

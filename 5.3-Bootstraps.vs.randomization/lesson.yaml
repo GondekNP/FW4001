@@ -1,0 +1,74 @@
+- Class: meta
+  Course: Biometry
+  Lesson: 5.3 - Bootstraps vs Randomization
+  Author: Nick Gondek
+  Type: Standard
+  Organization: University of Minnesota
+  Version: 2.4.2
+
+- Class: figure
+  Output: In this section, we'll look at some of the differences and connections between randomization and bootstrap distributions. 
+  Figure: caffeine.R
+  FigureType: new
+
+- Class: cmd_question
+  Output: Superficially, bootstrap and randomization distributions look quite similar, but it is important to know the differences. Let's take a look at our Randomization Distribution from the last section to look at some of its features - histogram(~diffmean, data=RandDist)
+  CorrectAnswer: histogram(~diffmean, data=RandDist)
+  AnswerTests: omnitest(correctExpr='histogram(~diffmean, data=RandDist)')
+  Hint: Enter - histogram(~diffmean, data=RandDist)
+
+- Class: mult_question
+  Output: One of the most important things to notice about the Randomization Distribution is where it is centered. On what value is this distribution centered?
+  AnswerChoices: 0;-2;2
+  CorrectAnswer: 0
+  AnswerTests: omnitest(correctVal='0')
+  Hint: Where is the peak of this distribution?
+
+- Class: text_question
+  Output: This may seem trivial, but think about it for a moment - the distribution being centered at zero means that about half of the values are negative. If this was a bootstrap distribution of the tap rate, for example, this wouldn't make any sense! We can't measure a negative tap rate. Further, what is the label on the x-axis?
+  CorrectAnswer: diffmean
+  AnswerTests: omnitest(correctVal='diffmean')
+  Hint: What is the label on the horizonatal (x) axis?
+
+- Class: figure
+  Output: Right. While you CAN take a bootstrap distribution of a statistic like diffmean, it would be unlikely to be centered at exactly 0 unless there was absolutely no difference between the two groups. 
+  Figure: caffboot.R
+  FigureType: new
+
+- Class: cmd_question
+  Output: I've loaded in the bootstrap distribution you made for pre-lab 4, of the mean tap rate for the Caffeine group. Let's take a look using a histogram - the data is called CaffBoot.
+  CorrectAnswer: histogram(~mean, data=CaffBoot)
+  AnswerTests: omnitest(correctExpr='histogram(~mean, data=CaffBoot)')
+  Hint: We want to plot the mean values inside the data fram CaffBoot. Try using the histogram() function in a very similar fashion to the randomization distribution we plotted above. 
+
+- Class: mult_question
+  Output: On what value is this distribution centered?
+  AnswerChoices: About 248.3; About 249; About 247; About 0
+  CorrectAnswer: About 248.3
+  AnswerTests: omnitest(correctVal='About 248.3')
+  Hint: Where is the distribution the highest?
+
+- Class: mult_question
+  Output: What is special about that number, 248.3?
+  AnswerChoices: It is the mean in the real dataset for the Caffeinated group; It is the real difference in means between the Caffeineated group and the Non-caffeinated group
+  CorrectAnswer: It is the mean in the real dataset for the Caffeinated group
+  AnswerTests: omnitest(correctVal='It is the mean in the real dataset for the Caffeinated group')
+  Hint: We know the difference in means is -3.5. 
+
+- Class: text
+  Output: Exactly. In this distribution, our values are NOT centered at zero. It is in fact centered at the real value of the statistic in the original dataset (the real mean tap rate for Caffeinated students). Save for some really weird situations, you won't see a randomization distribution centered on anything other than zero. 
+
+- Class: mult_question
+  Output: If we created a bootstrap distribution of diffmeans, resampling the CaffeineTaps dataset in each simulation, where would that distribution be centered?
+  AnswerChoices: 0;-3.5;248.3
+  CorrectAnswer: -3.5
+  AnswerTests: omnitest(correctVal='-3.5')
+  Hint: Just like above, the bootstrap distribution will be centered on the actual value of whatever we are bootstrapping. In this case, we're bootstrapping diffmeans. 
+
+- Class: text
+  Output: Exactly. Like I alluded to when we looked at our randomization distribution, a bootstrap distribution of diffmeans would NOT be centered at zero unless the diffmean of the actual data was 0. Therefore, bootstrap distributions are typically not centered at zero, whereas the opposite is true for randomization distributions.
+
+- Class: figure
+  Output: Good work! You've completed Pre-Lab 5.3. An 8-digit code will appear in the console below - enter this code into the appropriate quiz on moodle in order to receive credit. 
+  Figure: c.R
+  FigureType: new
