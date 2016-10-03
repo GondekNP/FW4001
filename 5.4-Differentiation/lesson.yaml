@@ -8,7 +8,7 @@
 
 
 - Class: figure
-  Output: In this section, I'll be presenting you with either distribution plots or fragments of code. Your job will be to discern whether they're randomization distributions, bootstrap distributions, or whether they could be either. 
+  Output: This will be a short section, testing your ability to recall the key functions in R for creating bootstrap and randomization distributions.
   Figure: FishData.R
   FigureType: new
 
@@ -17,59 +17,7 @@
   CorrectAnswer: View(LakeData)
   AnswerTests: omnitest(correctExpr='View(LakeData)')
   Hint: Click on LakeData.
-
-- Class: figure
-  Output: We'll start out with our histograms of our distributions - here is the first. 
-  Figure: f1.R
-  FigureType: new
-
-- Class: mult_question
-  Output: Alright, go ahead - is this a randomization distribution, bootstrap distribution, or could it be either?
-  AnswerChoices: randomization;bootstrap;either
-  CorrectAnswer: bootstrap
-  AnswerTests: omnitest(correctVal='bootstrap')
-  Hint: What can we typically say if our distribution is not centered at zero?
-
-- Class: text
-  Output: Right - this is a bootstrap distribution. We can say that because it is NOT centered at zero, and because we are looking at a spread of mean values for one variable (only Knoll Lake). 
-
-- Class: figure
-  Output: Here's the next one!
-  Figure: f2.R
-  FigureType: new
-
-- Class: mult_question
-  Output: Is this a randomization distribution, bootstrap distribution, or could it be either?
-  AnswerChoices: randomization;bootstrap;either
-  CorrectAnswer: bootstrap
-  AnswerTests: omnitest(correctVal='bootstrap')
-  Hint: What can we typically say if our distribution is not centered at zero?
-
-- Class: text
-  Output: This one is a little trickier - we are looking at a diffmean here, so it could be a randomization distribution if it were centered at zero, but it is not.
-
-- Class: figure
-  Output: One more.
-  Figure: f3.R
-  FigureType: new
-
-- Class: mult_question
-  Output: Imagine that you DO NOT know the calculated difference in fish length means between the two lakes. is this a randomization distribution, bootstrap distribution, or could it be either?
-  AnswerChoices: randomization;bootstrap;either
-  CorrectAnswer: either
-  AnswerTests: omnitest(correctVal='either')
-  Hint: This is very tricky. If we don't know the calculated difference in means, can we reject either of the options?
-
-- Class: mult_question
-  Output: Because we don't know the calculated difference in means, we can't confidently say this is a bootstrap or a randomization distribution. If I were to give you the information that the calculated difference in means is -15.6, how would your identification change?
-  AnswerChoices: randomization;bootstrap;either
-  CorrectAnswer: randomization
-  AnswerTests: omnitest(correctVal='randomization')
-  Hint: It is centered at zero, and we know that the calculated difference in means is not zero. 
-
-- Class: text
-  Output: Exactly. If it were a bootstrap, it would be centered at -15.6, but it is not. 
-
+ 
 - Class: text_question
   Output: Now, let's say that I want to create a bootstrap distribution of the difference in means between the two lakes. What function should go in the blank? BootDist<-do(1000)*{diffmean(len~lake, data=______(LakeData))
   CorrectAnswer: resample
