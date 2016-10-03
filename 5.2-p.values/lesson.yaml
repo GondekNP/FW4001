@@ -66,7 +66,7 @@
   Output: Now we have a bell-shaped distribution, centered at zero, that includes 1000 possible diffmeans in the case where there is no connection between Caffeine and tap rate. To finally answer our question, we will calculate a p-value. 
 
 - Class: cmd_question
-  Output: A p-value represents the proportion of randomized values that are AS or MORE extreme as the value we observed with the original data we collected. We want to know, for how many of our simulated datasets did we get a diffmean value as extreme as -3.5? We can figure this out by typing- 2*prop(~diffmean < CaffDiff, data=RandDist) for a 2-sided p-value.  We are essentailly calculated the probability of getting a difference in means less than -3.5 or greater than 3.5.
+  Output: A p-value represents the proportion of randomized values that are AS or MORE extreme as the value we observed with the original data we collected. We want to know, for how many of our simulated datasets did we get a diffmean value as extreme as -3.5? We can figure this out by typing- 2*prop(~diffmean < CaffDiff, data=RandDist) for a 2-sided p-value.  This calculation is approximately the same as determining the probability of getting a difference in means less than -3.5 or greater than 3.5.
   CorrectAnswer: 2*prop(~diffmean < CaffDiff, data=RandDist)
   AnswerTests: omnitest(correctExpr='2*prop(~diffmean < CaffDiff, data=RandDist)')
   Hint: Enter - 2*prop(~diffmean < CaffDiff, data=RandDist)

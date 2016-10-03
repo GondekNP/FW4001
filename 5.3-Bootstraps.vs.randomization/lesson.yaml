@@ -25,7 +25,7 @@
   Hint: Where is the peak of this distribution?
 
 - Class: text
-  Output: Yes!  The randomization distribution tells us what values for diffmean we are likely to see IF the null hypothesis is true.  If caffiene has NO EFFECT on tap rate, then we would expect that the difference in mean tap rate for the two gropus would, on average, equal 0.
+  Output: Yes!  The randomization distribution tells us what values for diffmean we are likely to see IF the null hypothesis is true.  If caffiene has NO EFFECT on tap rate, then we would expect that the difference in mean tap rate for the two groups would, on average, equal 0.
 
 - Class: mult_question
   Output: If we had calculated a bootstrap distribution, where would this distribution have been centered? 
@@ -40,7 +40,7 @@
   FigureType: new
 
 - Class: cmd_question
-  Output: I've loaded in the bootstrap distribution you made for pre-lab 4, of the mean tap rate for the Caffeine group. Let's take a look at this distribution using a histogram - the dataframe is called CaffBoot and the variable we are interested in is labeled "mean" - so, think ~mean, data=CaffBoot.
+  Output: I've loaded in the bootstrap distribution you made for pre-lab 4, of the mean tap rate for the Caffeine group. Let's take a look at this distribution using a histogram - the dataframe is called CaffBoot and the variable we are interested in is labeled "mean" - so, histogram(~mean, data=CaffBoot).
   CorrectAnswer: histogram(~mean, data=CaffBoot)
   AnswerTests: omnitest(correctExpr='histogram(~mean, data=CaffBoot)')
   Hint: We want to plot the mean values inside the data fram CaffBoot. Try using the histogram() function in a very similar fashion to the randomization distribution we plotted above. 
@@ -71,7 +71,7 @@
 
 - Class: mult_question
   Output: If we want to determine plausible values for our statistic *If the Null Hypothesis is true**, which distribution would we be interested in? 
-  AnswerChoices: Randomization distribution; Bootstrap Distribution
+  AnswerChoices: Randomization Distribution; Bootstrap Distribution
   CorrectAnswer: Randomization Distribution
   AnswerTests: omnitest(correctVal='Randomization Distribution')
   Hint: Use this distribution to calculate p-values!
