@@ -50,6 +50,26 @@
   Hint: Can you think of a reason why the distribution of bootstrap means would change?  I can't.
 
 - Class: figure
+  Output: Consider the following randomization distribution used to test the null hypothesis that the average size of fish is the same in Knoll Lake and Snowmass Lake. 
+  Figure: f3.R
+  FigureType: new
+
+- Class: mult_question
+  Output: If the difference in our sample means is 7.2, what would we conclude when using a significance level of 0.05?
+  AnswerChoices: Reject the Null Hypothesis (we have significant evidence to suggest the population means differ); Fail to reject the Null Hypothesis (we DO NOT have significant evidence to suggest the population means differ)
+  CorrectAnswer: Reject the Null Hypothesis (we have significant evidence to suggest the population means differ)
+  AnswerTests: omnitest(correctVal='Reject the Null Hypothesis (we have significant evidence to suggest the population means differ)')
+  Hint: Is our sample statistic extreme compared to the values in the randomization distribution?
+
+
+- Class: mult_question
+  Output: Let's say you calculate a p-value for this test and it is 0.002.  What does this p-value? 
+  AnswerChoices: the probability that the null hypothesis is true; 	the probability that the alternative hypothesis is true; the probability, when the null hypothesis is true, of obtaining a sample as extreme as (or more extreme than) the observed sample; the probability, when the alternative hypothesis is true, of obtaining a sample as extreme as (or more extreme than) the observed sample
+  CorrectAnswer: the probability, when the null hypothesis is true, of obtaining a sample as extreme as (or more extreme than) the observed sample.
+  AnswerTests: omnitest(correctVal='the probability, when the null hypothesis is true, of obtaining a sample as extreme as (or more extreme than) the observed sample.')
+  Hint: Remember, the randomization distribution tells us what values for our statistic are likely *when the Null Hypothesis is true*! 
+
+- Class: figure
   Output: Good work! You've completed Pre-Lab 5.4. An 8-digit code will appear in the console below - enter this code into the appropriate quiz on moodle in order to receive credit. 
   Figure: c.R
   FigureType: new
