@@ -1,1 +1,1 @@
-histogram(rnorm(1000, 54, 1.41), xlab = "Length", main="Knoll Lake")
+plot(histogram(rnorm(1000, 54, 1.41), xlab = "Length", main="Knoll Lake"))
