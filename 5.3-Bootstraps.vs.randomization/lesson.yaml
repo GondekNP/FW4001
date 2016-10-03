@@ -12,7 +12,7 @@
   FigureType: new
 
 - Class: cmd_question
-  Output: Superficially, bootstrap and randomization distributions look quite similar, but it is important to know the differences. Let's take a look at our Randomization Distribution from the last section to look at some of its features - histogram(~diffmean, data=RandDist)
+  Output: Superficially, bootstrap and randomization distributions look quite similar, but it is important to know how they differ. Let's take a look at our Randomization Distribution from the last section to look at some of its features - histogram(~diffmean, data=RandDist)
   CorrectAnswer: histogram(~diffmean, data=RandDist)
   AnswerTests: omnitest(correctExpr='histogram(~diffmean, data=RandDist)')
   Hint: Enter - histogram(~diffmean, data=RandDist)
@@ -24,8 +24,8 @@
   AnswerTests: omnitest(correctVal='0')
   Hint: Where is the peak of this distribution?
 
-- Class: text_question
-  Output: Yes!  The randomization distribution tells us about likely values of diffmean IF the null hypothesis is true.  If caffiene has NO EFFECT on tap rate, then we would expect that the difference in mean tap rate for the two gropus would, on average, equal 0.
+- Class: text
+  Output: Yes!  The randomization distribution tells us what values for diffmean we are likely to see IF the null hypothesis is true.  If caffiene has NO EFFECT on tap rate, then we would expect that the difference in mean tap rate for the two gropus would, on average, equal 0.
 
 - Class: mult_question
   Output: If we had calculated a bootstrap distribution, where would this distribution have been centered? 

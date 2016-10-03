@@ -15,7 +15,7 @@
   FigureType: new
 
 - Class: text
-  Output: The first step in performing a hypothesis test is to come up with a pair of testable hypotheses. These are referred to as the null hypothesis and the alternative hypothesis. The Null Hypothesis is usually that there "no effect" or difference.  The alternative hypothesis is the claim we seek evidence for (e.g., there is a discernable difference between groups). 
+  Output: The first step in performing a hypothesis test is to come up with a pair of testable hypotheses. These are referred to as the null hypothesis and the alternative hypothesis. The Null Hypothesis is usually that there "no effect" or difference between groups.  The alternative hypothesis is the claim we seek evidence for (e.g., there is a discernable difference between groups). 
 
 - Class: mult_question
   Output: So, which of the following is our null hypothesis for our Caffeine experiment?
@@ -48,10 +48,10 @@
   Hint: There is only one single value of diffmean where the null hypothesis is true, 0. 
 
 - Class: text
-  Output: Exactly. You might think, based solely on this, that we would tend to accept most alternative hypotheses. However, as statisticians, we assume the null hypothesis is true until we have sufficient evidence to say otherwise. That is to say, until we can argue that it would be highly unlikely to see a diffmean as extreme as the one we observed IF the null hypothesis were true.
+  Output: Exactly. You might think, based solely on this, that we would tend to accept most alternative hypotheses. However, much like in a court of law where the accused are presumed innocent until there is sufficient evidence to prove they are guilty without a reasonable doubt, we will assume the Null Hypothesis is true until we have sufficient evidence to say otherwise. If we can determine that, when the null hypothesis is true, it would be highly unlikely to see a diffmean as or more extreme as the one we observed, then we will reject the Null Hypothesis in favor of the alternative.
 
 - Class: figure
-  Output: To conduct the hypothesis test, we will simulate many, many samples where the null hypothesis is TRUE.  We will calculate the same statistic of interest (here, diffmean) for each of these samples, and use then compare our observed diffmean (for our original data) to this distribution to determine if it would be unlikely if the Null Hypothesis were true.
+  Output: To conduct the hypothesis test, we will simulate many, many samples where the null hypothesis is TRUE.  We will calculate the same statistic of interest (here, diffmean) for each of these samples. We will then compare our observed diffmean (for our original data) to this distribution to determine if our statistic should be considered extreme (when the Null Hypothesis is true).
   Figure: RandEg.R
   FigureType: new
   
@@ -62,7 +62,7 @@
   Hint: If we are simulating cases where the the groups don't matter (H0 is true), what should the difference in means be?
 
 - Class: text
-  Output: Exactly - in the next section, we'll learn how to produce a distribution like this one, and we'll learn how to figure out where our observed value falls. 
+  Output: Exactly - in the next section, we'll learn how to produce a distribution like this one, and we'll learn how to quantify how extreme our observed statistic is! 
 
 - Class: figure
   Output: Good work! You've completed Pre-Lab 5.1. An 8-digit code will appear in the console below - enter this code into the appropriate quiz on moodle in order to receive credit. 
