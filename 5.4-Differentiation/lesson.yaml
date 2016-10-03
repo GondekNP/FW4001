@@ -8,7 +8,7 @@
 
 
 - Class: figure
-  Output: This will be a short section, testing your ability to recall the key functions in R for creating bootstrap and randomization distributions.
+  Output: This will be a relatively short section, testing your ability to recall the key functions in R for creating bootstrap and randomization distributions and also your understanding of bootstrap and randomization distributions.
   Figure: FishData.R
   FigureType: new
 
@@ -25,11 +25,30 @@
   Hint: It will either be resample or shuffle. Which do we use for bootstrapping?
 
 - Class: text_question
-  Output: Lastly, I want to create a randomization distribution of a situation where the lake had no influence on the size of fish. What would I fill the blank with? RandDist<-do(1000)*{diffmean(len~______(lake), data=LakeData)
+  Output: Now, say I want to create a randomization distribution to test the null hypothesis that the average size of fish is the same in both lakes.  To generate a range of likely values for the difference in mean size if this Null Hypothesis is true, what would I fill the blank in with? RandDist<-do(1000)*{diffmean(len~______(lake), data=LakeData)
   CorrectAnswer: shuffle
   AnswerTests: omnitest(correctVal='shuffle')
   Hint: It will either be resample or shuffle. Which do we use for randomization?
   
+- Class: figure
+  Output: OK. Consider the bootstrap distribution (lower right hand plot window).  We collected data on 20 fish in Knoll Lake.  This is a bootstrap distribution with 1000 bootstrap sample means for Knoll Lake.   
+  Figure: f1.R
+  FigureType: new 
+
+- Class: mult_question
+  Output: If our original sample size included 100 fish instead of 20, what would you expect to see?
+  AnswerChoices: The bootstrap sample means would have more variability; The variability in the bootstrap sample means would be about the same; The bootstrap sample means would have less variability
+  CorrectAnswer: The bootstrap sample means would have less variability
+  AnswerTests: omnitest(correctVal='The bootstrap sample means would have less variability')
+  Hint: With more data, would we expect our sample means to vary more or less?
+
+- Class: mult_question
+  Output: If we had created 10,000 bootstrap sample means rather than 1000, what would you expect to see?
+  AnswerChoices: The bootstrap sample means would have more variability; The variability in the bootstrap sample means would be about the same; The bootstrap sample means would have less variability
+  CorrectAnswer: The variability in the bootstrap sample means would be about the same
+  AnswerTests: omnitest(correctVal='The variability in the bootstrap sample means would be about the same')
+  Hint: Can you think of a reason why the distribution of bootstrap means would change?  I can't.
+
 - Class: figure
   Output: Good work! You've completed Pre-Lab 5.4. An 8-digit code will appear in the console below - enter this code into the appropriate quiz on moodle in order to receive credit. 
   Figure: c.R
