@@ -7,7 +7,7 @@
   Version: 2.4.2
 
 - Class: figure
-  Output: Now that we've got some idea as to what a randomization distribution is, let's make one for CaffeineTaps and answer our question once and for all. 
+  Output: Now that we've got some idea as to what a randomization distribution is, let's have you make one for CaffeineTaps so we can answer our question once and for all - does caffiene result in an increased tap rate? 
   Figure: caffeine.R
   FigureType: new
 
@@ -18,6 +18,12 @@
   Hint: Enter - CaffDiff <- diffmean(Taps~Group, data=CaffieneTaps)
 
 - Class: cmd_question
+  Output: Lets look at the CaffDiff.  Type "CaffDiff" to see the difference in means
+  CorrectAnswer: CaffDiff
+  AnswerTests: omnitest(correctExpr='CaffDiff')
+  Hint: Enter - CaffDiff
+  
+- Class: cmd_question
   Output: If you don't already know mean was larger, you might not know how to interpret your diffmean, so it's a good idea to use the mean() function to double check. Try it now, just replace diffmean with mean in the previous code.
   CorrectAnswer: mean(Taps~Group, data=CaffeineTaps)
   AnswerTests: omnitest(correctExpr='mean(Taps~Group, data=CaffeineTaps)')
@@ -27,37 +33,43 @@
   Output: So now we know that we're subtracting the Caffeine group from the NoCaffeine group, and that the difference is -3.5.
 
 - Class: text
-  Output: Now, we need to make a randomization distribution. Recall, we want to create a situation where caffeination has no effect on tap rate, and then take the diffmean. To do so, we need to randomly re-assign each value to either the Caffeine or NoCaffeine group!
+  Output: Now, we need to make a randomization distribution. Recall, we want to create datasets where the Null Hypothesis is true - i.e., we want create datasets where caffeination has no effect on tap rate.  We can do this by randomly assigning the group label "Caffiene" or "No Caffiene" to each case!  We will then calculate the statistic of interest (here diffmean) to see what values are likely when the Null Hypothesis is true!
 
 - Class: cmd_question
-  Output: To that effect, we'll use the shuffle() function to randomly reorder the Groups variable when we use the function diffmean. Try it now - diffmean(Taps~shuffle(Group), data=CaffeineTaps)
+  Output: In R, we can accomplish this task using the shuffle() function.  Shuffle will randomly reorder the Groups variable. We can combine shuffle with the function diffmean. Try it now - diffmean(Taps~shuffle(Group), data=CaffeineTaps)
   CorrectAnswer: diffmean(Taps~shuffle(Group), data=CaffeineTaps)
   AnswerTests: omnitest(correctExpr='diffmean(Taps~shuffle(Group), data=CaffeineTaps)')
   Hint: Enter - diffmean(Taps~shuffle(Group), data=CaffeineTaps)
 
 - Class: cmd_question
-  Output: Great, that's exactly what we want. You'll notice that it's different than the -3.5 of the original data, but it's not exactly zero. Now, we want to do this a total of 1000 times using the following format - do()*{your code}. Try it now, and save it as RandDist.
+  Output: Great, that's exactly what we want. You'll notice that it's different than the statistic (difference in means) that we calculated with our original data, which was -3.5. Now, we want to do this a total of 1000 times using the following format - do()*{your code} so that we can get a better idea of the range of values we might see if the Null Hypothesis were true. Try it now, and save your values as RandDist.
   CorrectAnswer: RandDist <- do(1000)*{diffmean(Taps~shuffle(Group), data=CaffeineTaps)}
   AnswerTests: omnitest(correctExpr='RandDist <- do(1000)*{diffmean(Taps~shuffle(Group), data=CaffeineTaps)}')
   Hint: First, we need RandDist <- in order to save our different values. Then, we put the number 1000 inside the do() function in order to repeat the loop 1000 times. Lastly, we put the same code we previously used inside of the curly braces. 
 
-- Class: text
+- Class: cmd_question
+  Output: Lets look at what we created.  Type "head(RandDist)".  
+  CorrectAnswer: head(RandDist)
+  AnswerTests: omnitest(correctExpr='head(RandDist)')
+  Hint: Type head(RandDist)
+
+- Class: text  
   Output: Now we have a data frame, with one column called 'diffmean', and 1000 different randomized diffmean values. 
 
 - Class: cmd_question
-  Output: Let's plot these values using a histogram in order to see where our true diffmean lies. Try it now - histogram(~diffmean, data=RandDist)
-  CorrectAnswer: histogram(~diffmean, data=RandDist)
-  AnswerTests: omnitest(correctExpr='histogram(~diffmean, data=RandDist)')
-  Hint: Enter - histogram(~diffmean, data=RandDist)
+  Output: Let's plot these values using a histogram in order to see where the diffmean we calculated with the original data (stored in the object, CaffDiff) lies. Try it now - histogram(~diffmean, data=RandDist, v=CaffDiff)
+  CorrectAnswer: histogram(~diffmean, data=RandDist, v=CaffDiff)
+  AnswerTests: omnitest(correctExpr='histogram(~diffmean, data=RandDist, v=CaffDiff)')
+  Hint: Enter - histogram(~diffmean, data=RandDist, v=CaffDiff)
 
 - Class: text
-  Output: Now we have a normally-shaped distribution, centered at zero, that represents 1000 possible diffmeans if there was no connection between Caffeine and tap rate. To finally answer our question we need a p-value. 
+  Output: Now we have a bell-shaped distribution, centered at zero, that includes 1000 possible diffmeans in the case where there is no connection between Caffeine and tap rate. To finally answer our question, we will calculate a p-value. 
 
 - Class: cmd_question
-  Output: A p-value represents the proportion of randomized values that are AS or MORE extreme as the value we observed with the real data. Basically, in how many of our simulated cases did we get a value as extreme as -3.5? To do so, we enter - prop(~diffmean > CaffDiff, data=RandDist)
-  CorrectAnswer: prop(~diffmean < CaffDiff, data=RandDist)
-  AnswerTests: omnitest(correctExpr='prop(~diffmean < CaffDiff, data=RandDist)')
-  Hint: Enter - prop(~diffmean < CaffDiff, data=RandDist)
+  Output: A p-value represents the proportion of randomized values that are AS or MORE extreme as the value we observed with the original data we collected. We want to know, for how many of our simulated datasets did we get a diffmean value as extreme as -3.5? We can figure this out by typing - 2*prop(~diffmean < CaffDiff, data=RandDist) for a 2-sided p-value.
+  CorrectAnswer: 2*prop(~diffmean < CaffDiff, data=RandDist)
+  AnswerTests: omnitest(correctExpr='2*prop(~diffmean < CaffDiff, data=RandDist)')
+  Hint: Enter - 2*prop(~diffmean < CaffDiff, data=RandDist)
 
 - Class: text
   Output: At a 95% confidence level, we call something significant if the p-value is lower than .05 - and this is MUCH lower than .05! Thus, we can say with statistical confidence that Caffeine affects Tap rate in students, and the magnitude of this difference is 3.5 Taps per Minute. In the next section, we'll work on identifying the differences between randomization and bootstrap distributions.
