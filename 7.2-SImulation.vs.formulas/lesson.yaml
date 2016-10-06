@@ -1,0 +1,82 @@
+- Class: meta
+  Course: Biometry
+  Lesson: 7.2 - Simulations vs Formulae
+  Author: Nick Gondek
+  Type: Standard
+  Organization: University of Minnesota
+  Version: 2.4.2
+
+- Class: text
+  Output: So, we know how to calculate confidence intervals using both simulation (bootstrapping) and formulas. Let's do both on a given dataset, and see how they compare to one another.
+
+- Class: cmd_question
+  Output: Let's use an aribitrary set of numbers to illustrate this point. I've put a group of 20 numbers in your workspace, an object called j. We'll first create a bootstrap distribution of means for these twenty numbers. Try it now, simulating 1000 bootstrap means with a do loop and the resample function.
+  CorrectAnswer: do(1000)*{mean(resample(j))}
+  AnswerTests: omnitest(correctExpr='do(1000)*{mean(resample(j))}')
+  Hint: Use the following format - do(numberOfSims)*{mean(resample(numbers))}
+
+- Class: cmd_question
+  Output: Now, let's get a confidence interval using the qdata functon - bootCI<-qdata(~result, p=c(.025,.975), data=jmeans)
+  CorrectAnswer: bootCI <- data(~result, p=c(.025,.975), data=jmeans)
+  AnswerTests: omnitest(correctExpr='bootCI <- data(~result, p=c(.025,.975), data=jmeans)')
+  Hint: Enter - bootCI <- data(~result, p=c(.025,.975), data=jmeans)
+
+- Class: text
+  Output: So, using a bootstrapping simulation method, we got a 95% confidence interval of (9.26, 10.70).
+
+- Class: cmd_question
+  Output: Now, let's try it again using the explicit formula for calculating a confidence interval for a mean. This can be found on your formula sheet, but here it is - SE = s / sqrt(n), where s is the standard deviation of the data. So, to calculate this value, we need to enter the following - formSE <- sd(j)/sqrt(20)
+  CorrectAnswer: formSE <- sd(j)/sqrt(20)
+  AnswerTests: omnitest(correctExpr='formSE <- sd(j)/sqrt(20)')
+  Hint: Enter - formSE <- sd(j)/sqrt(20)
+
+- Class: cmd_question
+  Output: We need two more things to make a confidence interval - mean and the t* for a 95% confidence interval. Let's get the mean first - call it formMean.
+  CorrectAnswer: formMean <- mean(j)
+  AnswerTests: omnitest(correctExpr='formMean <- mean(j)')
+  Hint: Enter - formMean <- mean(j)
+
+- Class: exact_question
+  Output: Lastly, we need a t* value for our 95% confidence interval. If df = n-1, how many degrees of freedom should our t-distribution have?
+  CorrectAnswer: 19
+  AnswerTests: omnitest(correctExpr='formMean <- mean(j)')
+  Hint: Remember, n=20. 
+
+- Class: cmd_question
+  Output: Exactly. So, we can get t* by using the qt function as follows - tstars <- qt(c(.025, .975), df=19)
+  CorrectAnswer: tstars <- qt(c(.025, .975), df=19)
+  AnswerTests: omnitest(correctExpr='tstars <- qt(c(.025, .975), df=19)')
+  Hint: Enter -  tstars <- qt(c(.025, .975), df=19)
+
+- Class: cmd_question
+  Output: Let's put it all together to see our formula-produced confidence interval. Try it out now - formCI <- formMean + tstars*formSE
+  CorrectAnswer: formCI <- formMean + tstars*formSE
+  AnswerTests: omnitest(correctExpr='formCI <- formMean + tstars*formSE')
+  Hint: Enter - formCI <- formMean + tstars*formSE
+
+- Class: cmd_question
+  Output: Let's print this interval to take a look. Enter - formCI
+  CorrectAnswer: formCI
+  AnswerTests: omnitest(correctExpr='formCI')
+  Hint: Enter - formCI
+
+- Class: cmd_question
+  Output: Now, let's print out our boostrap confidence interval - bootCI.
+  CorrectAnswer: bootCI
+  AnswerTests: omnitest(correctExpr='bootCI')
+  Hint: Enter - bootCI
+
+- Class: mult_question
+  Output: What do you notice about these two intervals?
+  AnswerChoices: The bootstrap interval is much bigger;The formula interval is much bigger;They're about the same
+  CorrectAnswer: They're about the same
+  AnswerTests: omnitest(correctVal='They\'re about the same')
+  Hint: They're not exactly the same, but they're awfully close.
+
+- Class: text
+  Output: As long as our sample size is big enough, OR our data is approximately normal, these intervals should be pretty similar. The formula version has the benefit of not needing any computation, but the bootstrap version is more flexible.
+
+- Class: figure
+  Output: Good work! You've completed Pre-Lab 7.2. An 8-digit code will appear in the console below - enter this code into the appropriate quiz on moodle in order to receive credit. 
+  Figure: c.R
+  FigureType: new

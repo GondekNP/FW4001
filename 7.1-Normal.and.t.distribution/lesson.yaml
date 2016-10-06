@@ -1,0 +1,80 @@
+- Class: meta
+  Course: Biometry
+  Lesson: 7.1 - Normal and T-distribution
+  Author: Nick Gondek
+  Type: Standard
+  Organization: University of Minnesota
+  Version: 2.4.2
+
+- Class: text
+  Output: Welcome to Pre-lab 7! You may have noticed that this pre-lab has only two sections - you'll be glad to know that pre-labs 7-10 have only two sections each. This is to give you a little extra time to work on your projects, and to lighten the load toward the end of the semester. 
+
+- Class: text
+  Output: In this pre-lab, we're going to look at the differences between a normal distribution and a t-distribution, and why the distinction matters. 
+
+- Class: mult_question
+  Output: Before we take a look at any t-distributions, what are they used for?
+  AnswerChoices: To calculate CI's and p-values for statistics with a small sample size; To adjust the value of a statistic due to small sample size
+  CorrectAnswer: To calculate CI's and p-values for statistics with a small sample size
+  AnswerTests: omnitest(correctVal='To calculate CI\'s and p-values for statistics with a small sample size')
+  Hint: It is certainly used in cases with a small sample size, but it doesn't change the value of our statistic of interest. 
+
+- Class: text
+  Output: Right. The useful thing about a t-distribution is that we can use them to calculate confidence intervals and p-values for data with small sample sizes, SO LONG AS the data are normally distributed. At large sample sizes, the t-distribution can be used, but at that point, it looks quite similar to a normal distribution.
+
+- Class: figure
+  Output: Let's take a look at the shapes of these curves. The shape of a t-distribution depends on how many 'degrees of freedom' it uses, which is determined by the sample size. 
+  Figure: tdists.R
+  FigureType: new
+
+- Class: mult_question
+  Output: For example, a curve with df=30 has substantially more samples in the dataset of interest than a curve with df=3. What do you notice about the curves as df decreases? You may want to click the 'Zoom' button above the plot to get a better look.
+  AnswerChoices: As df decreases, the curve becomes shorter and wider;As df decreases, the curves become taller and narrower
+  CorrectAnswer: As df decreases, the curve becomes shorter and wider
+  AnswerTests: omnitest(correctVal='As df decreases, the curve becomes shorter and wider')
+  Hint: Take a look at the difference between the red line (df=1) and the green and yellow lines (df=8, df=30).
+
+- Class: text
+  Output: Like I mentioned earlier, if you have large enough sample sizes, the t-distribution becomes approximately normal. However, at low sample sizes, the t-distribution is substantially wider and shorter than the normal distribution. This matters a great deal when we calculate confidence intervals and p-values!
+
+- Class: text
+  Output: As you already know, you can calculate the confidence interval for a statistic by using the following formula - statistic +/- z* * SE, where z* is the critical value for the confidence interval you're interested in. For example, t* for a 95% confidence interval is 2. When you have sufficient sample sizes and normally distributed data, this works just fine. But, let's see how this t* value changes based on our sample size.
+
+- Class: cmd_question
+  Output: Let's confirm what we already know - when sample sizes are large, t* is approximately 2 for a 95% confidence interval. What we're really looking for is the the value of x on the t distribution with 50 degrees of freedom (which is essentially normal at such high n) at the 2.5% quantile and 97.5% quantile. Enter - qt(c(.025,.975), df=50) 
+  CorrectAnswer: qt(c(.025,.975), df=50)
+  AnswerTests: omnitest(correctExpr='qt(c(.025,.975), df=50)')
+  Hint: Enter - qt(c(.025,.975), df=50)
+
+- Class: cmd_question
+  Output: Great. You should see that we got values that are quite close to 2 and -2. Let's say that, for example, we have a dataset where we determined the mean height of 51 individuals to be 70 inches with a SE of 10. What would the UPPER value of our 95% confidence interval be? You can assume t* = 2. 
+  CorrectAnswer: 70 + 2*10
+  AnswerTests: omnitest(correctExpr='70 + 2*10', strict=FALSE)
+  Hint: Enter the values into the formula for a CI - statistic +/- t* * SE
+
+- Class: mult_question
+  Output: Now, let's assume that we have a similar dataset, where we have similar metrics - mean of 70, SE of 10. Let's say, however, that we have only 4 individuals in the dataset. We define df as n - 1, so we would then have 3 degrees of freedom instead of 50. What would you expect to happen to the confidence interval?
+  AnswerChoices: It would get wider;It would get narrower;It wouldn't change
+  CorrectAnswer: It would get wider
+  AnswerTests: omnitest(correctVal='It would get wider')
+  Hint: The curve itself would widen out and get shorter, so what would happen to the values at which 2.5% and 97.5% of the data fall?
+
+- Class: cmd_question
+  Output: Let's confirm this by actually producing the new interval. First, we need to find t* using our new df value - qt(c(.025,.975), df=3)
+  CorrectAnswer: qt(c(.025,.975), df=3)
+  AnswerTests: omnitest(correctExpr='qt(c(.025,.975), df=3)')
+  Hint: Enter -  qt(c(.025,.975), df=3)
+
+- Class: cmd_question
+  Output: Now we have a t* of about 3.2, instead of 2. Let's calculate the new upper value of the interval (you can assume t* is now 3.2, mean is still 70, and SE is still 10).
+  CorrectAnswer: 70 + 3.2*10
+  AnswerTests: omnitest(correctExpr='70 + 3.2*10', strict=FALSE)
+  Hint: Use this formula - statistic +/- t* * SE
+
+- Class: text
+  Output: Instead of an interval of 50 to 90, we now have an interval of 38 to 102 - MUCH wider! Therefore, it's important to look at your sample size when calculating a confidence interval using a formula. 
+
+- Class: figure
+  Output: Good work! You've completed Pre-Lab 7.1. An 8-digit code will appear in the console below - enter this code into the appropriate quiz on moodle in order to receive credit. 
+  Figure: c.R
+  FigureType: new
