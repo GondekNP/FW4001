@@ -9,23 +9,34 @@
 - Class: text
   Output: So, we know how to calculate confidence intervals using both simulation (bootstrapping) and formulas. Let's do both on a given dataset, and see how they compare to one another.
 
-- Class: cmd_question
-  Output: Let's use an aribitrary set of numbers to illustrate this point. I've put a group of 20 numbers in your workspace, an object called j. We'll first create a bootstrap distribution of means for these twenty numbers. Try it now, simulating 1000 bootstrap means with a do loop and the resample function.
-  CorrectAnswer: do(1000)*{mean(resample(j))}
-  AnswerTests: omnitest(correctExpr='do(1000)*{mean(resample(j))}')
-  Hint: Use the following format - do(numberOfSims)*{mean(resample(numbers))}
+- Class: figure
+  Output: Every Fourth of July, Nathan's Famous in New York City holds a hot dog eating contest, in which contestants try to eat as many hot dogs (with buns) as possible in ten minutes. The data set HotDogs contains the winning number of hot dogs for each year from 2002-2011.
+  Figure: caffeine.R
+  FigureType: new
 
 - Class: cmd_question
-  Output: Now, let's get a confidence interval using the qdata functon - bootCI<-qdata(~result, p=c(.025,.975), data=jmeans)
-  CorrectAnswer: bootCI <- data(~result, p=c(.025,.975), data=jmeans)
-  AnswerTests: omnitest(correctExpr='bootCI <- data(~result, p=c(.025,.975), data=jmeans)')
-  Hint: Enter - bootCI <- data(~result, p=c(.025,.975), data=jmeans)
+  Output: Let's first create a bootstrap distribution for the mean number of hot dogs needed to win the contest. Try it now, enter - Bootdat<-do(1000)*{mean(~HotDogs, data=HotDogs)}.
+  CorrectAnswer: Bootdat<-do(1000)*{mean(~HotDogs, data=resample(HotDogs))}
+  AnswerTests: omnitest(correctExpr='Bootdat<-do(1000)*{mean(~HotDogs, data=resample(HotDogs))}')
+  Hint: Type Bootdat<-do(1000)*{mean(~HotDogs, data=resample(HotDogs))}
+
+- Class: cmd_question
+  Output:  Lets look at our bootstrap means using the head function.
+  CorrectAnswer: head(Bootdat)
+  AnswerTests: omnitest(correctExpr='head(Bootdat)')
+  Hint: Enter - head(Bootdat)
+  
+- Class: cmd_question
+  Output: Now, let's get a confidence interval using the qdata functon - bootCI<-qdata(~result, p=c(.025,.975), data=Bootdat)
+  CorrectAnswer: bootCI<-qdata(~result, p=c(.025,.975), data=Bootdat)
+  AnswerTests: omnitest(correctExpr='bootCI<-qdata(~result, p=c(.025,.975), data=Bootdat)')
+  Hint: Enter - bootCI<-qdata(~result, p=c(.025,.975), data=Bootdat)
 
 - Class: text
-  Output: So, using a bootstrapping simulation method, we got a 95% confidence interval of (9.26, 10.70).
+  Output: So, using a bootstrapping simulation method, we got a 95% confidence interval of (52, 60.6). We are 95% sure that the mean number of hotdogs needed to win the contenst is between 52 and 60! Thats a lot of hot dogs!
 
 - Class: cmd_question
-  Output: Now, let's try it again using the explicit formula for calculating a confidence interval for a mean. This can be found on your formula sheet, but here it is - SE = s / sqrt(n), where s is the standard deviation of the data. So, to calculate this value, we need to enter the following - formSE <- sd(j)/sqrt(20)
+  Output: Now, let's try it again using the explicit formula for calculating a confidence interval for a mean. This can be found on your formula sheet, but here it is - SE = s / sqrt(n), where s is the standard deviation of the data. So, to calculate this value, we need to enter the following - formSE <- sd(~HotDogs, data=HotDogs)/sqrt()
   CorrectAnswer: formSE <- sd(j)/sqrt(20)
   AnswerTests: omnitest(correctExpr='formSE <- sd(j)/sqrt(20)')
   Hint: Enter - formSE <- sd(j)/sqrt(20)
