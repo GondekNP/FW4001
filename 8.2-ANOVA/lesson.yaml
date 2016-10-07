@@ -1,0 +1,67 @@
+- Class: meta
+  Course: Biometry
+  Lesson: 8.2 - ANOVA
+  Author: Nick Gondek
+  Type: Standard
+  Organization: University of Minnesota
+  Version: 2.4.2
+
+- Class: text
+  Output: We just took a look at inference for tallies using three or more categorical variables; now, we'll look at inference for means of three or more categorical groups. 
+
+- Class: cmd_question
+  Output: This time, we'll be looking at a simple experiment from Lock5Data, where a student left a chunk of one of three types of sandwiches near an anthill, counting the number of ants visiting. The three sandwiches tested were Ham & Pickles, Peanut Butter, and Vegemite (a very strange yeast paste popular in Australia). Click on SandwichAnts to take a look.
+  CorrectAnswer: View(SandwichAnts)
+  AnswerTests: omnitest(correctExpr='View(SandwichAnts)')
+  Hint: Click on SandwichAnts.
+
+- Class: cmd_question
+  Output: Let's make a boxplot in order to get a sense of any differences in ants between the sandwiches. Try it now using bwplot().
+  CorrectAnswer: bwplot(Ants~Filling, data=SandwichAnts)
+  AnswerTests: omnitest(correctExpr='bwplot(Ants~Filling, data=SandwichAnts)')
+  Hint: Remember the general format - goal(y~x, data=mydata). Our function is bwplot(), y is Ants...
+
+- Class: text
+  Output: Superficially, it looks like more ants flocked to the Ham and Pickles sandwich chunks than the other two. Let's use an analysis of variance test to investigate this.
+
+- Class: text
+  Output: The calculation of an ANOVA test is more complicated than a chi-squared test, so we won't worry about the calculation so much as the output. It's important to note, though, that the test is essentially comparing the variation between groups to the variation within each individual group. 
+
+- Class: cmd_question
+  Output: Additionally, an ANOVA is facilitated by a linear model, which you will learn about later in class. Try it out now - anova(lm(Ants~Filling, data=SandwichAnts))
+  CorrectAnswer: anova(lm(Ants~Filling, data=SandwichAnts))
+  AnswerTests: omnitest(correctExpr='anova(lm(Ants~Filling, data=SandwichAnts))')
+  Hint: Enter - anova(lm(Ants~Filling, data=SandwichAnts))
+
+- Class: mult_question
+  Output: There's a lot going on here, but the value of interest is p-value (underneath Pr(>F)). The significance codes can be confusing, but the symbol next to the p-value indicates that the p-value is below a certain threshold. Which symbol did this test receive?
+  AnswerChoices: '***;**;*;.;not signficant above 90 percent'
+  CorrectAnswer: '*'
+  AnswerTests: omnitest(correctVal='*')
+  Hint: Look directly below Pr(>F).
+
+- Class: text
+  Output: This means that our p-value is below .05, but above .01. Pretty good! We can say that the means of these three groups are significantly different from one another... BUT, we cannot say definitively whether any one group's means are different than another group's without using a pairwise comparison (which you will do in lab). 
+
+- Class: cmd_question
+  Output: There is another categorical variable in our dataset - Bread. Try modifying our ANOVA code to test for a difference in Ant means between types of Bread! Our code was - anova(lm(Ants~Filling, data=SandwichAnts))
+  CorrectAnswer: anova(lm(Ants~Bread, data=SandwichAnts))
+  AnswerTests: omnitest(correctExpr='anova(lm(Ants~Bread, data=SandwichAnts))')
+  Hint: You only need to change 'Filling' from the code we used last time!
+
+- Class: mult_question
+  Output: Now, what level of significance did we get for this test?
+  AnswerChoices: '***;**;*;.;not signficant above 90 percent'
+  CorrectAnswer: 'not signficant above 90 percent'
+  AnswerTests: omnitest(correctVal='not signficant above 90 percent')
+  Hint: Look directly below Pr(>F). Do you see any symbol? (Also, our p-value is an astronomical .84)
+
+- Class: text
+  Output: You'll look at more useful ways to analyze many groups when you learn about linear models, but ANOVAs are useful for exploratory data analysis and more.
+
+- Class: figure
+  Output: Good work! You've completed Pre-Lab 8.2. An 8-digit code will appear in the console below - enter this code into the appropriate quiz on moodle in order to receive credit. 
+  Figure: c.R
+  FigureType: new
+
+  
