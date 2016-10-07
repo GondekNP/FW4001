@@ -14,16 +14,16 @@
 
 - Class: mult_question
   Output: Before we take a look at any t-distributions, what are they used for?
-  AnswerChoices: To calculate CI's and p-values for statistics with a small sample size; To adjust the value of a statistic due to small sample size
-  CorrectAnswer: To calculate CI's and p-values for statistics with a small sample size
-  AnswerTests: omnitest(correctVal='To calculate CI\'s and p-values for statistics with a small sample size')
-  Hint: It is certainly used in cases with a small sample size, but it doesn't change the value of our statistic of interest. 
+  AnswerChoices: To calculate CI's and p-values when making inference about a population mean or difference in means; To make an adjustment to our estimate of a population parameter if we have a small sample size
+  CorrectAnswer: To calculate CI's and p-values when making inference about a population mean or difference in means
+  AnswerTests: omnitest(correctVal='To calculate CI\'s and p-values when making inference about a population mean or difference in means')
+  Hint: It is certainly used in cases with a small sample size, but it doesn't change our estimate of the parameter of interest. 
 
 - Class: text
-  Output: Right. The useful thing about a t-distribution is that we can use them to calculate confidence intervals and p-values for data with small sample sizes, SO LONG AS the data are normally distributed. At large sample sizes, the t-distribution can be used, but at that point, it looks quite similar to a normal distribution.
+  Output: Right. The useful thing about a t-distribution is that we can use it to calculate confidence intervals and p-values when making inference about a mean or difference in means when we have small sample sizes, SO LONG AS the data are normally distributed. At large sample sizes, the t-distribution can be used, but at that point, it looks quite similar to a normal distribution.
 
 - Class: figure
-  Output: Let's take a look at the shapes of these curves. The shape of a t-distribution depends on how many 'degrees of freedom' it uses, which is determined by the sample size. 
+  Output: Let's take a look at the shape of a t-distribution. Like the normal distribution, it is bell-shaped and symmetric.  But, it is wider than a normal distribution.  How much wider depends on  the 'degrees of freedom' (df) associated with the t-distribution. As we will see, df is determined by the sample size. 
   Figure: tdists.R
   FigureType: new
 
@@ -38,13 +38,13 @@
   Output: Like I mentioned earlier, if you have large enough sample sizes, the t-distribution becomes approximately normal. However, at low sample sizes, the t-distribution is substantially wider and shorter than the normal distribution. This matters a great deal when we calculate confidence intervals and p-values!
 
 - Class: text
-  Output: As you already know, you can calculate the confidence interval for a statistic by using the following formula - statistic +/- z* * SE, where z* is the critical value for the confidence interval you're interested in. For example, t* for a 95% confidence interval is 2. When you have sufficient sample sizes and normally distributed data, this works just fine. But, let's see how this t* value changes based on our sample size.
+  Output: As you already know, you can calculate the confidence interval for a statistic by using the following formula - statistic +/- z* x SE, where z* is the critical value of the normal distribution and depends on the confidence level you specify. For example, z* for a 95% confidence interval is 1.96 (although, we have used 2 as a rough approximation). When you have sufficiently large sample sizes and normally distributed data, this works just fine. But, let's see what we get if we used a critical value from a t-distribution, t*, and also how this value might change depending on our sample size.
 
 - Class: cmd_question
-  Output: Let's confirm what we already know - when sample sizes are large, t* is approximately 2 for a 95% confidence interval. What we're really looking for is the the value of x on the t distribution with 50 degrees of freedom (which is essentially normal at such high n) at the 2.5% quantile and 97.5% quantile. Enter - qt(c(.025,.975), df=50) 
-  CorrectAnswer: qt(c(.025,.975), df=50)
-  AnswerTests: omnitest(correctExpr='qt(c(.025,.975), df=50)')
-  Hint: Enter - qt(c(.025,.975), df=50)
+  Output: Let's confirm what we already know - when sample sizes are large, t* will be approximately 2 for a 95% confidence interval. To determine t*, we will use xqt(p = area, df = degrees of freedom). For a 95% confidence interval, we would use p=c(0.025, 0.975).   Lets look at t* when our degrees of freedom = 50 (that is a fairly large sample size). Enter - xqt(c(.025,.975), df=50) 
+  CorrectAnswer: xqt(c(.025,.975), df=50)
+  AnswerTests: omnitest(correctExpr='xqt(c(.025,.975), df=50)')
+  Hint: Enter - xqt(c(.025,.975), df=50)
 
 - Class: cmd_question
   Output: Great. You should see that we got values that are quite close to 2 and -2. Let's say that, for example, we have a dataset where we determined the mean height of 51 individuals to be 70 inches with a SE of 10. What would the UPPER value of our 95% confidence interval be? You can assume t* = 2. 
@@ -60,10 +60,10 @@
   Hint: The curve itself would widen out and get shorter, so what would happen to the values at which 2.5% and 97.5% of the data fall?
 
 - Class: cmd_question
-  Output: Let's confirm this by actually producing the new interval. First, we need to find t* using our new df value - qt(c(.025,.975), df=3)
-  CorrectAnswer: qt(c(.025,.975), df=3)
-  AnswerTests: omnitest(correctExpr='qt(c(.025,.975), df=3)')
-  Hint: Enter -  qt(c(.025,.975), df=3)
+  Output: Let's confirm this by actually producing the new interval. First, we need to find t* using our new df value - xqt(c(.025,.975), df=3)
+  CorrectAnswer: xqt(c(.025,.975), df=3)
+  AnswerTests: omnitest(correctExpr='xqt(c(.025,.975), df=3)')
+  Hint: Enter -  xqt(c(.025,.975), df=3)
 
 - Class: cmd_question
   Output: Now we have a t* of about 3.2, instead of 2. Let's calculate the new upper value of the interval (you can assume t* is now 3.2, mean is still 70, and SE is still 10).
@@ -72,7 +72,7 @@
   Hint: Use this formula - statistic +/- t* * SE
 
 - Class: text
-  Output: Instead of an interval of 50 to 90, we now have an interval of 38 to 102 - MUCH wider! Therefore, it's important to look at your sample size when calculating a confidence interval using a formula. 
+  Output: Instead of an interval of 50 to 90, we now have an interval of 38 to 102 - MUCH wider! Therefore, it's important to know your sample size when calculating a confidence interval for a population mean. 
 
 - Class: figure
   Output: Good work! You've completed Pre-Lab 7.1. An 8-digit code will appear in the console below - enter this code into the appropriate quiz on moodle in order to receive credit. 
