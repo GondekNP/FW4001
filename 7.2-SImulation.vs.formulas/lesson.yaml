@@ -39,7 +39,7 @@
 - Class: exact_question
   Output: Lastly, we need a t* value for our 95% confidence interval. If df = n-1, how many degrees of freedom should our t-distribution have?
   CorrectAnswer: 19
-  AnswerTests: omnitest(correctExpr='formMean <- mean(j)')
+  AnswerTests: omnitest(correctExpr='19')
   Hint: Remember, n=20. 
 
 - Class: cmd_question
