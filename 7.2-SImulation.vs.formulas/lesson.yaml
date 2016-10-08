@@ -17,9 +17,9 @@
 
 - Class: cmd_question
   Output: I've loaded this dataset into R from the Lock5Package.  Lets take a look at this dataset by clicking on it in the upper rigth panel.
-  CorrectAnswer: view(HotDogs)
-  AnswerTests: omnitest(correctExpr='view(HotDogs)')
-  Hint: You can also type view(HotDogs)
+  CorrectAnswer: View(HotDogs)
+  AnswerTests: omnitest(correctExpr='View(HotDogs)')
+  Hint: You can also type View(HotDogs) with a capitol V
 
 - Class: cmd_question
   Output: Let's first create a bootstrap distribution for the mean number of hot dogs needed to win the contest. Try it now, enter - Bootdat<-do(1000)*{mean(~HotDogs, data=HotDogs)}.
