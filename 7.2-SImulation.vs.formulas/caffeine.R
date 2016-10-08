@@ -1,4 +1,5 @@
 suppressMessages(library(Lock5Data))
-data("CaffeineTaps")
-invisible(CaffeineTaps)
+data("HotDogs")
+invisible(HotDogs)
+HotDogs
 set.seed(1231)
