@@ -16,7 +16,7 @@
   Hint: Click on SandwichAnts.
 
 - Class: cmd_question
-  Output: Let's make a boxplot in order to get a sense of any differences in ants between the sandwiches. Try it now using bwplot().
+  Output: Let's visualize the data using side-by-side boxplots so we can see if there are any differences in the number of ants on different types of sandwiches. Try it now using bwplot().
   CorrectAnswer: bwplot(Ants~Filling, data=SandwichAnts)
   AnswerTests: omnitest(correctExpr='bwplot(Ants~Filling, data=SandwichAnts)')
   Hint: Remember the general format - goal(y~x, data=mydata). Our function is bwplot(), y is Ants...
@@ -35,7 +35,7 @@
 
 - Class: mult_question
   Output: There's a lot going on here, but the value of interest is p-value (underneath Pr(>F)). The significance codes can be confusing, but the symbol next to the p-value indicates that the p-value is below a certain threshold. Which symbol did this test receive?
-  AnswerChoices: '***;**;*;.;not signficant above 90 percent'
+  AnswerChoices: '***;**;*;.;not signficant (no symbol)'
   CorrectAnswer: '*'
   AnswerTests: omnitest(correctVal='*')
   Hint: Look directly below Pr(>F).
@@ -51,8 +51,8 @@
 
 - Class: mult_question
   Output: Now, what level of significance did we get for this test?
-  AnswerChoices: '***;**;*;.;not signficant above 90 percent'
-  CorrectAnswer: 'not signficant above 90 percent'
+  AnswerChoices: '***;**;*;.;not signficant (no symbol)'
+  CorrectAnswer: 'not signficant (no symbol)'
   AnswerTests: omnitest(correctVal='not signficant above 90 percent')
   Hint: Look directly below Pr(>F). Do you see any symbol? (Also, our p-value is an astronomical .84)
 
