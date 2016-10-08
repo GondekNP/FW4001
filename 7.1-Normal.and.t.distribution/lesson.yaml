@@ -7,7 +7,7 @@
   Version: 2.4.2
 
 - Class: text
-  Output: Welcome to Pre-lab 7! You may have noticed that this pre-lab has only two sections - you'll be glad to know that pre-labs 7-10 have only two sections each. This is to give you a little extra time to work on your projects, and to lighten the load toward the end of the semester. 
+  Output: Welcome to Pre-lab 7!  
 
 - Class: text
   Output: In this pre-lab, we're going to look at the differences between a normal distribution and a t-distribution, and why the distinction matters. 
@@ -38,18 +38,18 @@
   Output: Like I mentioned earlier, if you have large enough sample sizes, the t-distribution becomes approximately normal. However, at low sample sizes, the t-distribution is substantially wider and shorter than the normal distribution. This matters a great deal when we calculate confidence intervals and p-values!
 
 - Class: text
-  Output: As you already know, you can calculate the confidence interval for a statistic by using the following formula - statistic +/- z* x SE, where z* is the critical value of the normal distribution and depends on the confidence level you specify. For example, z* for a 95% confidence interval is 1.96 (although, we have used 2 as a rough approximation). When you have sufficiently large sample sizes and normally distributed data, this works just fine. But, let's see what we get if we used a critical value from a t-distribution, t*, and also how this value might change depending on our sample size.
+  Output: As you already know, you can calculate the confidence interval for a statistic by using the following formula - statistic +/- z* x SE, where z* is the critical value of the normal distribution and depends on the confidence level you specify. For example, z* for a 95% confidence interval is 1.96 (although, we have used 2 as a rough approximation). When you have sufficiently large sample sizes and normally distributed data, this works just fine. But, let's see what we get if we use a critical value from a t-distribution, t*, and also how this value might change depending on our sample size.
 
 - Class: cmd_question
-  Output: Let's confirm what we already know - when sample sizes are large, t* will be approximately 2 for a 95% confidence interval. To determine t*, we will use xqt(p = area, df = degrees of freedom). For a 95% confidence interval, we would use p=c(0.025, 0.975).   Lets look at t* when our degrees of freedom = 50 (that is a fairly large sample size). Enter - xqt(c(.025,.975), df=50) 
-  CorrectAnswer: xqt(c(.025,.975), df=50)
-  AnswerTests: omnitest(correctExpr='xqt(c(.025,.975), df=50)')
-  Hint: Enter - xqt(c(.025,.975), df=50)
+  Output: Let's confirm what we already know - when sample sizes are large, t* will be approximately 2 for a 95% confidence interval. To determine t*, we will use xqt(p = percentile, df = degrees of freedom). For a 95% confidence interval, we would use p=c(0.025, 0.975).   Lets look at t* when our degrees of freedom = 50 (that is a fairly large sample size). Enter - xqt(p=c(.025,.975), df=50) 
+  CorrectAnswer: xqt(p=c(.025,.975), df=50)
+  AnswerTests: omnitest(correctExpr='xqt(p=c(.025,.975), df=50)')
+  Hint: Enter - xqt(p=c(.025,.975), df=50)
 
 - Class: cmd_question
   Output: Great. You should see that we got values that are quite close to 2 and -2. Let's say that, for example, we have a dataset where we determined the mean height of 51 individuals to be 70 inches with a SE of 10. What would the UPPER value of our 95% confidence interval be? You can assume t* = 2. 
   CorrectAnswer: 70 + 2*10
-  AnswerTests: omnitest(correctExpr='70 + 2*10', strict=FALSE)
+  AnswerTests: any_of_exprs('70 + 2*10', '70 + 10*2','90')
   Hint: Enter the values into the formula for a CI - statistic +/- t* * SE
 
 - Class: mult_question
@@ -61,14 +61,14 @@
 
 - Class: cmd_question
   Output: Let's confirm this by actually producing the new interval. First, we need to find t* using our new df value - xqt(c(.025,.975), df=3)
-  CorrectAnswer: xqt(c(.025,.975), df=3)
-  AnswerTests: omnitest(correctExpr='xqt(c(.025,.975), df=3)')
-  Hint: Enter -  xqt(c(.025,.975), df=3)
+  CorrectAnswer: xqt(p=c(.025,.975), df=3)
+  AnswerTests: omnitest(correctExpr='xqt(p=c(.025,.975), df=3)')
+  Hint: Enter -  xqt(p=c(.025,.975), df=3)
 
 - Class: cmd_question
   Output: Now we have a t* of about 3.2, instead of 2. Let's calculate the new upper value of the interval (you can assume t* is now 3.2, mean is still 70, and SE is still 10).
   CorrectAnswer: 70 + 3.2*10
-  AnswerTests: omnitest(correctExpr='70 + 3.2*10', strict=FALSE)
+  AnswerTests: any_of_exprs('70 + 3.2*10', '70+10*3.2', '102')
   Hint: Use this formula - statistic +/- t* * SE
 
 - Class: text
