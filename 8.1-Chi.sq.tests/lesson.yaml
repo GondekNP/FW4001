@@ -23,24 +23,24 @@
   Hint: Are any of the variables quantifiable? 
 
 - Class: cmd_question
-  Output: We're looking at two categorical variables here. Since we want to know if the treatments differ in their success, we will use a chi-square test for association. First, let's tally the relapses for each treatment - CocaineTab <- tally(Relapse~Drug, data=CocaineTreatment)
-  CorrectAnswer: CocaineTab <- tally(Relapse~Drug, data=CocaineTreatment)
-  AnswerTests: omnitest(correctExpr='CocaineTab <- tally(Relapse~Drug, data=CocaineTreatment)')
-  Hint: Enter - CocaineTab <- tally(Relapse~Drug, data=CocaineTreatment)
+  Output: We're looking at two categorical variables here. Since we want to know if the treatments differ in their rates of success, we will use a chi-square test for association. First, let's tally the relapses for each treatment. Type (CocaineTab <- tally(Relapse~Drug, data=CocaineTreatment)).  NOte, the extra "( )" around the expression will print AND save tally as an object.
+  CorrectAnswer: (CocaineTab <- tally(Relapse~Drug, data=CocaineTreatment))
+  AnswerTests: omnitest(correctExpr='(CocaineTab <- tally(Relapse~Drug, data=CocaineTreatment))')
+  Hint: Enter - (CocaineTab <- tally(Relapse~Drug, data=CocaineTreatment)), note, make sure you have the extra "(" and ")" around the expression.
 
 - Class: text
-  Output: Superficially, it looks like Desipramine does a better job preventing relapse - a larger proportion of users who treated with Desipramine prevented a relapse than the other two treatments. Let's see if these differences are significant. 
-
+  Output: Superficially, it looks like Desipramine does a better job of preventing a relapse - a larger proportion of users who  were treated with Desipramine did not relapse (when compared to the  other two treatment groups). Let's see if these differences are statistically significant. 
+ 
 - Class: cmd_question
-  Output: Print out that table so we can take a look (remember, it's called CocaineTab). 
-  CorrectAnswer: CocaineTab
-  AnswerTests: omnitest(correctExpr='CocaineTab')
-  Hint: Enter - CocaineTab
+  Output: Lets look again, but this time looking at proportions rather than the counts. Type (CocaineTab2 <- tally(~Relapse|Drug, data=CocaineTreatment, format="proportion")).  NOte, the extra "( )" around the expression will print AND save tally as an object.
+  CorrectAnswer: (CocaineTab <- tally(~Relapse|Drug, data=CocaineTreatment, format="proportion"))
+  AnswerTests: omnitest(correctExpr='(CocaineTab2 <- tally(~Relapse|Drug, data=CocaineTreatment, format=\"proportion\"))')
+  Hint: Enter - (CocaineTab2 <- tally(~Relapse|Drug, data=CocaineTreatment, format="proportion")), note, make sure you have the extra "(" and ")" around the expression.
 
 - Class: cmd_question
   Output: Fundamentally, we want to compare the observed counts of each drug x relapse combination with what we'd expect if the drug used had no influence on relapse. To figure out what we'd expect, let's look at the overall proportion of relapses, regardless of treatment. Enter - tally(~Relapse, data=CocaineTreatment, format='prop')
   CorrectAnswer: tally(~Relapse, data=CocaineTreatment, format='prop')
-  AnswerTests: omnitest(correctExpr='tally(~Relapse, data=CocaineTreatment, format='prop')')
+  AnswerTests: omnitest(correctExpr='tally(~Relapse, data=CocaineTreatment, format=\'proportion\')')
   Hint: Enter - tally(~Relapse, data=CocaineTreatment, format='prop')
 
 - Class: exact_question
