@@ -23,40 +23,26 @@
   Hint: Are any of the variables quantifiable? 
 
 - Class: cmd_question
-<<<<<<< HEAD
   Output: We're looking at two categorical variables here. Since we want to know if the treatments differ in their rates of success, we will use a chi-square test for association. First, let's tally the relapses for each treatment. Type - Type (CocaineTab2 <- tally(~Relapse|Drug, data=CocaineTreatment, format="proportion")).  NOte, the extra "( )" around the expression will print AND save tally as an object.
   CorrectAnswer: (CocaineTab <- tally(~Relapse|Drug, data=CocaineTreatment, format="proportion"))
-  AnswerTests: omnitest(correctExpr='(CocaineTab2 <- tally(~Relapse|Drug, data=CocaineTreatment, format=\"proportion\"))')
-  Hint: Enter - (CocaineTab2 <- tally(~Relapse|Drug, data=CocaineTreatment, format="proportion")), note, make sure you have the extra "(" and ")" around the expression.
-=======
-  Output: We're looking at two categorical variables here. Since we want to know if the treatments differ in their rates of success, we will use a chi-square test for association. First, let's tally the relapses for each treatment. Type (CocaineTab <- tally(Relapse~Drug, data=CocaineTreatment)).  NOte, the extra "( )" around the expression will print AND save tally as an object.
-  CorrectAnswer: (CocaineTab <- tally(Relapse~Drug, data=CocaineTreatment))
-  AnswerTests: omnitest(correctExpr='(CocaineTab <- tally(Relapse~Drug, data=CocaineTreatment))')
-  Hint: Enter - (CocaineTab <- tally(Relapse~Drug, data=CocaineTreatment)), note, make sure you have the extra "(" and ")" around the expression.
->>>>>>> c4d0ecea636a8081b27c7fe623e3467000e9472e
+  AnswerTests: omnitest(correctExpr='(CocaineTab <- tally(~Relapse|Drug, data=CocaineTreatment, format=\"proportion\"))')
+  Hint: Enter - (CocaineTab <- tally(~Relapse|Drug, data=CocaineTreatment, format="proportion")), note, make sure you have the extra "(" and ")" around the expression.
+ 
 
 - Class: text
   Output: Superficially, it looks like Desipramine does a better job of preventing a relapse - a larger proportion of users who  were treated with Desipramine did not relapse (when compared to the  other two treatment groups). Let's see if these differences are statistically significant. 
  
-<<<<<<< HEAD
 - Class: cmd_question
   Output: Fundamentally, we want to compare the observed counts of each drug x relapse combination with what we'd expect if the drug used had no influence on relapse. To figure out what we'd expect, let's look at the overall proportion of relapses, regardless of treatment. Enter - tally(~Relapse, data=CocaineTreatment, format='proportion')
   CorrectAnswer: tally(~Relapse, data=CocaineTreatment, format='proportion')
   AnswerTests: omnitest(correctExpr='tally(~Relapse, data=CocaineTreatment, format=\'proportion\')')
   Hint: Enter - tally(~Relapse, data=CocaineTreatment, format='proportion')
-=======
-- Class: cmd_question
-  Output: Lets look again, but this time looking at proportions rather than the counts. Type (CocaineTab2 <- tally(~Relapse|Drug, data=CocaineTreatment, format="proportion")).  NOte, the extra "( )" around the expression will print AND save tally as an object.
-  CorrectAnswer: (CocaineTab <- tally(~Relapse|Drug, data=CocaineTreatment, format="proportion"))
-  AnswerTests: omnitest(correctExpr='(CocaineTab2 <- tally(~Relapse|Drug, data=CocaineTreatment, format=\"proportion\"))')
-  Hint: Enter - (CocaineTab2 <- tally(~Relapse|Drug, data=CocaineTreatment, format="proportion")), note, make sure you have the extra "(" and ")" around the expression.
-
+ 
 - Class: cmd_question
   Output: Fundamentally, we want to compare the observed counts of each drug x relapse combination with what we'd expect if the drug used had no influence on relapse. To figure out what we'd expect, let's look at the overall proportion of relapses, regardless of treatment. Enter - tally(~Relapse, data=CocaineTreatment, format='prop')
-  CorrectAnswer: tally(~Relapse, data=CocaineTreatment, format='prop')
+  CorrectAnswer: tally(~Relapse, data=CocaineTreatment, format='proportion')
   AnswerTests: omnitest(correctExpr='tally(~Relapse, data=CocaineTreatment, format=\'proportion\')')
-  Hint: Enter - tally(~Relapse, data=CocaineTreatment, format='prop')
->>>>>>> c4d0ecea636a8081b27c7fe623e3467000e9472e
+  Hint: Enter - tally(~Relapse, data=CocaineTreatment, format='proportion')
 
 - Class: exact_question
   Output: So, if two thirds of users in this study relapse, and there were 24 individuals in each treatment group, how many relapses would we expect for each treatment group if there was no influence of the drug taken?
