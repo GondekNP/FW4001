@@ -23,7 +23,7 @@
   Hint: Are any of the variables quantifiable? 
 
 - Class: cmd_question
-  Output: We're looking at two categorical variables here. Since we want to know if the treatments differ in their rates of success, we will use a chi-square test for association. First, let's tally the relapses for each treatment. Type - Type (CocaineTab2 <- tally(~Relapse|Drug, data=CocaineTreatment, format="proportion")).  NOte, the extra "( )" around the expression will print AND save tally as an object.
+  Output: We're looking at two categorical variables here. Since we want to know if the treatments differ in their rates of success, we will use a chi-square test for association. First, let's tally the relapses for each treatment. Type -  (CocaineTab <- tally(~Relapse|Drug, data=CocaineTreatment, format="proportion")).  NOte, the extra "( )" around the expression will print AND save tally as an object.
   CorrectAnswer: (CocaineTab <- tally(~Relapse|Drug, data=CocaineTreatment, format="proportion"))
   AnswerTests: omnitest(correctExpr='(CocaineTab <- tally(~Relapse|Drug, data=CocaineTreatment, format=\"proportion\"))')
   Hint: Enter - (CocaineTab <- tally(~Relapse|Drug, data=CocaineTreatment, format="proportion")), note, make sure you have the extra "(" and ")" around the expression.
@@ -38,32 +38,26 @@
   AnswerTests: omnitest(correctExpr='tally(~Relapse, data=CocaineTreatment, format=\'proportion\')')
   Hint: Enter - tally(~Relapse, data=CocaineTreatment, format='proportion')
  
-- Class: cmd_question
-  Output: Fundamentally, we want to compare the observed counts of each drug x relapse combination with what we'd expect if the drug used had no influence on relapse. To figure out what we'd expect, let's look at the overall proportion of relapses, regardless of treatment. Enter - tally(~Relapse, data=CocaineTreatment, format='prop')
-  CorrectAnswer: tally(~Relapse, data=CocaineTreatment, format='proportion')
-  AnswerTests: omnitest(correctExpr='tally(~Relapse, data=CocaineTreatment, format=\'proportion\')')
-  Hint: Enter - tally(~Relapse, data=CocaineTreatment, format='proportion')
-
 - Class: exact_question
   Output: So, if two thirds of users in this study relapse, and there were 24 individuals in each treatment group, how many relapses would we expect for each treatment group if there was no influence of the drug taken?
   CorrectAnswer: 16
-  AnswerTests: omnitest(correctExpr='16')
+  AnswerTests: any_of_exprs('16', `24*2/3', '24/3*2')
   Hint: 2/3 of users in the study relapse, and there are 24 users in each group. 24 * 2/3 = ...
 
 - Class: cmd_question
   Output: Exactly. Regardless of treatment, we expect 16 users to relapse and 8 NOT to relapse. Now, for each drug x relapse combination, we calculate a 'residual' - (observed - expected)^2 / expected. So, what is our residual for Desipramine users who relapsed? We observed 10, and we expect 16. 
-  CorrectAnswer: (16-10)^2/16
-  AnswerTests: omnitest(correctExpr='(16-10)^2/16', correctVal='2.25')
+  CorrectAnswer: (10-16)^2/16
+  AnswerTests: omnitest(correctExpr='(10-16)^2/16', correctVal='2.25')
   Hint: Remember, the formula for our residual is (Observed - Expected)^2 / Expected. 
 
 - Class: text
   Output: So, we got 2.25 as our first residual. If you didn't have R, you'd finish up by hand, but fortunately, we can compute the rest automatically!
 
 - Class: cmd_question
-  Output: Try it now using xchisq.test() - xchisq.test(CocaineTab)
-  CorrectAnswer: xchisq.test(CocaineTab)
-  AnswerTests: omnitest(correctExpr='xchisq.test(CocaineTab)')
-  Hint: Enter - xchisq.test(CocaineTab)
+  Output: Try it now using xchisq.test() - xchisq.test(tally(Relapse~Drug, data=CocaineTreatment))
+  CorrectAnswer: xchisq.test(tally(Relapse~Drug, data=CocaineTreatment))
+  AnswerTests: omnitest(correctExpr='xchisq.test(tally(Relapse~Drug, data=CocaineTreatment))')
+  Hint: Enter - xchisq.test(tally(Relapse~Drug, data=CocaineTreatment))
 
 - Class: text
   Output: Unfortunately, xchisq.test drops the names of the variables.  But, the residual you just calculated was in the first column, second row. If you look inside the brackets, you'll see the exact value you just calculated - 2.25! (Note, mosaic calls these residuals 'contribution to the X-squared', because the summation of each individual calculation is called the chi-squared statistic)
