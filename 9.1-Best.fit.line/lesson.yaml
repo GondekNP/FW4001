@@ -1,0 +1,75 @@
+- Class: meta
+  Course: Biometry
+  Lesson: 9.1 - Best fit lines
+  Author: Nick Gondek
+  Type: Standard
+  Organization: University of Minnesota
+  Version: 2.4.2
+
+- Class: text
+  Output: Welcome to Pre-lab 9 - your last pre-lab! We'll be talking about linear regression, both in how it R calculates a best fit line and how this line is influenced by variance.
+
+- Class: text
+  Output: Regression involves two quantitative variables, where we fit a best fit line in order to associate the two variables with a slope. It's not important to know how it's actually done, but we'll talk a little bit about the characteristics of this best fit line. 
+
+- Class: figure
+  Output: We'll use four fictional datasets to investigate these characteristics - AData, BData, CData, and DData. These are modelled after a fictional observational study - 100 miles south of the twin cities, what is the temperature? 200 miles south? 
+  Figure: Fits.R
+  FigureType: new
+  
+- Class: mult_question
+  Output: You should notice something about one of the four datasets. If you were to draw a line on your computer screen, for which dataset would you be able to touch EVERY point at once? 
+  AnswerChoices: AData;BData;CData;DData
+  CorrectAnswer: AData
+  AnswerTests: omnitest(correctVal='AData')
+  Hint: BData (blue) might look close, but if you had a really thin line, you wouldn't be able to do it. 
+
+- Class: figure
+  Output: I've drawn in that line for you. Just like you said, the red dots are all connected by this line!
+  Figure: abline.R
+  FigureType: new
+
+- Class: text
+  Output: R calculates the line of best fit by mimimizing the 'residual sum of squares' - which sounds complicated, but it is not. Essentially, for each data point, R subtracts the value of the line for that x-value from the value of the data point for that same x-value, and squares it. It does this for every point, and sums them up. The line that has the lowest sum is the best fit line!
+
+- Class: figure
+  Output: This black line is actually the line of best fit for ALL of the datasets! Think about it - Let's say, for example, the black line inched further up to the upper pink values (the dashed line).
+  Figure: abline2.R
+  FigureType: new
+
+- Class: text
+  Output: Now, the dashed line is MUCH closer to the upper pink values (at 0, 200, 400, etc) but MUCH further away from the lower pink values (at 100, 300, 500, etc). If we calculated the sum of squares for this new line, we'd get very low numbers for the upper values, but we'd get HUGE numbers for the lower values!
+
+- Class: text
+  Output: So, even though it is moderately far away from all the pink values, the black line is the best fit line for the NoFit dataset (and ALL of the datasets).
+
+- Class: cmd_question
+  Output: That is not to say, however, that this line is a useful for each of the datasets (we'll talk about this in the next section)! For now, try fitting a linear model to AData - summary(lm(temp~south, data=AData))
+  CorrectAnswer: summary(lm(temp~south, data=AData))
+  AnswerTests: omnitest(correctExpr='summary(lm(temp~south, data=AData))')
+  Hint: Enter -  summary(lm(temp~south, data=AData))
+
+- Class: exact_question
+  Output: There is a lot to look at here, but for simple linear regression, there are three values that are useful to us. We'll talk about just one now - the slope. Underneath the "Coefficients:" section, what value is listed underneath "Estimate" and to the right of "south"?
+  CorrectAnswer: .05
+  AnswerTests: omnitest(correctVal='.05')
+  Hint: Coefficients are near the middle of that block of output.
+
+- Class: cmd_question
+  Output: That is the slope value for 'south' in a linear equation relating the two variables. Basically, for any value of south, Temp = (.05 * South) + 30. Using this equation, what would the line predict for a location that is 250 miles south of the twin cities?
+  CorrectAnswer: 250*.05 + 30
+  AnswerTests: omnitest(correctExpr='250*.05 + 30', correctVal='42.5')
+  Hint: Plug in south = 250 to this equation - temp = (.05 * south) + 30 
+
+- Class: figure
+  Output: Exactly - 42.5 is the temperature we would predict. And sure enough, it's on our line (the orange dot)! 
+  Figure: predicted.R
+  FigureType: new
+
+- Class: text
+  Output: Those are the basic mechanics of a best fit line and linear regression. In the next section, we'll find out how to tell if our linear models are actually useful for prediction.
+
+- Class: figure
+  Output: Good work! You've completed Pre-Lab 9.1. An 8-digit code will appear in the console below - enter this code into the appropriate quiz on moodle in order to receive credit. 
+  Figure: c.R
+  FigureType: new
