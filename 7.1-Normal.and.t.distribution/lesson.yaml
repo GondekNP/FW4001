@@ -60,7 +60,7 @@
   Hint: The curve itself would widen out and get shorter, so what would happen to the values at which 2.5% and 97.5% of the data fall?
 
 - Class: cmd_question
-  Output: Let's confirm this by actually producing the new interval. First, we need to find t* using our new df value - xqt(p=(.025,.975), df=3)
+  Output: Let's confirm this by actually producing the new interval. First, we need to find t* using our new df value - xqt(p=c(.025,.975), df=3)
   CorrectAnswer: xqt(p=c(.025,.975), df=3)
   AnswerTests: omnitest(correctExpr='xqt(p=c(.025,.975), df=3)')
   Hint: Enter -  xqt(p=c(.025,.975), df=3)
