@@ -17,12 +17,12 @@
 
 - Class: cmd_question
   Output: I've loaded this dataset into R from the Lock5Package.  Lets take a look at this dataset by clicking on it in the upper rigth panel.
-  CorrectAnswer: view(HotDogs)
-  AnswerTests: omnitest(correctExpr='view(HotDogs)')
-  Hint: You can also type view(HotDogs)
+  CorrectAnswer: View(HotDogs)
+  AnswerTests: omnitest(correctExpr='View(HotDogs)')
+  Hint: You can also type View(HotDogs) with a capitol V
 
 - Class: cmd_question
-  Output: Let's first create a bootstrap distribution for the mean number of hot dogs needed to win the contest. Try it now, enter - Bootdat<-do(1000)*{mean(~HotDogs, data=HotDogs)}.
+  Output: Let's first create a bootstrap distribution for the mean number of hot dogs needed to win the contest (think of this as a "population mean" if you looked at ALL years). Try it now, enter - Bootdat<-do(1000)*{mean(~HotDogs, data=resample(HotDogs))}.
   CorrectAnswer: Bootdat<-do(1000)*{mean(~HotDogs, data=resample(HotDogs))}
   AnswerTests: omnitest(correctExpr='Bootdat<-do(1000)*{mean(~HotDogs, data=resample(HotDogs))}')
   Hint: Type Bootdat<-do(1000)*{mean(~HotDogs, data=resample(HotDogs))}
@@ -46,16 +46,16 @@
   Hint: Enter - bootCI
 
 - Class: text
-  Output: So, using a bootstrapping simulation method, we got a 95% confidence interval of (52, 60.6). We are 95% sure that the mean number of hotdogs needed to win the contenst is between 52 and 60! Thats a lot of hot dogs!
+  Output: So, using a bootstrapping simulation method, we got a 95% confidence interval of (52, 60.5). We are 95% sure that the mean number of hotdogs needed to win the contest is between 52 and around 60! Thats a lot of hot dogs!
 
 - Class: cmd_question
-  Output: Now, let's try it again using the explicit formula for calculating a confidence interval for a mean. This can be found on your formula sheet, but here it is, statistic +/- t* x SE, where SE = s / sqrt(n).  Note, s is the standard deviation of the data. So, to calculate this interval, we need to first calculate the SE by enter the following - formSE <- sd(~HotDogs, data=HotDogs)/sqrt(10) (since there are 10 cases in the dataframe).
+  Output: Now, let's try it again using the explicit formula for calculating a confidence interval for a mean. This can be found on your formula sheet, but here it is, statistic +/- t* x SE, where SE = s / sqrt(n).  Note, s is the standard deviation of the data. So, to calculate this interval, we need to first calculate the SE.  Lets calculate and store this value by entering the following - formSE <- sd(~HotDogs, data=HotDogs)/sqrt(10) (since there are 10 cases in the dataframe).
   CorrectAnswer: formSE <- sd(~HotDogs, data=HotDogs)/sqrt(10)
   AnswerTests: omnitest(correctExpr='formSE <- sd(~HotDogs, data=HotDogs)/sqrt(10)')
   Hint: Enter - formSE <- sd(~HotDogs, data=HotDogs)/sqrt(10)
 
 - Class: cmd_question
-  Output: We need two more things to make a confidence interval. We need the mean number of hotdogs in our sample data and the t* for a 95% confidence interval. Let's get the mean first - call it formMean (for formula mean).
+  Output: We need two more things to make a confidence interval. We need the mean number of hotdogs in our sample data and the t* for a 95% confidence interval. Let's get the mean first - call it formMean (for formula mean), formMean<-mean(~HotDogs, data=HotDogs).
   CorrectAnswer: formMean <- mean(~HotDogs, data=HotDogs)
   AnswerTests: omnitest(correctExpr='formMean <- mean(~HotDogs, data=HotDogs)')
   Hint: Enter - formMean <- mean(~HotDogs, data=HotDogs)
@@ -67,7 +67,7 @@
   Hint: Remember, n=10 (and df = n-1). 
 
 - Class: cmd_question
-  Output: Exactly. So, we can get t* by using the qt function as follows - tstars <- xqt(p=c(.025, .975), df=9)
+  Output: Exactly. So, we can get t* (and store it in an object called tstars) by using the xqt function as follows - tstars <- xqt(p=c(.025, .975), df=9)
   CorrectAnswer: tstars <- xqt(p=c(.025, .975), df=9)
   AnswerTests: omnitest(correctExpr='tstars <- xqt(p=c(.025, .975), df=9)')
   Hint: Enter -  tstars <- qt(p=c(.025, .975), df=9)
