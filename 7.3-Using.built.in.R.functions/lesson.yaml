@@ -1,0 +1,109 @@
+- Class: meta
+  Course: Biometry
+  Lesson: 7.3- Using built in R functions
+  Author: John Fieberg
+  Type: Standard
+  Organization: University of Minnesota
+  Version: 2.4.2
+
+- Class: text
+  Output: In this lesson, we will explore built functions in R for conducting hypothesis tests involving differences in means and differences in proportions. 
+
+- Class: figure
+  Output: Lets consider the horned lizards dataset that we have explored in class and in your homework. 
+  Figure: hlizards.R
+  FigureType: new
+
+
+- Class: cmd_question
+  Output: I've loaded this dataset into R from the abd package.  Lets take a look at this dataset by clicking on it in the upper right panel.
+  CorrectAnswer: View(HornedLizards)
+  AnswerTests: omnitest(correctExpr='View(HornedLizards)')
+  Hint: You can also type View(HornedLizards) with a capitol V
+
+- Class: cmd_question
+  Output: "We can use the t.test function to test for a difference in mean horn length among lizards that have been killed and those that are alive.  Lets look at the help function for for t.test by typing ?stats::t.test"
+  CorrectAnswer: ?stats::t.test
+  AnswerTests: omnitest(correctExpr='?stats::t.test')
+  Hint: "Type ?stats::t.test"
+
+- Class: cmd_question
+  Output:  "OK, tests try it out by typing: t.test(horn.length~group, data=HornedLizards)"
+  CorrectAnswer: t.test(horn.length~group, data=HornedLizards)
+  AnswerTests: omnitest(correctExpr='t.test(horn.length~group, data=HornedLizards)')
+  Hint: Enter t.test(horn.length~group, data=HornedLizards)
+  
+- Class: mult_question
+  Output: Is the result statistically significant using an alpha= 0.05?
+  AnswerChoices: Yes;No
+  CorrectAnswer: Yes
+  AnswerTests: omnitest(correctVal='Yes')
+  Hint: Is the p-value small?  Is 0 in the confidence interval?
+
+- Class: mult_question
+  Output: What do we have to assume about our data?
+  AnswerChoices: The data are normally distributed; We have a large sample size (more than 30 in each group);The data are normally distributed AND we have a large sample size (more than 30 in each group); The data are normally distributed OR We have a large sample size (more than 30 in each group); Nothing;
+  CorrectAnswer: The data are normally distributed OR We have a large sample size (more than 30 in each group)
+  AnswerTests: omnitest(correctVal='The data are normally distributed OR We have a large sample size (more than 30 in each group)')
+  Hint: For small sample sizes, we need normal data.  If sample sizes are large, then we are "OK" because of the central limit theorem.
+
+- Class: text
+  Output: If we have paired data, then we need to use the paired=TRUE argument in t.test. To illustrate, lets consider an example from Whitlock and Schluter.
+    In many species, males are more likely to attract females if the males have high testosterone
+    levels. Are males with high testosterone paying for this extra mating success in other ways? One
+    hypothesis is that males with high testosterone might be less able to fight off disease – that is, their
+    high levels of testosterone might reduce their immunocompetence. To test this idea Hasselquist
+    et al. (1999) experimentally increased the testosterone levels of 13 male and female red-winged
+    blackbirds by implanting a small permeable tube filled with testosterone. They measured the
+    antibody levels in each bird’s blood serum both before and after the implant. The antibody levels
+    were measured optically, in units of log 10−3 optical density per minute (ln[mOD/min]).
+    
+
+- Class: figure
+  Output: These data are again contained in the abd library. I've loaded them for you (as you will see in the upper right panel)
+  Figure: balckb.R
+  FigureType: new
+
+- Class: cmd_question
+  Output:  "OK, tests try it out by typing: t.test(x=log.after, y=log.before,data=Blackbirds, paired=TRUE)"
+  CorrectAnswer: t.test(x=log.after, y=log.before,data=Blackbirds, paired=TRUE)
+  AnswerTests: omnitest(correctExpr='t.test(x=log.after, y=log.before,data=Blackbirds, paired=TRUE)')
+  Hint: Enter t.test(x=log.after, y=log.before,data=Blackbirds, paired=TRUE)
+  
+- Class: mult_question
+  Output: Is the result statistically significant using an alpha= 0.05?
+  AnswerChoices: Yes;No
+  CorrectAnswer: No
+  AnswerTests: omnitest(correctVal='No')
+  Hint: Is the p-value small?  Is 0 in the confidence interval?
+
+- Class: text
+  Output: Lastly, lets look at an example using prop.test.  For this example, lets consider the StudentSurvey dataset again.  Lets
+    ask if more males or females smoke?
+ 
+
+- Class: figure
+  Output: I've loaded the data for you from the Lock5Data library (as you will see in the upper right panel)
+  Figure: student.R
+  FigureType: new
+  
+- Class: cmd_question
+  Output:  "OK, tests try it out by typing: prop.test(Gender~Smoke, data=StudentSurvey)"
+  CorrectAnswer: prop.test(Gender~Smoke, data=StudentSurvey)
+  AnswerTests: omnitest(correctExpr='prop.test(Gender~Smoke, data=StudentSurvey)')
+  Hint: Enter prop.test(Gender~Smoke, data=StudentSurvey)
+  
+- Class: mult_question
+  Output: Is the result statistically significant using an alpha= 0.05?
+  AnswerChoices: Yes;No
+  CorrectAnswer: No
+  AnswerTests: omnitest(correctVal='No')
+  Hint: Is the p-value small?  Is 0 in the confidence interval?
+  
+- Class: mult_question
+  Output: Would you like to submit the log of this lesson to Google Forms so
+    that your instructor may evaluate your progress?
+  AnswerChoices: Yes;No
+  CorrectAnswer: NULL
+  AnswerTests: submit_log()
+  Hint: hint
