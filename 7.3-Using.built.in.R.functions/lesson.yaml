@@ -10,13 +10,12 @@
   Output: In this lesson, we will explore built functions in R for conducting hypothesis tests involving differences in means and differences in proportions. 
 
 - Class: figure
-  Output: Lets consider the horned lizards dataset that we have explored in class and in your homework. 
+  Output: Lets consider the horned lizards dataset that we have explored in class and in your homework.
   Figure: hlizards.R
   FigureType: new
 
-
 - Class: cmd_question
-  Output: I've loaded this dataset into R from the abd package.  Lets take a look at this dataset by clicking on it in the upper right panel.
+  Output: I have loaded this dataset into R from the abd package.  Lets take a look at this dataset by clicking on it in the upper right panel.
   CorrectAnswer: View(HornedLizards)
   AnswerTests: omnitest(correctExpr='View(HornedLizards)')
   Hint: You can also type View(HornedLizards) with a capitol V
@@ -49,6 +48,10 @@
 
 - Class: text
   Output: If we have paired data, then we need to use the paired=TRUE argument in t.test. To illustrate, lets consider an example from Whitlock and Schluter.
+  
+  
+- Class: text
+  Output: Example 12.2 So macho it makes you sick? (verbatim from Whitlock and Schluter ) If we have paired data, then we need to use the paired=TRUE argument in t.test. To illustrate, lets consider an example from Whitlock and Schluter.
     In many species, males are more likely to attract females if the males have high testosterone
     levels. Are males with high testosterone paying for this extra mating success in other ways? One
     hypothesis is that males with high testosterone might be less able to fight off disease – that is, their
@@ -60,7 +63,7 @@
     
 
 - Class: figure
-  Output: These data are again contained in the abd library. I've loaded them for you (as you will see in the upper right panel)
+  Output: These data are again contained in the abd library. I have loaded them for you (as you will see in the upper right panel)
   Figure: balckb.R
   FigureType: new
 
@@ -83,7 +86,7 @@
  
 
 - Class: figure
-  Output: I've loaded the data for you from the Lock5Data library (as you will see in the upper right panel)
+  Output: I have loaded the data for you from the Lock5Data library (as you will see in the upper right panel)
   Figure: student.R
   FigureType: new
   
