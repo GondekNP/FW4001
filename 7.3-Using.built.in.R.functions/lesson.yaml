@@ -34,7 +34,7 @@
   Hint: Really?  You need a hint for this one?
 
 - Class: cmd_question
-  Output:  "OK, tests try it out by typing: t.test(horn.length~group, data=HornedLizards)"
+  Output:  "That is right.  t.test will conduct a hypothesis test AND give us confidence interval for the difference in means. OK, tests try it out by typing: t.test(horn.length~group, data=HornedLizards)"
   CorrectAnswer: t.test(horn.length~group, data=HornedLizards)
   AnswerTests: omnitest(correctExpr='t.test(horn.length~group, data=HornedLizards)')
   Hint: Enter t.test(horn.length~group, data=HornedLizards)

@@ -7,4 +7,3 @@ swirl_options(swirl_logging = TRUE)
 suppressMessages(library(Lock5Data))
 suppressMessages(library(mosaic))
 suppressMessages(library(abd))
- 
