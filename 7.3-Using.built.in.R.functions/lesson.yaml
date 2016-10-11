@@ -13,6 +13,12 @@
   Output: Lets consider the horned lizards dataset that we have explored in class and in your homework.
   Figure: hlizards.R
   FigureType: new
+  
+- Class: cmd_question
+  Output: I have loaded this dataset into R from the abd package.  Lets take a look at this dataset by clicking on it in the upper right panel.
+  CorrectAnswer: View(HornedLizards)
+  AnswerTests: omnitest(correctExpr='View(HornedLizards)')
+  Hint: You can also type View(HornedLizards) with a capitol V
 
 - Class: cmd_question
   Output: "We can use the t.test function to test for a difference in mean horn length among lizards that have been killed and those that are alive.  Lets look at the help function for for t.test by typing ?stats::t.test"
