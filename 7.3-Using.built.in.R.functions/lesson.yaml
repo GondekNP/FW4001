@@ -10,9 +10,15 @@
   Output: In this lesson, we will explore built functions in R for conducting hypothesis tests involving differences in means and differences in proportions. 
 
 - Class: figure
-  Output: Lets consider the horned lizards dataset that we have explored in class and in your homework.
-  Figure: hlizards.R
+  Output: Lets consider the HornedLizards data from class and homeowrk. I have loaded them for you (as you will see in the upper right panel)
+  Figure: hliz.R
   FigureType: new
+  
+- Class: cmd_question
+  Output:  Lets take a look at this dataset by clicking on it in the upper right panel.
+  CorrectAnswer: View(HornedLizards)
+  AnswerTests: omnitest(correctExpr='View(HornedLizards)')
+  Hint: You can also type View(HornedLizards) with a capitol V
 
 - Class: cmd_question
   Output: "We can use the t.test function to test for a difference in mean horn length among lizards that have been killed and those that are alive.  Lets look at the help function for for t.test by typing ?stats::t.test"
@@ -84,7 +90,6 @@
 - Class: text
   Output: Lastly, lets look at an example using prop.test.  For this example, lets consider the StudentSurvey dataset again.  Lets
     ask if more males or females smoke?
- 
 
 - Class: figure
   Output: I have loaded the data for you from the Lock5Data library (as you will see in the upper right panel)
@@ -111,3 +116,4 @@
   CorrectAnswer: NULL
   AnswerTests: submit_log()
   Hint: hint
+  

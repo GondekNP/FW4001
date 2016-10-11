@@ -27,7 +27,7 @@ submit_log <- function(){
   
   # Please edit the link below
   pre_fill_link <- "https://docs.google.com/a/umn.edu/forms/d/e/1FAIpQLSfHGv3UYsnA5LbGfomP-1tCkJ5eeS27vQSyvn0fz3r0R5gcHg/viewform?entry.2029380141"
-  
+  require("base64enc")
   # Do not edit the code below
   if(!grepl("=$", pre_fill_link)){
     pre_fill_link <- paste0(pre_fill_link, "=")
