@@ -26,6 +26,13 @@
   AnswerTests: omnitest(correctExpr='?stats::t.test')
   Hint: "Type ?stats::t.test"
 
+- Class: mult_question
+  Output: What does the conf.level argument do?
+  AnswerChoices: It builds the users confidence;It allows the user to specify a level of confidence for a confidence interval; something else that is probably pretty cool
+  CorrectAnswer: It allows the user to specify a level of confidence for a confidence interval
+  AnswerTests: omnitest(correctVal='It allows the user to specify a level of confidence for a confidence interval')
+  Hint: Really?  You need a hint for this one?
+
 - Class: cmd_question
   Output:  "OK, tests try it out by typing: t.test(horn.length~group, data=HornedLizards)"
   CorrectAnswer: t.test(horn.length~group, data=HornedLizards)
