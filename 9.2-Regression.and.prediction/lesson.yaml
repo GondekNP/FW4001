@@ -6,10 +6,8 @@
   Organization: University of Minnesota
   Version: 2.4.2
 
- 
 - Class: figure
-  Output: Welcome to Pre-lab 9.2. In this pre-lab, we will explore plots used to evaluate the assumptions of linear regression. 
-    from the abd library.  
+  Output: Welcome to Pre-lab 9.2. In this pre-lab, we will explore plots used to evaluate the assumptions of linear regression. from the abd library.  
   Figure: rattle2.R
   FigureType: new
    
