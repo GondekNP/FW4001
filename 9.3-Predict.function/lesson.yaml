@@ -35,13 +35,13 @@
   
 
 - Class: cmd_question
-  Output: "We can get a confidence interval for the AVERAGE temperature change following a meal of size 20 units using:predict(snake.lm, newdata=data.frame(meal.size=20), interval=\"confidence\")".  Try it!" 
+  Output: We can get a confidence interval for the AVERAGE temperature change following a meal of size 20 units using - predict(snake.lm, newdata=data.frame(meal.size=20), interval="confidence").  Try it!
   CorrectAnswer: predict(snake.lm, newdata=data.frame(meal.size=20),interval=\"confidence\") 
   AnswerTests: omnitest(correctExpr='predict(snake.lm, newdata=data.frame(meal.size=20),interval=\"confidence\")')
   Hint: Enter -  predict(snake.lm, newdata=data.frame(meal.size=20),interval=\"confidence\")
   
 - Class: cmd_question
-  Output: "We can get a prediction interval for a NEW OBSERVATION  following a meal of size 20 units using:predict(snake.lm, newdata=data.frame(meal.size=20), interval=\"prediction\")".  Try it!" 
+  Output: We can get a prediction interval for a NEW OBSERVATION  following a meal of size 20 units using-  predict(snake.lm, newdata=data.frame(meal.size=20), interval="prediction").  Try it!
   CorrectAnswer: predict(snake.lm, newdata=data.frame(meal.size=20),interval=\"prediction\") 
   AnswerTests: omnitest(correctExpr='predict(snake.lm, newdata=data.frame(meal.size=20),interval=\"prediction\")')
   Hint: Enter -  predict(snake.lm, newdata=data.frame(meal.size=20),interval=\"prediction\")
