@@ -1,106 +1,102 @@
 - Class: meta
   Course: Biometry
-  Lesson: 9.2 - Regression and prediction
+  Lesson: 9.2 - Assumptions
   Author: Nick Gondek
   Type: Standard
   Organization: University of Minnesota
   Version: 2.4.2
 
-- Class: text
-  Output: We now know that this black line, with slope .05, is the best fit line for all of our datasets. Now, let's see which datasets can be accurately predicted using 'south' as a predictor (ie, slope is significant and the model is effective).
-
+ 
+- Class: figure
+  Output: Welcome to Pre-lab 9.2. In this pre-lab, we will explore plots used to evaluate the assumptions of linear regression. 
+    from the abd library.  
+  Figure: rattle2.R
+  FigureType: new
+   
 - Class: cmd_question
-  Output: Try (again) fitting a linear model to AData - summary(lm(temp~south, data=AData))
-  CorrectAnswer: summary(lm(temp~south, data=AData))
-  AnswerTests: omnitest(correctExpr='summary(lm(temp~south, data=AData))')
-  Hint: Enter - summary(lm(temp~south, data=AData))
+  Output: "OK, lets look again at the summary of our fitted model.  Type: summary(snake.lm)" 
+  CorrectAnswer: summary(snake.lm)
+  AnswerTests: omnitest(correctExpr='summary(snake.lm)')
+  Hint: Enter -  summary(snake.lm)
 
-- Class: exact_question
-  Output: In the last lesson, we figured out how to use the slope output to make predictions, but let's use the p-value to determine the significance of this slope. Unsurprisingly, we'll be looking for a p-value. What value is to the right of "south" and below "Pr(>|t|)"?
-  CorrectAnswer: 2e-16
-  AnswerTests: omnitest(correctVal='2e-16')
-  Hint: You can include the 'e' in your answer.
 
-- Class: cmd_question
-  Output: That's a p-value of .0000000000000002 - significant, for sure. Not surprising, because AData is actually idealized data, which you will never see in practice. Now, let's try fitting a linear model on a dataset that isn't perfect - CData.
-  CorrectAnswer: summary(lm(temp~south, data=CData))
-  AnswerTests: omnitest(correctExpr='summary(lm(temp~south, data=CData))')
-  Hint: Enter - summary(lm(temp~south, data=CData))
-
-- Class: exact_question
-  Output: What is the p-value this time?
-  CorrectAnswer: .00520
-  AnswerTests: omnitest(correctVal='.00520')
-  Hint: Underneath "Pr(>|t|)" and to the right of "south".
-  
-- Class: exact_question
-  Output: We've looked at slope estimates and the significance of those slope estimates, so let's take a look at another useful metric - R-squared. What is the value for 'adjusted r-squared' for this model?
-  CorrectAnswer: 0.5541
-  AnswerTests: omnitest(correctVal=.5541)
-  Hint: Adjusted r-squared can be found on the second to last line of the output from summary(lm()). 
-  
 - Class: mult_question
-  Output: Right, our r-squared is .5541. What does that mean?
-  AnswerChoices: The model accounts for 55.41 percent of the variance within temp;The model accounts for 44.59 percent of the variance within temp;The slope is significant, but the model is not;The model is significant 
-  CorrectAnswer: The model accounts for 55.41 percent of the variance within temp
-  AnswerTests: omnitest(correctVal='The model accounts for 55.41 percent of the variance within temp')
-  Hint: A model can't be statistically significant - only predictors within a model can. 
+  Output: Lets consider the assumptions of linear regression.  Which of the items below is NOT one of our assumptions?
+  AnswerChoices: the variance about the line is constant; the errors (distances between the points and the line) are normally distributed; the average temperature change at any given value of meal size falls on the line; the spread of the points about the line should increase with meal.size; the cases are independent from one another 
+  CorrectAnswer: the spread of the points about the line should increase with meal.size
+  AnswerTests: omnitest(correctVal='the spread of the points about the line should increase with meal.size')
+  Hint:  What do we assume about the spread about the line?
 
 - Class: cmd_question
-  Output: Now, let's try some linear regression on some real data - specifically, the StudentSurvey dataset we used in week 1 (you've come full circle).  Click on StudentSurvey.
+  Output: "R has some built in plots for exploring these assumptions. First, lets set up the plotting window so we can see 4 plots at a time.  We can do this by typing par(mfrow=c(2,2)).  This tells R that you want to plot in multiple frames, by row, with 2 rows and 2 columns. Go ahead and type: par(mfrow=c(2,2))" 
+  CorrectAnswer: par(mfrow=c(2,2))
+  AnswerTests: omnitest(correctExpr='par(mfrow=c(2,2))')
+  Hint: Enter -  par(mfrow=c(2,2))
+   
+- Class: cmd_question
+  Output: "Now, we can type plot(name of linear regression object).  In this case, try typing: summary(snake.lm)" 
+  CorrectAnswer: plot(snake.lm)
+  AnswerTests: omnitest(correctExpr='plot(snake.lm)')
+  Hint: Enter -  plot(snake.lm)   
+  
+- Class: text
+  Output: Probably the two most useful plots are the two on the top row.  In the top left plot, we are looking
+    to make sure the residuals do not exhibit a strong pattern.  We also hope that the spread of the residuals is similar across the range of x values.
+    The number of observations here is small, so it is difficult to say too much, but I would say this plot looks "OK".  Also note that there is one large outlier (marked with a 17, indicating it is the 17th observation in the data set).  
+  
+- Class: text
+  Output: The top right plot is called a QQ plot and is used to evaluate the normality assumption.  We are looking for observations to fall roughly on the line. I would say things look "OK" here as well.
+  
+- Class: cmd_question
+  Output: Now, let's look at another example with more data - specifically, the StudentSurvey dataset we used in week 1 (you've come full circle).  Click on StudentSurvey.
   CorrectAnswer: View(StudentSurvey)
   AnswerTests: omnitest(correctExpr='View(StudentSurvey)')
   Hint: Click on StudentSurvey in the workspace.
-
+    
 - Class: cmd_question
-  Output: We'll look at whether a model using GPA is a good predictor for SAT scores. Before we do any regressing, let's just take a look at the scatterplot - xyplot(SAT~GPA,StudentSurvey)
+  Output: We'll look at whether a model using GPA is a good predictor for SAT scores. Before we fit a model to the data, let's just take a look at the scatterplot - xyplot(SAT~GPA,StudentSurvey)
   CorrectAnswer: xyplot(SAT~GPA,StudentSurvey)
   AnswerTests: omnitest(correctExpr='xyplot(SAT~GPA,StudentSurvey)')
   Hint: Enter -  xyplot(SAT~GPA,StudentSurvey)
 
 - Class: cmd_question
-  Output: Now, try using lm() to create a linear model, using GPA as a predictor for SAT. This time, save it as SAT.GPA. Enter - SAT.GPA <- lm(SAT~GPA,StudentSurvey)
+  Output: "Now, try using lm() to create a linear model, using GPA as a predictor for SAT. This time, save it into an object called SAT.GPA. Enter: SAT.GPA <- lm(SAT~GPA,StudentSurvey)"
   CorrectAnswer: SAT.GPA<-lm(SAT~GPA,StudentSurvey)
   AnswerTests: omnitest(correctExpr='SAT.GPA<-lm(SAT~GPA,StudentSurvey)')
-  Hint: The code will be very similar to the xyplot we used above. 
+  Hint: "Enter: SAT.GPA <- lm(SAT~GPA,StudentSurvey)" 
 
 - Class: cmd_question
-  Output: Great, now print out a summary of SAT.GPA. 
+  Output: Great, now print out a summary of the fitted model using summary(SAT.GPA) 
   CorrectAnswer: summary(SAT.GPA)
   AnswerTests: omnitest(correctExpr='summary(SAT.GPA)')
   Hint: Enter - summary(SAT.GPA)
 
+
+- Class: cmd_question
+  Output: "Now, we can again look at diagnostic plots by typing: plot(SAT.GPS)." 
+  CorrectAnswer: plot(SAT.GPA)
+  AnswerTests: omnitest(correctExpr='plot(SAT.GPS)')
+  Hint: Enter -  plot(SAT.GPA)   
+
+
 - Class: mult_question
-  Output: What does the output tell us about the model?
-  AnswerChoices: For every 1 GPA point, SAT score increases 114 points - but the slope is NOT significant;For every 1 GPA point, SAT score increases 114 points - and the slope is significant;For every 114 GPA point, SAT score increases 1 points - but the slope is NOT significant;For every 114 GPA point, SAT score increases 1 points - and the slope is significant
-  CorrectAnswer: For every 1 GPA point, SAT score increases 114 points - but the slope is NOT significant
-  AnswerTests: omnitest(correctVal='For every 1 GPA point, SAT score increases 114 points - and the slope is significant')
-  Hint: The resultant equation is... SAT = 114 * GPA + 845
+  Output: Based on the uppper left plot, do you think the assumption of constant variance is reasonable?
+  AnswerChoices: Yes; No
+  CorrectAnswer: Yes
+  AnswerTests: omnitest(correctVal='Yes')
+  Hint:  Do the residuals look to be equally spread out as you move along the x-axis?
+    
 
-- Class: text
-  Output: Great. Though it doesn't explain much variation within the model, we did find the slope to be significant. It's important to note that this is dependent on sample size! There is a lot of spread within the data, but there are so many data points, that even this loose trend is significant. 
-
-- Class: cmd_question
-  Output: We'll do one last thing. Let's say that we want to use this model to predict the SAT scores of 5 students using their GPAs. First, we need a data frame with these 5 scores listed - newGPAs<-data.frame(GPA = c(0.5, 1.5, 2.5, 3.5))
-  CorrectAnswer: newGPAs<-data.frame(GPA = c(0.5, 1.5, 2.5, 3.5))
-  AnswerTests: omnitest(correctExpr='newGPAs<-data.frame(GPA = c(0.5, 1.5, 2.5, 3.5))')
-  Hint: Enter - newGPAs<-data.frame(GPA = c(0.5, 1.5, 2.5, 3.5))
-
-- Class: cmd_question
-  Output: Now, use your linear model with the predict() function to print out predicted scores! Enter - predict(SAT.GPA, newGPAs)
-  CorrectAnswer: predict(SAT.GPA, newGPAs)
-  AnswerTests: omnitest(correctExpr='predict(SAT.GPA, newGPAs)')
-  Hint: Enter - predict(SAT.GPA, newGPAs)
-
-- Class: exact_question
-  Output: What does our model predict for a student with a GPA of 1.5? You can round the number - SAT scores are integers. 
-  CorrectAnswer: 1016
-  AnswerTests: omnitest(correctVal='1016')
-  Hint: Which value in newGPAs was our GPA of interest (1.5)? Look for that number in the prediction output. 
-
-- Class: text
-  Output: Exactly. Now you now some basic regression techniques - you'll learn more in-depth techniques in Lab. 
-
+- Class: mult_question
+  Output: YEs, the residuals look equally spread out as you move along the x-axis.  Based on the uppper right plot, do you think the normality assumption is reasonable?
+  AnswerChoices: Yes; No
+  CorrectAnswer: Yes
+  AnswerTests: omnitest(correctVal='Yes')
+  Hint:  Do the dots fall along the line?
+  
+- class: text
+  Output:  Yes, the dots fall on the line. The assumptions look like they are reasonably met!
+  
 - Class: figure
   Output: Good work! You've completed Pre-Lab 9.2. An 8-digit code will appear in the console below - enter this code into the appropriate quiz on moodle in order to receive credit. 
   Figure: c.R

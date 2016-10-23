@@ -1,73 +1,103 @@
 - Class: meta
   Course: Biometry
-  Lesson: 9.1 - Best fit lines
+  Lesson: 9.1 - Regression and prediction
   Author: Nick Gondek
   Type: Standard
   Organization: University of Minnesota
   Version: 2.4.2
 
-- Class: text
-  Output: Welcome to Pre-lab 9 - your last pre-lab! We'll be talking about linear regression, both in how it R calculates a best fit line and how this line is influenced by variance.
-
-- Class: text
-  Output: Regression involves two quantitative variables, where we fit a best fit line in order to associate the two variables with a slope. It's not important to know how it's actually done, but we'll talk a little bit about the characteristics of this best fit line. 
-
 - Class: figure
-  Output: We'll use four fictional datasets to investigate these characteristics - AData, BData, CData, and DData. These are modelled after a fictional observational study - 100 miles south of the twin cities, what is the temperature? 200 miles south? 
-  Figure: Fits.R
+  Output: Welcome to Pre-lab 9. We will explore linear regression in R using a data set called Rattlesnakes
+    from the abd library.  
+  Figure: rattle.R
   FigureType: new
+   
   
+- Class: cmd_question
+  Output:  Lets take a look at this dataset by clicking on it in the upper right panel.
+  CorrectAnswer: View(Rattlesnakes)
+  AnswerTests: omnitest(correctExpr='View(Rattlesnakes)')
+  Hint: You can also type View(Rattlesnakes) with a capitol V
+
+- Class: text
+  Output: We have 2 variables, mean.size and temp.change.  These data come from a study looking at the change in temperature (in rattlensakes) following a meal.
+
 - Class: mult_question
-  Output: You should notice something about one of the four datasets. If you were to draw a line on your computer screen, for which dataset would you be able to touch EVERY point at once? 
-  AnswerChoices: AData;BData;CData;DData
-  CorrectAnswer: AData
-  AnswerTests: omnitest(correctVal='AData')
-  Hint: BData (blue) might look close, but if you had a really thin line, you wouldn't be able to do it. 
-
-- Class: figure
-  Output: I've drawn in that line for you. Just like you said, the red dots are all connected by this line!
-  Figure: abline.R
-  FigureType: new
-
-- Class: text
-  Output: R calculates the line of best fit by mimimizing the 'residual sum of squares' - which sounds complicated, but it is not. Essentially, for each data point, R subtracts the value of the line for that x-value from the value of the data point for that same x-value, and squares it. It does this for every point, and sums them up. The line that has the lowest sum is the best fit line!
-
-- Class: figure
-  Output: This black line is actually the line of best fit for ALL of the datasets! Think about it - Let's say, for example, the black line inched further up to the upper pink values (the dashed line).
-  Figure: abline2.R
-  FigureType: new
-
-- Class: text
-  Output: Now, the dashed line is MUCH closer to the upper pink values (at 0, 200, 400, etc) but MUCH further away from the lower pink values (at 100, 300, 500, etc). If we calculated the sum of squares for this new line, we'd get very low numbers for the upper values, but we'd get HUGE numbers for the lower values!
-
-- Class: text
-  Output: So, even though it is moderately far away from all the pink values, the black line is the best fit line for the NoFit dataset (and ALL of the datasets).
+  Output: We have 2 quantitative variables. How can we explore, visually, whether they are associated?
+  AnswerChoices: dotPlot; boxplot; xyplot; histogram
+  CorrectAnswer: xyplot
+  AnswerTests: omnitest(correctVal='xyplot')
+  Hint: Think scatterplot
 
 - Class: cmd_question
-  Output: That is not to say, however, that this line is a useful for each of the datasets (we'll talk about this in the next section)! For now, try fitting a linear model to AData - summary(lm(temp~south, data=AData))
-  CorrectAnswer: summary(lm(temp~south, data=AData))
-  AnswerTests: omnitest(correctExpr='summary(lm(temp~south, data=AData))')
-  Hint: Enter -  summary(lm(temp~south, data=AData))
+  Output: Yes, a scatterplot using xyplot.  Lets plot change in temperature on the y axis and meal size on the x axis.
+  CorrectAnswer: xyplot(temp.change~meal.size, data=Rattlesnakes)
+  AnswerTests: omnitest(correctExpr='xyplot(temp.change~meal.size, data=Rattlesnakes)')
+  Hint: Enter -  xyplot(temp.change~meal.size, data=Rattlesnakes)
+
+- Class: cmd_question
+  Output: "OK, lets fit a linear regression model to these data.  Type: snake.lm<-lm(temp.change~meal.size, data=Rattlesnakes)"
+  CorrectAnswer: snake.lm<-lm(temp.change~meal.size, data=Rattlesnakes)
+  AnswerTests: omnitest(correctExpr='snake.lm<-lm(temp.change~meal.size, data=Rattlesnakes)')
+  Hint: Enter -  snake.lm<-lm(temp.change~meal.size, data=Rattlesnakes)
+
+
+- Class: cmd_question
+  Output: "OK, lets look at what that did. We can explore the fit of the model using the summary function.  Type: summary(snake.lm)" 
+  CorrectAnswer: summary(snake.lm)
+  AnswerTests: omnitest(correctExpr='summary(snake.lm)')
+  Hint: Enter -  summary(snake.lm)
 
 - Class: exact_question
-  Output: There is a lot to look at here, but for simple linear regression, there are three values that are useful to us. We'll talk about just one now - the slope. Underneath the "Coefficients:" section, what value is listed underneath "Estimate" and to the right of "south"?
-  CorrectAnswer: .05
-  AnswerTests: omnitest(correctVal='.05')
-  Hint: Coefficients are near the middle of that block of output.
+  Output: There is a lot to look at here, but for simple linear regression, there are three values that are useful to us. We'll talk about just one now - the slope. Underneath the "Coefficients:" section, what value is listed underneath "Estimate" and to the right of "meal.size"?  Enter your answer using 3 decimal places.
+  CorrectAnswer: .027
+  AnswerTests: omnitest(correctVal='.027')
+  Hint: Coefficients are near the middle of that block of output.  Enter your answer to 3 decimal places!
 
 - Class: cmd_question
-  Output: That is the slope value for 'south' in a linear equation relating the two variables. Basically, for any value of south, Temp = (.05 * South) + 30. Using this equation, what would the line predict for a location that is 250 miles south of the twin cities?
-  CorrectAnswer: 250*.05 + 30
-  AnswerTests: omnitest(correctExpr='250*.05 + 30', correctVal='42.5')
-  Hint: Plug in south = 250 to this equation - temp = (.05 * south) + 30 
+  Output: "That is the slope value for 'meal.size' in a linear equation relating the two variables. We can use this model to predict a temperature change for any meal.size using: Temp.change = 0.32+ 0.027 * meal.size. Using this equation, what temperature change would you expect to follow a meal that is 20 units?"
+  CorrectAnswer: 0.32+20*0.027
+  AnswerTests: omnitest(correctExpr='0.32+20*0.027', correctVal='0.86')
+  Hint: Plug in south = 20 to this equation - temp.change = 0.32 + meal.size*0.027
 
-- Class: figure
-  Output: Exactly - 42.5 is the temperature we would predict. And sure enough, it's on our line (the orange dot)! 
-  Figure: predicted.R
-  FigureType: new
+- Class: cmd_question
+  Output: "Lets add this best fit line to our scatterplot. We can do this using the following:  ladd(panel.abline(snake.lm)).  Try this"
+  CorrectAnswer:   ladd(panel.abline(snake.lm))
+  AnswerTests: omnitest(correctExpr='ladd(panel.abline(snake.lm))')
+  Hint: Enter -    ladd(panel.abline(snake.lm))
 
 - Class: text
-  Output: Those are the basic mechanics of a best fit line and linear regression. In the next section, we'll find out how to tell if our linear models are actually useful for prediction.
+  Output: We can now visualize the best fit line, which clearly shows that larger meals are associated with larger temperature changes. 
+
+- Class: cmd_question
+  Output: "OK, lets look again at the summary of our fitted model.  Type: summary(snake.lm)" 
+  CorrectAnswer: summary(snake.lm)
+  AnswerTests: omnitest(correctExpr='summary(snake.lm)')
+  Hint: Enter -  summary(snake.lm)
+
+- Class: mult_question
+  Output:  R provides a SE for the slope estimate and also a p-value for a test of the Null Hypothesis that the true slope is 0. Do we have enough evidence to suggest the slope is truly different from 0?
+  AnswerChoices: Yes; No
+  CorrectAnswer: Yes
+  AnswerTests: omnitest(correctVal='Yes')
+  Hint: The lower the p-value, the more evidence against the null hypothesis. The p-value here is 0.00000093
+ 
+- Class: exact_question
+  Output: We've looked at slope estimates and the significance of those slope estimates, so let's take a look at another useful metric - R-squared. What is the value for 'adjusted r-squared' for this model?  Report your answer to 3 decimal places.
+  CorrectAnswer: 0.795
+  AnswerTests: omnitest(correctVal=0.795)
+  Hint: Adjusted r-squared can be found on the second to last line of the output from summary(lm()). Report it to 3 decimal places
+  
+- Class: mult_question
+  Output: Right, our r-squared is 0.795. What does that mean?
+  AnswerChoices: The model explains 80 percent of the variance in temperature changes; The model accounts for 80 percent of the variance in meal sizes
+  CorrectAnswer: The model explains 80 percent of the variance in temperature changes
+  AnswerTests: omnitest(correctVal='The model explains 80 percent of the variance in temperature changes')
+  Hint: 
+
+
+- Class: text
+  Output: Those are the basic mechanics of a best fit line and linear regression. In the next section, we'll explore plots used to determine if the assumptions of the model are reasonable.
 
 - Class: figure
   Output: Good work! You've completed Pre-Lab 9.1. An 8-digit code will appear in the console below - enter this code into the appropriate quiz on moodle in order to receive credit. 
