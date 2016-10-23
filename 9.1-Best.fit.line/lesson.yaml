@@ -49,19 +49,19 @@
   Hint: Enter -  summary(snake.lm)
 
 - Class: exact_question
-  Output: There is a lot to look at here, but for simple linear regression, there are three values that are useful to us. We'll talk about just one now - the slope. Underneath the "Coefficients:" section, what value is listed underneath "Estimate" and to the right of "meal.size"?  Enter your answer using 3 decimal places.
+  Output: There is a lot to look at here We will start with one of the most important things, the estimated slope. Underneath the "Coefficients:" section, what value is listed underneath "Estimate" and to the right of "meal.size"?  Enter your answer using 3 decimal places.
   CorrectAnswer: .027
   AnswerTests: omnitest(correctVal='.027')
   Hint: Coefficients are near the middle of that block of output.  Enter your answer to 3 decimal places!
 
 - Class: cmd_question
-  Output: "That is the slope value for 'meal.size' in a linear equation relating the two variables. We can use this model to predict a temperature change for any meal.size using: Temp.change = 0.32+ 0.027 * meal.size. Using this equation, what temperature change would you expect to follow a meal that is 20 units?"
+  Output: "That is the slope value for 'meal.size' in a linear equation relating the change in a rattlesnake's temperature to the size of the meal just eaten. We can use this model to predict a temperature change for any meal.size using: Temp.change = 0.32+ 0.027 * meal.size. Using this equation, what temperature change would you expect to follow a meal that is 20 units?"
   CorrectAnswer: 0.32+20*0.027
   AnswerTests: omnitest(correctExpr='0.32+20*0.027', correctVal='0.86')
   Hint: Plug in south = 20 to this equation - temp.change = 0.32 + meal.size*0.027
 
 - Class: cmd_question
-  Output: "Lets add this best fit line to our scatterplot. We can do this using the following:  ladd(panel.abline(snake.lm)).  Try this"
+  Output: "Lets add this best fit line to our scatterplot. We can do this using the following:  ladd(panel.abline(snake.lm)).  Try it!"
   CorrectAnswer:   ladd(panel.abline(snake.lm))
   AnswerTests: omnitest(correctExpr='ladd(panel.abline(snake.lm))')
   Hint: Enter -    ladd(panel.abline(snake.lm))
@@ -83,15 +83,15 @@
   Hint: The lower the p-value, the more evidence against the null hypothesis. The p-value here is 0.00000093
  
 - Class: exact_question
-  Output: We've looked at slope estimates and the significance of those slope estimates, so let's take a look at another useful metric - R-squared. What is the value for 'adjusted r-squared' for this model?  Report your answer to 3 decimal places.
+  Output: We've looked at slope estimates and the significance of those slope estimates, so let's take a look at another useful metric - R-squared. What is the value for 'ADJUSTED r-squared' for this model?  Report your answer to 3 decimal places.
   CorrectAnswer: 0.795
   AnswerTests: omnitest(correctVal=0.795)
   Hint: Adjusted r-squared can be found on the second to last line of the output from summary(lm()). Report it to 3 decimal places
   
 - Class: mult_question
   Output: Right, our r-squared is 0.795. What does that mean?
-  AnswerChoices: The model explains 80 percent of the variance in temperature changes; The model accounts for 80 percent of the variance in meal sizes
-  CorrectAnswer: The model explains 80 percent of the variance in temperature changes
+  AnswerChoices: The model explains about 80 percent of the variance in temperature changes; The model accounts for 80 percent of the variance in meal sizes
+  CorrectAnswer: The model explains about 80 percent of the variance in temperature changes
   AnswerTests: omnitest(correctVal='The model explains 80 percent of the variance in temperature changes')
   Hint: 
 
