@@ -15,7 +15,7 @@
   FigureType: new
   
 - Class: cmd_question
-  Output: I have loaded this dataset into R from the abd package.  Lets take a look at this dataset by clicking on it in the upper right panel.
+  Output: I have loaded this dataset into R from the abd package.  Lets take a look at this dataset by clicking on it in the upper right panel. For some reason, swirl spits out some error messages here, but you can safely ignore them.
   CorrectAnswer: View(HornedLizards)
   AnswerTests: omnitest(correctExpr='View(HornedLizards)')
   Hint: You can also type View(HornedLizards) with a capitol V
@@ -75,6 +75,12 @@
   FigureType: new
 
 - Class: cmd_question
+  Output: Lets look at these data by clicking on them in the upper right panel.
+  CorrectAnswer: View(Blackbirds)
+  AnswerTests: omnitest(correctExpr='View(Blackbirds)')
+  Hint: You can also type View(Blackbirds) with a capitol V
+
+- Class: cmd_question
   Output:  "OK, tests try it out by typing: t.test(x=log.after, y=log.before,data=Blackbirds, paired=TRUE)"
   CorrectAnswer: t.test(x=log.after, y=log.before,data=Blackbirds, paired=TRUE)
   AnswerTests: omnitest(correctExpr='t.test(x=log.after, y=log.before,data=Blackbirds, paired=TRUE)')
@@ -97,7 +103,7 @@
   FigureType: new
   
 - Class: cmd_question
-  Output:  "OK, tests try it out by typing: prop.test(Gender~Smoke, data=StudentSurvey)"
+  Output:  "OK, lests try it out by typing: prop.test(Gender~Smoke, data=StudentSurvey)"
   CorrectAnswer: prop.test(Gender~Smoke, data=StudentSurvey)
   AnswerTests: omnitest(correctExpr='prop.test(Gender~Smoke, data=StudentSurvey)')
   Hint: Enter prop.test(Gender~Smoke, data=StudentSurvey)
@@ -114,11 +120,4 @@
   Figure: c.R
   FigureType: new
   
-- Class: mult_question
-  Output: Would you like to submit the log of this lesson to Google Forms so
-    that your instructor may evaluate your progress?
-  AnswerChoices: Yes;No
-  CorrectAnswer: NULL
-  AnswerTests: submit_log()
-  Hint: hint
   

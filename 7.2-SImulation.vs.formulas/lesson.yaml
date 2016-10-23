@@ -46,7 +46,7 @@
   Hint: Enter - bootCI
 
 - Class: text
-  Output: So, using a bootstrapping simulation method, we got a 95% confidence interval of approximately (52, 60). We are 95% sure that the mean number of hotdogs needed to win the contest is between 52 and around 60! Thats a lot of hot dogs!
+  Output: So, using a bootstrapping simulation method, we got a 95% confidence interval of approximately (52, 60). We are 95% sure that the mean number of hotdogs needed to win the contest is between 52 and  60! Thats a lot of hot dogs!
 
 - Class: cmd_question
   Output: Now, let's try it again using the explicit formula for calculating a confidence interval for a mean. This can be found on your formula sheet, but here it is, sample mean +/- t* x SE, where SE = s / sqrt(n).  Note, s is the standard deviation of the data. So, to calculate this interval, we need to first calculate the SE.  Lets calculate and store this value by entering the following - formSE <- sd(~HotDogs, data=HotDogs)/sqrt(10) (since there are 10 cases in the dataframe).
