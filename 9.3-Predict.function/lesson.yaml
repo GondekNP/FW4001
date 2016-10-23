@@ -1,0 +1,60 @@
+- Class: meta
+  Course: Biometry
+  Lesson: 9.3 - Predict function
+  Author: John Fieberg
+  Type: Standard
+  Organization: University of Minnesota
+  Version: 2.4.2
+
+- Class: text
+  Output: Welcome to Pre-lab 9.3. This will be a short lab illustrating the use of the predict function with a fitted linear model. 
+
+- Class: figure
+  Output: Lets revisit our model relating temperature change to meal size in rattlesnakes.
+  Figure: rattle2.R
+  FigureType: new
+   
+- Class: cmd_question
+  Output: "OK, lets look again at the summary of our fitted model.  Type: summary(snake.lm)" 
+  CorrectAnswer: summary(snake.lm)
+  AnswerTests: omnitest(correctExpr='summary(snake.lm)')
+  Hint: Enter -  summary(snake.lm)
+
+- Class: cmd_question
+  Output: "We can predict the temperature when a rattlesnake eats a meal of size = 20 units by plugging and chugging: 0.32+0.027*20 =0.86.  Or, we could use the predict.lm function.  Lets take a look at this function by typing: ?predict.lm" 
+  CorrectAnswer: ?predict.lm 
+  AnswerTests: omnitest(correctExpr='?predict.lm')
+  Hint: Enter -  ?predict.lm
+    
+- Class: mult_question
+  Output: What argument of this function do we need to specify in order to get an estimate of the SE associated with our prediction?
+  AnswerChoices: se.fit; se; se.true; se.give.me.it
+  CorrectAnswer: se.fit
+  AnswerTests: omnitest(correctVal='se.fit')
+  Hint: Look at the arguments in the help file
+  
+
+- Class: cmd_question
+  Output: "We can get a confidence interval for the AVERAGE temperature change following a meal of size 20 units using:predict(snake.lm, newdata=data.frame(meal.size=20), interval=\"confidence\")".  Try it!" 
+  CorrectAnswer: predict(snake.lm, newdata=data.frame(meal.size=20),interval=\"confidence\") 
+  AnswerTests: omnitest(correctExpr='predict(snake.lm, newdata=data.frame(meal.size=20),interval=\"confidence\")')
+  Hint: Enter -  predict(snake.lm, newdata=data.frame(meal.size=20),interval="confidence")
+  
+- Class: cmd_question
+  Output: "We can get a prediction interval for a NEW OBSERVATION  following a meal of size 20 units using:predict(snake.lm, newdata=data.frame(meal.size=20), interval=\"prediction\")".  Try it!" 
+  CorrectAnswer: predict(snake.lm, newdata=data.frame(meal.size=20),interval=\"prediction\") 
+  AnswerTests: omnitest(correctExpr='predict(snake.lm, newdata=data.frame(meal.size=20),interval=\"prediction\")')
+  Hint: Enter -  predict(snake.lm, newdata=data.frame(meal.size=20),interval="prediction")
+  
+
+- Class: mult_question
+  Output: Which is larger? Why?
+  AnswerChoices: confidence interval since we need to be confident in our answer;  prediction interval since we must account for uncertainty in the true line as well as variation about the line
+  CorrectAnswer: prediction interval since we must account for uncertainty in the true line as well as variation about the line
+  AnswerTests: omnitest(correctVal='prediction interval since we must account for uncertainty in the true line as well as variation about the line')
+  Hint: Look at the arguments in the help file
+  
+- Class: figure
+  Output: Good work! You've completed Pre-Lab 9.3. An 8-digit code will appear in the console below - enter this code into the appropriate quiz on moodle in order to receive credit. 
+  Figure: c.R
+  FigureType: new
