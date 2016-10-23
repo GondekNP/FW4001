@@ -92,7 +92,7 @@
   Output: Right, our r-squared is 0.795. What does that mean?
   AnswerChoices: The model explains about 80 percent of the variance in temperature changes; The model accounts for 80 percent of the variance in meal sizes
   CorrectAnswer: The model explains about 80 percent of the variance in temperature changes
-  AnswerTests: omnitest(correctVal='The model explains 80 percent of the variance in temperature changes')
+  AnswerTests: omnitest(correctVal='The model explains about 80 percent of the variance in temperature changes')
   Hint: 
 
 
