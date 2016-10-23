@@ -16,7 +16,7 @@
   
   
 - Class: cmd_question
-  Output: I have loaded this dataset into R from the abd package.  Lets take a look at this dataset by clicking on it in the upper right panel. For some reason, swirl spits out some error messages here, but you can safely ignore them.
+  Output: I have loaded this dataset into R from the abd package.  Lets take a look at this dataset by clicking on it in the upper right panel.
   CorrectAnswer: View(HornedLizards)
   AnswerTests: omnitest(correctExpr='View(HornedLizards)')
   Hint: You can also type View(HornedLizards) with a capitol V
