@@ -53,7 +53,7 @@
   Output: Now, what level of significance did we get for this test?
   AnswerChoices: '***;**;*;.;not signficant (no symbol)'
   CorrectAnswer: 'not signficant (no symbol)'
-  AnswerTests: omnitest(correctVal='not signficant above 90 percent')
+  AnswerTests: omnitest(correctVal='not signficant (no symbol)')
   Hint: Look directly below Pr(>F). Do you see any symbol? (Also, our p-value is an astronomical .84)
 
 - Class: text

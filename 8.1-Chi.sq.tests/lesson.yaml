@@ -45,7 +45,7 @@
   Hint: 2/3 of users in the study relapse, and there are 24 users in each group. 24 * 2/3 = ...
 
 - Class: cmd_question
-  Output: Exactly. Regardless of treatment, we expect 16 users to relapse and 8 NOT to relapse. Now, for each drug x relapse combination, we calculate a 'residual' - (observed - expected)^2 / expected. So, what is our residual for Desipramine users who relapsed? We observed 10, and we expect 16. 
+  Output: Exactly. If the null hypothesis is true (the drugs have no effect), then we expect 16 users to relapse and 8 NOT to relapse (regardless of the drug). Now, for each drug x relapse combination, we calculate a 'residual' - (observed - expected)^2 / expected. So, what is our residual for Desipramine users who relapsed? We observed 10, and we expect 16. 
   CorrectAnswer: (10-16)^2/16
   AnswerTests: omnitest(correctExpr='(10-16)^2/16', correctVal='2.25')
   Hint: Remember, the formula for our residual is (Observed - Expected)^2 / Expected. 
