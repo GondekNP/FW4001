@@ -3,7 +3,7 @@
   firstno<-as.numeric(paste(prelab, section, "000000", sep="", collapse=""))
   lastno<-as.numeric(paste(prelab, section, "009999", sep="", collapse=""))
   codePos<-c(firstno:lastno)
-  set.seed((prelab - 1) * 4 + section-4)
+  set.seed((prelab - 1) * 4 + section)
   x500<-c("and03241","brow3407", "carrx197", "diamo071","dunne076","fewxx004", "gilka005", "grunk008", "haake035", "haask013", "horto093", "huang664", "huemp008", "jenni241", "khang073", "lohma047", "lopez616", "mcgra349", "mitc0414", "mower012", "mulli219", "quada004", "rodri806", "rothe085", "runni044", "schae396", "smit8042", "steel314", "strai085", "tayl1082", "templ149", "thom5060", "wang5922", "welch231", "westx409", "biome098", "steph629")
   vc<-sample(codePos, replace = FALSE, size = length(x500))
   names(vc)<-x500
