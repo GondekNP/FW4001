@@ -41,7 +41,7 @@
 - Class: exact_question
   Output: So, if two thirds of users in this study relapse, and there were 24 individuals in each treatment group, how many relapses would we expect for each treatment group if there was no influence of the drug taken?
   CorrectAnswer: 16
-  AnswerTests: any_of_exprs('16', `24*2/3', '24/3*2')
+  AnswerTests: any_of_exprs('16', '24*2/3', '24/3*2')
   Hint: 2/3 of users in the study relapse, and there are 24 users in each group. 24 * 2/3 = ...
 
 - Class: cmd_question
