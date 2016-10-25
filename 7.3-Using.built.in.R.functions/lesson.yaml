@@ -82,7 +82,7 @@
   Hint: You can also type View(Blackbirds) with a capitol V
 
 - Class: cmd_question
-  Output:  "OK, tests try it out by typing: t.test(x=log.after, y=log.before,data=Blackbirds, paired=TRUE)"
+  Output:  "OK, lets try it out by typing: t.test(x=log.after, y=log.before,data=Blackbirds, paired=TRUE)"
   CorrectAnswer: t.test(x=log.after, y=log.before,data=Blackbirds, paired=TRUE)
   AnswerTests: omnitest(correctExpr='t.test(x=log.after, y=log.before,data=Blackbirds, paired=TRUE)')
   Hint: Enter t.test(x=log.after, y=log.before,data=Blackbirds, paired=TRUE)
