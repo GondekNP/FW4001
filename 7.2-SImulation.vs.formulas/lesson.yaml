@@ -70,7 +70,7 @@
   Output: Exactly. So, we can get t* (and store it in an object called tstars) by using the xqt function as follows - tstars <- xqt(p=c(.025, .975), df=9)
   CorrectAnswer: tstars <- xqt(p=c(.025, .975), df=9)
   AnswerTests: omnitest(correctExpr='tstars <- xqt(p=c(.025, .975), df=9)')
-  Hint: Enter -  tstars <- qt(p=c(.025, .975), df=9)
+  Hint: Enter -  tstars <- xqt(p=c(.025, .975), df=9)
 
 - Class: cmd_question
   Output: Let's put it all together to see our formula-produced confidence interval. Try it out now - formCI <- formMean + tstars*formSE
