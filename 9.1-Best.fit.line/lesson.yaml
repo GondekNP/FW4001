@@ -1,7 +1,7 @@
 - Class: meta
   Course: Biometry
   Lesson: 9.1 - Regression and prediction
-  Author: Nick Gondek
+  Author: Nick Gondek and John Fieberg
   Type: Standard
   Organization: University of Minnesota
   Version: 2.4.2
@@ -65,6 +65,14 @@
   CorrectAnswer:   ladd(panel.abline(snake.lm))
   AnswerTests: omnitest(correctExpr='ladd(panel.abline(snake.lm))')
   Hint: Enter -    ladd(panel.abline(snake.lm))
+
+
+- Class: cmd_question
+  Output: "We could also do all this with one line of code by typing: xyplot(temp.change~meal.size, type=c('p','r'), data=Rattlesnakes).  NOte the 'p' stands for points and the 'r' stands for lines. Try it!"
+  CorrectAnswer:   xyplot(temp.change~meal.size, type=c('p','r'), data=Rattlesnakes)
+  AnswerTests: omnitest(correctExpr='xyplot(temp.change~meal.size, type=c(\'p\',\'r\'), data=Rattlesnakes)')
+  Hint: Enter -    xyplot(temp.change~meal.size, type=c('p','r'), data=Rattlesnakes)
+
 
 - Class: text
   Output: We can now visualize the best fit line, which clearly shows that larger meals are associated with larger temperature changes. 
