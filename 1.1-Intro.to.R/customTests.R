@@ -29,7 +29,9 @@ getLog <- function(){
 submit_log <- function(){
   
   # Please edit the link below 
-   pre_fill_link <- "https://docs.google.com/forms/d/e/1FAIpQLSfkv9bdJvVnkSngbCr0OjvEukgdPUfwu8efvgyeCG-R1b_SSQ/viewform?usp=pp_url&entry.1372313521"
+   #pre_fill_link <- "https://docs.google.com/forms/d/e/1FAIpQLSfkv9bdJvVnkSngbCr0OjvEukgdPUfwu8efvgyeCG-R1b_SSQ/viewform?usp=pp_url&entry.1372313521"
+   pre_fill_link <- "https://z.umn.edu/swirl2017"
+   
    require("base64enc")
   # Do not edit the code below
   if(!grepl("=$", pre_fill_link)){
