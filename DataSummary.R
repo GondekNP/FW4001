@@ -1,7 +1,7 @@
 #' Load libraries
 library(googlesheets)
 library(dplyr)
-mydat<-gs_title("Swirl2017 (Responses)" )
+mydat<-gs_title("swirl1 (Responses)" )
 swirlresults<-gs_read_csv(mydat)
 write.csv(swirlresults, file="temp.csv", row.names = FALSE)
 
