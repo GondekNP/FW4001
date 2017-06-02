@@ -11,6 +11,9 @@
 # can be used for for the purpose, but it also re-evaluates the
 # expression which the user entered, so care must be taken.
 
+
+# https://github.com/seankross/Google_Forms_Course/blob/master/README.md
+
 # Get the swirl state
 getState <- function(){
   # Whenever swirl is running, its callback is at the top of its call stack.
@@ -25,8 +28,9 @@ getLog <- function(){
 
 submit_log <- function(){
   
-  # Please edit the link below
-  pre_fill_link <- "https://docs.google.com/a/umn.edu/forms/d/1GyMKTXGuSLJOoqi8ABsTq9iIGzwcrE1q2wYy2P2BZaQ/prefill"
+  # Please edit the link below 
+  #pre_fill_link <- "https://docs.google.com/a/umn.edu/forms/d/e/1FAIpQLSfkv9bdJvVnkSngbCr0OjvEukgdPUfwu8efvgyeCG-R1b_SSQ/viewform?usp=pp_url&entry.1372313521"
+  pre_fill_link <- "https://z.umn.edu/swirl"
   require("base64enc")
   # Do not edit the code below
   if(!grepl("=$", pre_fill_link)){
