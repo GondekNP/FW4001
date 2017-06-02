@@ -26,7 +26,7 @@ getLog <- function(){
 submit_log <- function(){
   
   # Please edit the link below
-  pre_fill_link <- "https://z.umn.edu/Swirl2017"
+  pre_fill_link <- "https://docs.google.com/a/umn.edu/forms/d/1ynvxJ_Kizyyof8Vrf_l7D3zVZPfD5yG4K-NCXL207eY/prefill"
   require("base64enc")
   # Do not edit the code below
   if(!grepl("=$", pre_fill_link)){
