@@ -100,7 +100,9 @@
 - Class: text
   Output: As long as our sample size is big enough, OR our data is approximately normal, these intervals should be pretty similar. The formula version has the benefit of not needing any computation, but the bootstrap version is more flexible.
 
-- Class: figure
-  Output: Good work! You've completed Pre-Lab 7.2. An 8-digit code will appear in the console below - enter this code into the appropriate quiz on moodle in order to receive credit. 
-  Figure: c.R
-  FigureType: new
+- Class: mult_question
+  Output: Good work! You've completed Pre-Lab 7.2. Please select "YES" (or "No"). Either will allow you to submit the log of this lesson to Google Forms so that I can give you credit for the pre-lab assignment.
+  AnswerChoices: Yes;No
+  CorrectAnswer: NULL
+  AnswerTests: submit_log()
+  Hint: hint 

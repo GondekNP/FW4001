@@ -51,7 +51,9 @@
   AnswerTests: omnitest(correctExpr='bwplot(Sodium~Company, data=Cereal)')
   Hint: Not much needs to change from the last bit of code we ran. Since we're now looking at Sodium instead of Calories, we just need to swap those two.
 
-- Class: figure
-  Output: Good work! You've completed Pre-Lab 3.1. An 8-digit code will appear in the console below - enter this code into the appropriate quiz on moodle in order to receive credit. 
-  Figure: c.R
-  FigureType: new
+- Class: mult_question
+  Output: Good work! You've completed Pre-Lab 3.1. Please select "YES" (or "No"). Either will allow you to submit the log of this lesson to Google Forms so that I can give you credit for the pre-lab assignment.
+  AnswerChoices: Yes;No
+  CorrectAnswer: NULL
+  AnswerTests: submit_log()
+  Hint: hint 

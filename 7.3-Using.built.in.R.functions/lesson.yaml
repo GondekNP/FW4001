@@ -117,9 +117,8 @@
   Hint: Is the p-value small?  Is 0 in the confidence interval?
   
 - Class: mult_question
-  Output: Please select "YES" that you would like to submit the log of this lesson to Google Forms so that I can evaluate your progress.
+  Output: Good work! You've completed Pre-Lab 7.3. Please select "YES" (or "No"). Either will allow you to submit the log of this lesson to Google Forms so that I can give you credit for the pre-lab assignment.
   AnswerChoices: Yes;No
   CorrectAnswer: NULL
   AnswerTests: submit_log()
-  Hint: hint   
-  
+  Hint: hint  

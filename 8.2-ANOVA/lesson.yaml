@@ -59,9 +59,9 @@
 - Class: text
   Output: You'll look at more useful ways to analyze many groups when you learn about linear models, but ANOVAs are useful for exploratory data analysis and more.
 
-- Class: figure
-  Output: Good work! You've completed Pre-Lab 8.2. An 8-digit code will appear in the console below - enter this code into the appropriate quiz on moodle in order to receive credit. 
-  Figure: c.R
-  FigureType: new
-
-  
+- Class: mult_question
+  Output: Good work! You've completed Pre-Lab 8.2. Please select "YES" (or "No"). Either will allow you to submit the log of this lesson to Google Forms so that I can give you credit for the pre-lab assignment.
+  AnswerChoices: Yes;No
+  CorrectAnswer: NULL
+  AnswerTests: submit_log()
+  Hint: hint  

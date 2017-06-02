@@ -69,7 +69,9 @@
   AnswerTests: omnitest(correctVal='the probability, when the null hypothesis is true, of obtaining a sample as extreme as (or more extreme than) the observed sample')
   Hint: Remember, the randomization distribution is used to determine the range of statistics we might see *if the Null Hypothesis is true*! 
 
-- Class: figure
-  Output: Good work! You've completed Pre-Lab 5.4. An 8-digit code will appear in the console below - enter this code into the appropriate quiz on moodle in order to receive credit. 
-  Figure: c.R
-  FigureType: new
+- Class: mult_question
+  Output: Good work! You've completed Pre-Lab 5.4. Please select "YES" (or "No"). Either will allow you to submit the log of this lesson to Google Forms so that I can give you credit for the pre-lab assignment.
+  AnswerChoices: Yes;No
+  CorrectAnswer: NULL
+  AnswerTests: submit_log()
+  Hint: hint 

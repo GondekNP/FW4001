@@ -45,7 +45,9 @@
 - Class: text
   Output: Now we have the upper and lower bound of the 95% confidence interval of interest. In the next section, we will explore how our desired level of confidence might change the size of our interval. 
 
-- Class: figure
-  Output: Good work! You've completed Pre-Lab 4.2. An 8-digit code will appear in the console below - enter this code into the appropriate quiz on moodle in order to receive credit. 
-  Figure: c.R
-  FigureType: new
+- Class: mult_question
+  Output: Good work! You've completed Pre-Lab 4.2. Please select "YES" (or "No"). Either will allow you to submit the log of this lesson to Google Forms so that I can give you credit for the pre-lab assignment.
+  AnswerChoices: Yes;No
+  CorrectAnswer: NULL
+  AnswerTests: submit_log()
+  Hint: hint 
