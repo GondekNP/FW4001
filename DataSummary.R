@@ -9,4 +9,4 @@ write.csv(swirlresults, file="temp.csv", row.names = FALSE)
 temp<-swirlify::google_form_decode("temp.csv")
 
 #' Process statistics by user
-temp%>%group_by(user)%>%summarize(propcorrect=mean(correct, na.rm=TRUE), num.q=length(unique(question_number)))
+temp%>%group_by(user, lesson_name)%>%summarize(propcorrect=mean(correct, na.rm=TRUE), num.q=length(unique(question_number)))
