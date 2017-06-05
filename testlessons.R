@@ -9,6 +9,6 @@ demo_lesson()
 # cntrl + shift+f10
 install.packages("swirl")
 library(swirl)
-?uninstall_all_courses(force = FALSE)
-install_course_github("GondekNP", course_name = "FW4001")
+uninstall_all_courses(force = FALSE)
+install_course_github("GondekNP", course_name = "FW4001" )
 swirl()
