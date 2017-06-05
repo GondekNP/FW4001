@@ -9,3 +9,7 @@ suppressMessages(library(mosaic))
 data("CaffeineTaps")
 invisible(CaffeineTaps)
 set.seed(1231235657)
+data("CaffeineTaps")
+invisible(CaffeineTaps)
+CaffGroup <- filter(CaffeineTaps,Group=="Caffeine")
+CaffBoot <- do(1000)*{mean(~Taps, data=resample(CaffGroup))}
