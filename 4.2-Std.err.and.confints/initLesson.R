@@ -14,6 +14,5 @@ set.seed(1231235657)
            error = function(c) {file.path(find.package("swirl"),"Courses")}
   )
 }
-CaffBoot <- load(file.path(.get_course_path(), "FW4001", "4.1-Bootstrapping", "CaffBoot"))
+load(file.path(.get_course_path(), "FW4001", "4.1-Bootstrapping", "CaffBoot.Rdata"))
 CaffGroup <- read.csv(file.path(.get_course_path(), "FW4001", "4.1-Bootstrapping", "CaffGroup.csv"))
-CaffBoot <- do(1000)*{mean(~Taps, data=resample(CaffGroup))}
