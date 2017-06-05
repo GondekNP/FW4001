@@ -11,7 +11,7 @@ suppressMessages(library(mosaic))
            error = function(c) {file.path(find.package("swirl"),"Courses")}
   )
 }
-CaffBoot <- read.csv(file.path(.get_course_path(), "FW4001", "4.1-Bootstrapping", "CaffBoot.csv"))
+load(file.path(.get_course_path(), "FW4001", "4.1-Bootstrapping", "CaffBoot.Rdata"))
 CaffGroup <- read.csv(file.path(.get_course_path(), "FW4001", "4.1-Bootstrapping", "CaffGroup.csv"))
 Hi <- read.csv(file.path(.get_course_path(), "FW4001", "4.2-Std.err.and.confints", "Hi.csv"))
 Lo <- read.csv(file.path(.get_course_path(), "FW4001", "4.2-Std.err.and.confints", "Lo.csv"))
