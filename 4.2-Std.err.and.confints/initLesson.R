@@ -9,3 +9,10 @@ suppressMessages(library(mosaic))
 data("CaffeineTaps")
 invisible(CaffeineTaps)
 set.seed(1231235657) 
+.get_course_path <- function(){
+  tryCatch(swirl:::swirl_courses_dir(),
+           error = function(c) {file.path(find.package("swirl"),"Courses")}
+  )
+}
+CaffBoot <- read.csv(file.path(.get_course_path(), "FW4001", "4.1-Bootstrapping", "CaffBoot.csv"))
+CaffGroup <- read.csv(file.path(.get_course_path(), "FW4001", "4.1-Bootstrapping", "CaffGroup.csv"))
