@@ -1,6 +1,4 @@
 suppressMessages(library(Lock5Data))
 data("CaffeineTaps")
 invisible(CaffeineTaps)
-CaffGroup <- filter(CaffeineTaps,Group=="Caffeine")
-CaffBoot <- do(1000)*{mean(~Taps, data=resample(CaffGroup))}
-
+#load("4.2-Std.err.and.confints/Caffboot")

@@ -6,6 +6,7 @@
   Organization: University of Minnesota
   Version: 2.4.2
 
+
 - Class: figure
   Output: In this section, we'll look at a few ways that we can construct confidence intervals from a bootstrap distribution. We'll use the same distribution we made in 4.1, CaffBoot. 
   Figure: caffeine.R

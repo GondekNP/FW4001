@@ -1,7 +1,7 @@
 library(swirlify)
 
 # http://swirlstats.com/instructors.html
-set_lesson("3.3-Sample.and.resample/lesson.yaml") # Set the lesson directly
+set_lesson("4.2-Std.err.and.confints/lesson.yaml") # Set the lesson directly
 demo_lesson()
 
 #  I'm on 3.1...
