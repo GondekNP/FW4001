@@ -95,7 +95,7 @@
   AnswerChoices: The bootstrap interval is much bigger;The formula interval is much bigger;They're about the same
   CorrectAnswer: They're about the same
   AnswerTests: omnitest(correctVal='They\'re about the same')
-  Hint: They're not exactly the same, but they're awfully close.  When you get up near 50 hotdogs, another 1/3 of a hotdog doesn't matter all that much does it?
+  Hint: They are not exactly the same, but they are awfully close.  When you get up near 50 hotdogs, another 1/3 of a hotdog doesn't matter all that much does it?
 
 - Class: text
   Output: As long as our sample size is big enough, OR our data is approximately normal, these intervals should be pretty similar. The formula version has the benefit of not needing any computation, but the bootstrap version is more flexible.
