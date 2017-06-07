@@ -7,7 +7,7 @@
   Version: 2.4.2
 
 
-- Class: message
+- Class: text
   Output: You're probably wondering why the difference between sampling and resampling matters - well, you're in luck, because you will be finding out this week when you learn about bootstrapping! For now, we're going to look at a critical tool in R that will facillitate bootstrapping, the 'do' loop. 
   
 - Class: text
