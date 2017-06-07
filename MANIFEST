@@ -19,12 +19,10 @@
 5.3-Bootstraps.vs.randomization
 5.4-Differentiation
 7.1-Normal.and.t.distribution
-7.2-Simulations.vs.formulas
+7.2-SImulation.vs.formulas
+7.3-Using.built.in.R.functions
 8.1-Chi.sq.tests
 8.2-ANOVA
 9.1-Best.fit.line
 9.2-Assumptions
 9.3-Predict.function
-7.3-Using.built.in.R.functions
-
-7.2-SImulation.vs.formulas
