@@ -82,10 +82,10 @@
   Hint: You can also type View(Blackbirds) with a capitol V
 
 - Class: cmd_question
-  Output:  "OK, lets try it out by typing: t.test(x=log.after, y=log.before,data=Blackbirds, paired=TRUE)"
-  CorrectAnswer: t.test(x=log.after, y=log.before,data=Blackbirds, paired=TRUE)
-  AnswerTests: omnitest(correctExpr='t.test(x=log.after, y=log.before,data=Blackbirds, paired=TRUE)')
-  Hint: Enter t.test(x=log.after, y=log.before,data=Blackbirds, paired=TRUE)
+  Output:  "OK, lets try it out by typing: t.test(x=Blackbirds$log.after, y=Blackbirds$log.before, paired=TRUE)"
+  CorrectAnswer: t.test(x=Blackbirds$log.after, y=Blackbirds$log.before, paired=TRUE)
+  AnswerTests: omnitest(correctExpr='t.test(x=Blackbirds$log.after, y=Blackbirds$log.before, paired=TRUE)')
+  Hint: Enter t.test(x=Blackbirds$log.after, y=Blackbirds$log.before, paired=TRUE)
   
 - Class: mult_question
   Output: Is the result statistically significant using an alpha= 0.05?
