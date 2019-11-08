@@ -9,7 +9,7 @@
 - Class: figure
   Output: Welcome to Pre-lab 9. We will explore linear regression in R using a data set called Rattlesnakes
     from the abd library.  
-  Figure: rattle.R
+  Figure: Rattle.R
   FigureType: new
    
   
